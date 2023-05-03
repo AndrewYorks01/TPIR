@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1564091345 source:c:\users\fish\documents\c++ programs\newtpir\main.cpp
+	<iostream>
+	<iomanip>
+	<fstream>
+	<cstdlib>
+	<ctime>
+	<list>
+	"prize.h"
+	"games.h"
+
+1564073521 c:\users\fish\documents\c++ programs\newtpir\prize.h
+
+1564113065 c:\users\fish\documents\c++ programs\newtpir\games.h
+	<iostream>
+	<iomanip>
+	<fstream>
+	<cstdlib>
+	<ctime>
+	<cmath>
+	<list>
+	"prize.h"
+

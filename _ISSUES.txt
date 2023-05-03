@@ -1,0 +1,20 @@
+KNOWN ISSUES:
+
+Bonkers:
+Extremely rarely, the program will crash.
+
+Hit Me:
+The game is inconsistent with the way it treats the house's ace. For example, if the house has 
+a hand of 18 (including an ace) and the player has a hand of 17, the player would win beacuse the 
+game is consdering the possibility that the house is considering the ace 1 rather than 11.
+
+Hurdles:
+Rarely, the same grocery item can appear twice. (Maybe the randomization field
+has two of the same number?)
+
+Extremely rarely, the game won't work at all and the program will crash. (Maybe
+the randomization field is generating an out-of-bounds number?)
+
+Vend-o-Price:
+The items on the shelf should be arranged in order from least to most expensive.
+(This is a minor issue, but it might be worth looking into for accuracy's sake.)

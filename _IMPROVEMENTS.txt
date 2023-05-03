@@ -1,0 +1,48 @@
+Past games used the randomization field method (e.g., if there are 100 grocery items, generating a field of integers from 0 to 99 and randomizing their order to pick items).
+
+This works in a pinch for most games, but beginning with Any Number and Pick-a-Pair, we have been able to generate more precise setups. Here's how some of the older games could be improved to move them on from the randomization field method.
+
+Hi-Lo:
+Currently, if an item the player has placed on the LO row has the same price as the lowest item on the HI row, the game continues on. This works fine, but such a situation would never arise in the actual show. As an alternative to the randomization field method, the game could instead generate six distinct random numbers, changing them if two items have the same price (similar to what The Phone Home Game does).
+
+Vend-o-Price:
+Under the current situation, it's possible for two shelves to have the same total. This isn't a severe issue, but generating each item individually could prevent this from happening.
+
+Cliff Hangers:
+Currently, this game uses three lists to sort possibilities for the first item, the second item, and the third item. Using while loops to generate each item individually would probably be a far more economical way of generating each item, and it could still be in line with the 20-30-40 rule.
+
+Most Expensive:
+In extremely rare cases, the two most expensive items could be the same price, in which case the player would win if they picked either one. Similar to the Hi-Lo situation, each prize could be generated individually (although again, this is a rare case and doesn't present any major problems, so it wouldn't be a top priority).
+
+Eazy az 1-2-3:
+Similar to Most Expensive, it's possible for two items to have the same price. The game treats identical prices as being "more expensive," so this isn't a severe issue.
+
+Switch?:
+Again, it's extremely rare, but it's entirely possible for the two items to have the same price.
+
+Danger Price:
+It's currently possible for two or more items to have the same price. Very rare, but entirely possible. (It would make the game impossible if said price was the danger price!)
+
+Do the Math:
+Again, it's extremely rare, but it's entirely possible for the two items to have the same price.
+
+One Right Price:
+It is extremely rare, but the two items can have the same price. Luckily, unlike "Correct Price" on the 1990 PC game, this guarantees a win.
+
+Give or Keep:
+Because the items are generated with no regards to which one is in each pair, there can be pretty large gaps between the two pairs of prizes, which can make the results fairly anticlimactic. Alternatively, two pairs of items could have the same price.
+
+It's in the Bag:
+This game actually has a workaround if two items have the same price: in such a situation, one item's price will be slightly altered. This can actually be advantageous to throw off people who have a price list in front of them, but if you wanted to be consistent, you could do what The Phone Home Game does.
+
+Step Up:
+Similar to other "rank the prices" games, two items could have the same price. That doesn't put the player at a disadvantage, but it does sort of go against the spirit of the actual game.
+
+Let 'em Roll:
+Again, two grocery items could have the same price. In this case, it wouldn't matter if the player would guess higher or lower, but essentially giving them a free roll would be kind of weird.
+
+Magic #:
+It's once again extremely rare, but the two items could have the same price or have a very narrow margin between their prices.
+
+Finish Line:
+Because the items are generated with no regards to which one is in each pair, there can be pretty large gaps between the two pairs of prizes, which can make the results fairly anticlimactic. Alternatively, two pairs of items could have the same price.
