@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <list>
+#include <vector>
 #include <algorithm>
 #include <string>
 #include <stdlib.h>
@@ -915,7 +916,42 @@ int main()
         while (cus != 9);
         break;
 
-    case 11: /// Quit
+    case 11: /// Play a user-generated line-up
+    {
+        vector<int> lineup;
+        ifstream in;
+        string setup;
+        cout << endl << "Enter the .txt file containing your line-up: ";
+        cin >> setup;
+        in.open(setup);
+        if (!in){
+            cout << endl << "This file doesn't exist." << endl;
+            in.close();
+            system("pause");
+            system("CLS");
+        }
+        else{
+        int n;
+        while (in >> n){
+            lineup.push_back(n);
+        }
+        in.close();
+        if (lineup.size() != 6){
+            cout << endl << "A line-up needs to have six games in it." << endl;
+            system("pause");
+            system("CLS");
+            }
+        else{
+            system("CLS");
+            for (int a = 0; a < 6; a++)
+                randomGame(lineup[a]);
+        }
+        }
+        break;
+    } // end case 11
+
+
+    case 12: /// Quit
         ;
         break;
 
@@ -925,7 +961,7 @@ int main()
     } // end switch statement
 
     } // end do-while loop
-    while (cat != 11);
+    while (cat != 12);
 
     /*
     playHitMe();
@@ -1066,7 +1102,8 @@ void displayMainMenu()
     cout << endl << "8. Retired games (A-J)";
     cout << endl << "9. Retired games (M-W)";
     cout << endl << "10. Custom games";
-    cout << endl << "11. Quit";
+    cout << endl << "11. Play a line-up you've created";
+    cout << endl << "12. Quit";
     cout << endl << "Select a game classification: ";
 }
 
