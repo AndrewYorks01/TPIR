@@ -923,6 +923,8 @@ int main()
         string setup;
         cout << endl << "Enter the .txt file containing your line-up: ";
         cin >> setup;
+        setup = "./lineups/" + setup;
+        cout << endl << setup;
         in.open(setup);
         if (!in){
             cout << endl << "This file doesn't exist." << endl;
