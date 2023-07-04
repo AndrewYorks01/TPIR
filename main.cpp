@@ -956,7 +956,7 @@ int main()
         break;
 
     default:
-        cout << endl << "Please enter a number between 1 and 11.";
+        cout << endl << "Please enter a number between 1 and 12.";
 
     } // end switch statement
 
