@@ -230,7 +230,7 @@ void playBackTo72()
     int j = 0;
 
     ifstream inFile;
-    inFile.open("small72.txt");
+    inFile.open("./prizes/small72.txt");
     while (inFile)
     {
        pptr = new small;
@@ -399,7 +399,7 @@ void playBalanceGame84()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         pptr = new small;
@@ -602,7 +602,7 @@ void playBonusGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         bonusptr = new small;
@@ -803,7 +803,7 @@ void playCliffHangers()
     //cout << "\n***initialized other values\n";
 
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         cliffptr = new small;
@@ -1046,7 +1046,7 @@ void playDominoGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         bonusptr = new small;
@@ -1289,7 +1289,7 @@ void playFinishLine()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         pptr = new small;
@@ -1527,7 +1527,7 @@ void playGiveOrKeep()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         pptr = new small;
@@ -1765,7 +1765,7 @@ void playHalfOff(bool mds, bool mdg)
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         pptr = new small;
@@ -2159,7 +2159,7 @@ void playHotSeat()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         bonusptr = new small;
@@ -2688,7 +2688,7 @@ void playJoker()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         bonusptr = new small;
@@ -2885,7 +2885,7 @@ void playMasterKey()
     int l = 0;
 
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         pptr = new small;
@@ -2901,7 +2901,7 @@ void playMasterKey()
     inFile.close();
     inFile.clear();
 
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
         mptr = new medium;
@@ -2917,7 +2917,7 @@ void playMasterKey()
     inFile.close();
     inFile.clear();
 
-    inFile.open("large.txt");
+    inFile.open("./prizes/large.txt");
     while (inFile)
     {
         lptr = new large;
@@ -2933,7 +2933,7 @@ void playMasterKey()
     inFile.close();
     inFile.clear();
 
-    inFile.open("car.txt");
+    inFile.open("./prizes/car.txt");
     while (inFile)
     {
         cptr = new car;
@@ -3344,7 +3344,7 @@ void playMysteryPrice()
     int j = 0;
 
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         pptr = new small;
@@ -3361,7 +3361,7 @@ void playMysteryPrice()
     inFile.clear();
 
     // Open prizes that can be mystery prices
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         mptr = new small;
@@ -3556,7 +3556,7 @@ void playOnTheSpot()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         pptr = new small;
@@ -3983,7 +3983,7 @@ void playPlinko()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         pptr = new small;
@@ -4256,7 +4256,7 @@ void playPunchABunch()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         bonusptr = new small;
@@ -4508,7 +4508,7 @@ void playRatRace()
     ifstream inFile;
 
     // Open grocery.txt
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     gptr = new grocery;
@@ -4525,7 +4525,7 @@ void playRatRace()
     inFile.clear();
 
     // Open small.txt
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         sptr = new small;
@@ -4542,7 +4542,7 @@ void playRatRace()
     inFile.clear();
 
     // Open medium.txt
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
         mptr = new medium;
@@ -4559,7 +4559,7 @@ void playRatRace()
     inFile.clear();
 
     // Open large.txt
-    inFile.open("large.txt");
+    inFile.open("./prizes/large.txt");
     while (inFile)
     {
         lptr = new large;
@@ -4576,7 +4576,7 @@ void playRatRace()
     inFile.clear();
 
     // Opene car.txt
-    inFile.open("car.txt");
+    inFile.open("./prizes/car.txt");
     while (inFile)
     {
         cptr = new car;
@@ -4995,7 +4995,7 @@ void playSecretX()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         secretptr = new small;
@@ -5623,7 +5623,7 @@ void playShellGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         bonusptr = new small;
@@ -5845,7 +5845,7 @@ void playSpellingBee()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         pptr = new small;
@@ -6117,7 +6117,7 @@ void playSuperBall()
     ifstream inFile;
 
     // Open small.txt
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         sptr = new small;
@@ -6134,7 +6134,7 @@ void playSuperBall()
     inFile.clear();
 
     // Open medium.txt
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
         mptr = new medium;
@@ -6151,7 +6151,7 @@ void playSuperBall()
     inFile.clear();
 
     // Open large.txt
-    inFile.open("large.txt");
+    inFile.open("./prizes/large.txt");
     while (inFile)
     {
         lptr = new large;
@@ -6594,7 +6594,7 @@ void playTraderBob()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
         pptr = new small;

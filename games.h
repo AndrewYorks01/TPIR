@@ -63,7 +63,7 @@ void playBullseye()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     bullsptr = new grocery;
@@ -376,7 +376,7 @@ void playCheckOut()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     coptr = new grocery;
@@ -652,7 +652,7 @@ void playGrandGame()
     int above = 0; /// Items above the target price.
 
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -938,7 +938,7 @@ void playGroceryGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -1217,7 +1217,7 @@ void playHiLo()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     hlptr = new grocery;
@@ -1486,7 +1486,7 @@ void playHitMe()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -1814,7 +1814,7 @@ void playHoleInOne()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -2078,7 +2078,7 @@ void playHurdles()
     int hiCount = 0; /// counts items that cost more than the hurdler's item
 
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -2112,7 +2112,7 @@ void playHurdles()
 
 
 
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     hgptr = new grocery;
@@ -2369,7 +2369,7 @@ void playItsInTheBag()
     int ofType3 = 0; /// Counts items over $10.
 
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -2796,7 +2796,7 @@ void playLetEmRoll()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -3030,7 +3030,7 @@ void playNowOrThen()
     int j = 0;
 
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -3049,15 +3049,15 @@ void playNowOrThen()
     int month = rand() % 5;
 
     if (month == 0)      /// APR 2008
-        inFile.open("groceryapr2008.txt");
+        inFile.open("./prizes/groceryapr2008.txt");
     else if (month == 1) /// FEB 2007
-        inFile.open("groceryfeb2007.txt");
+        inFile.open("./prizes/groceryfeb2007.txt");
     else if (month == 2) /// JUNE 2009
-        inFile.open("groceryjun2009.txt");
+        inFile.open("./prizes/groceryjun2009.txt");
     else if (month == 3) /// MARCH 2010
-        inFile.open("grocerymar2010.txt");
+        inFile.open("./prizes/grocerymar2010.txt");
     else                 /// MAY 2006
-        inFile.open("grocerymay2006.txt");
+        inFile.open("./prizes/grocerymay2006.txt");
     while (inFile){
     tptr = new grocery;
     if (inFile >> thenDescr >> thenShort >> thenPrice)
@@ -3474,7 +3474,7 @@ void playPassTheBuck()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -3740,7 +3740,7 @@ void playPayTheRent()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -4083,7 +4083,7 @@ void playPennyAnte()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -4496,7 +4496,7 @@ void playPickAPair()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -4790,7 +4790,7 @@ void playSuperSaver()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -4919,7 +4919,7 @@ void playThePhoneHomeGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -5411,7 +5411,7 @@ void playTimeIsMoney()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -5712,7 +5712,7 @@ void playToThePenny()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("grocery.txt");
+    inFile.open("./prizes/grocery.txt");
     while (inFile)
     {
     ggptr = new grocery;
@@ -7298,7 +7298,7 @@ void playVendOPrice()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("vopgrocery.txt");
+    inFile.open("./prizes/vopgrocery.txt");
     while (inFile)
     {
     vopptr = new grocery;

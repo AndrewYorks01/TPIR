@@ -1131,7 +1131,7 @@ void playBargainGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -1278,7 +1278,7 @@ void playBigItemBash()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -1365,7 +1365,7 @@ void playBump()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -1534,7 +1534,7 @@ void playBuyOrSell()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -1775,7 +1775,7 @@ void playClearanceSale()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -1972,7 +1972,7 @@ void playClockGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -2112,7 +2112,7 @@ void playCreditCard()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -2239,7 +2239,7 @@ void playDangerPrice()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -2434,7 +2434,7 @@ void playDoTheMath()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -2655,7 +2655,7 @@ void playDoubleCross()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("large.txt");
+    inFile.open("./prizes/large.txt");
     while (inFile)
     {
     pptr = new large;
@@ -2930,7 +2930,7 @@ void playEasyAs123()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -3362,7 +3362,7 @@ void playFortuneHunter()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -3573,7 +3573,7 @@ void playMagicNumber()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -3734,7 +3734,7 @@ void playMakeYourMark()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -4073,7 +4073,7 @@ void playMakeYourMove()
 
     ifstream inFile;
 
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -4089,7 +4089,7 @@ void playMakeYourMove()
     inFile.close();
     inFile.clear();
 
-    inFile.open("large.txt");
+    inFile.open("./prizes/large.txt");
     while (inFile)
     {
     lptr = new large;
@@ -4106,7 +4106,7 @@ void playMakeYourMove()
     inFile.close();
     inFile.clear();
 
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
     sptr = new small;
@@ -4317,7 +4317,7 @@ void playMostExpensive()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -4489,7 +4489,7 @@ void playOneForAll()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -4897,7 +4897,7 @@ void playOneRightPrice()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -5001,7 +5001,7 @@ void playOneWrongPrice()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -5153,7 +5153,7 @@ void playPokerGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -5793,7 +5793,7 @@ void playRaceGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -6027,7 +6027,7 @@ void playSafeCrackers()
 
     ifstream inFile;
 
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -6044,7 +6044,7 @@ void playSafeCrackers()
 
     inFile.clear();
 
-    inFile.open("large.txt");
+    inFile.open("./prizes/large.txt");
     while (inFile)
     {
     lptr = new large;
@@ -6179,7 +6179,7 @@ void playShoppingSpree()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -6377,7 +6377,7 @@ void playStepUp()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -6568,7 +6568,7 @@ void playSwapMeet()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -6784,7 +6784,7 @@ void playSwitch()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -6902,7 +6902,7 @@ void playTakeTwo()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -7074,7 +7074,7 @@ void playTwoForOne()
 
     ifstream inFile;
 
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     pptr = new medium;
@@ -7091,7 +7091,7 @@ void playTwoForOne()
 
     inFile.clear();
 
-    inFile.open("large.txt");
+    inFile.open("./prizes/large.txt");
     while (inFile)
     {
     lptr = new large;
@@ -7376,7 +7376,7 @@ void playWalkOfFame()
     ifstream inFile;
 
     /// Small prizes
-    inFile.open("small.txt");
+    inFile.open("./prizes/small.txt");
     while (inFile)
     {
     fptr = new small;
@@ -7394,7 +7394,7 @@ void playWalkOfFame()
     inFile.clear();
 
     /// Medium prizes under $1000
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     sptr = new medium;
@@ -7412,7 +7412,7 @@ void playWalkOfFame()
     inFile.clear();
 
     /// Medium prizes over $1000
-    inFile.open("medium.txt");
+    inFile.open("./prizes/medium.txt");
     while (inFile)
     {
     tptr = new medium;
@@ -7430,7 +7430,7 @@ void playWalkOfFame()
     inFile.clear();
 
     /// Large prizes
-    inFile.open("large.txt");
+    inFile.open("./prizes/large.txt");
     while (inFile)
     {
     lptr = new large;
