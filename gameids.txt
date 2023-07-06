@@ -1,0 +1,120 @@
+58	10 Chances
+79	3 Strikes
+77	Add 'em Up
+61	Any Number
+0	Back to '72
+91	Balance Game (1984)
+1	Balance Game (2006)
+2	Bargain Game
+112	Big Item Bash
+97	Bonkers
+3	Bonus Game
+4	Bullseye (1972)
+5	Bullseye (1976)
+6	Bump
+7	Buy or Sell
+8	Card Game
+9	Check Game
+10	Check-Out
+94	Clearance Sale
+11	Cliff Hangers
+12	Clock Game
+13	Coming or Going
+84	Cover Up
+80	Credit Card
+14	Danger Price
+15	Dice Game
+16	Do the Math
+115	Domino Game
+90	Double Bullseye
+83	Double Cross
+107	Double Digits
+17	Double Prices
+18	Easy as 123
+118	Fill 'er Up
+19	Finish Line
+20	Five Price Tags
+21	Flip Flop
+87	Fortune Hunter
+22	Freeze Frame
+108	Gallery Game
+23	Gas Money
+24	Give or Keep
+95	Golden Road
+25	Grand Game
+26	Gridlock!
+27	Grocery Game
+64	1/2 Off
+28	Hi-Lo
+29	Hit Me
+68	Hole in One
+76	Hot Seat
+30	Hurdles
+31	It's in the Bag
+110	It's Optional
+117	Jam
+92	Joker
+32	Let 'em Roll
+73	Line 'em Up
+33	Lucky $even
+34	Magic #
+72	Make Your Mark
+35	Make Your Move
+65	Master Key
+113	Master Price
+36	Money Game
+37	More or Less
+38	Most Expensive
+109	Mystery Price
+69	Now... or Then
+88	On the Nose
+74	On the Spot
+66	One Away
+116	One For All
+39	One Right Price
+111	One Way or Another
+40	One Wrong Price
+41	Pass the Buck
+93	Pathfinder
+85	Pay the Rent
+71	Penny Ante
+42	Pick-a-Number
+62	Pick-a-Pair
+43	Plinko
+81	Pocket Change
+105	Poker Game
+103	Professor Price
+44	Punch-a-Bunch
+45	Push-Over
+82	Race Game
+46	Range Game
+99	Rat Race
+47	Safe Crackers
+48	Secret "X"
+114	7UP
+49	Shell Game
+50	Shopping Spree
+51	Shower Game
+52	Side by Side
+67	Spelling Bee
+89	Split Decision
+53	Squeeze Play
+78	Stack the Deck
+54	Step Up
+100	Super Ball!!
+55	$uper $aver
+63	Swap Meet
+56	Switch?
+98	Switcheroo
+57	Take Two
+104	Telephone Game
+101	Temptation
+59	That's Too Much!
+75	The Phone Home Game
+102	Time is Money
+106	To The Penny
+86	Trader Bob
+96	Triple Play
+70	Two for the Price of One
+119	Vend-o-Price
+60	Walk of Fame
