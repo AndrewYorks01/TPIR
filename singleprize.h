@@ -233,7 +233,7 @@ void playBalanceGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;
@@ -584,7 +584,7 @@ void playBonkers()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;
@@ -987,7 +987,7 @@ void playCheckGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;
@@ -1064,7 +1064,7 @@ void playComingOrGoing()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;
@@ -1156,7 +1156,7 @@ void playDoublePrices()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;
@@ -1252,7 +1252,7 @@ void playFlipFlop()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;
@@ -1392,7 +1392,7 @@ void playFreezeFrame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;
@@ -1725,7 +1725,7 @@ void playGalleryGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;
@@ -1914,7 +1914,7 @@ void playJam()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;
@@ -2079,7 +2079,7 @@ void playOneWayOrAnother()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;
@@ -2172,7 +2172,7 @@ void playPickANumber()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;
@@ -2297,7 +2297,7 @@ void playPushOver()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;
@@ -2561,7 +2561,7 @@ void playRangeGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;
@@ -2662,7 +2662,7 @@ void playSideBySide()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;
@@ -2754,7 +2754,7 @@ void playSqueezePlay()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
         pptr = new large;

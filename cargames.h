@@ -787,7 +787,7 @@ void playAddEmUp()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -1034,7 +1034,7 @@ void playAnyNumber()
     int i = 0;
     int j = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -1051,7 +1051,7 @@ void playAnyNumber()
     inFile.clear();
 
    /// Load the medium prizes
-    inFile.open("./prizes/medium.txt");
+    inFile.open("./prizes/" + medInput);
     while (inFile){
     mptr = new medium;
     if ( (inFile >> m_Description >> m_ShortName >> m_Price) && (m_Price < 1000) && medPrizeNoRepDigits(m_Price) )
@@ -1392,7 +1392,7 @@ void playBullseye72()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -1486,7 +1486,7 @@ void playCardGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -1630,7 +1630,7 @@ void playCoverUp()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -2163,7 +2163,7 @@ void playDiceGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -2921,7 +2921,7 @@ void playDoubleBullseye()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -3022,7 +3022,7 @@ void playDoubleDigits()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -3039,7 +3039,7 @@ void playDoubleDigits()
     inFile.clear();
 
     int j = 0;
-    inFile.open("./prizes/small.txt");
+    inFile.open("./prizes/" + smalInput);
     while (inFile)
     {
         pptr = new small;
@@ -3376,7 +3376,7 @@ void playFillErUp()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -3629,7 +3629,7 @@ void playFivePriceTags()
     int j = 0;
 
     ifstream inFile;
-    inFile.open("./prizes/small.txt");
+    inFile.open("./prizes/" + smalInput);
     while (inFile)
     {
         pptr = new small;
@@ -3645,7 +3645,7 @@ void playFivePriceTags()
     inFile.close();
     inFile.clear();
 
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -3950,7 +3950,7 @@ void playGasMoney()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -4297,7 +4297,7 @@ void playGoldenRoad()
     int l = 0; // Large items
 
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -4313,7 +4313,7 @@ void playGoldenRoad()
     inFile.close();
     inFile.clear();
 
-    inFile.open("./prizes/grocery.txt");
+    inFile.open("./prizes/" + grocInput);
     while (inFile)
     {
     ggptr = new grocery;
@@ -4329,7 +4329,7 @@ void playGoldenRoad()
     inFile.close();
     inFile.clear();
 
-    inFile.open("./prizes/medium.txt");
+    inFile.open("./prizes/" + medInput);
     while (inFile)
     {
     mptr = new medium;
@@ -4345,7 +4345,7 @@ void playGoldenRoad()
     inFile.close();
     inFile.clear();
 
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile)
     {
     lptr = new large;
@@ -4546,7 +4546,7 @@ void playGridlock()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -4883,7 +4883,7 @@ void playItsOptional()
     int k = 0;
 
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -4899,7 +4899,7 @@ void playItsOptional()
     inFile.close();
     inFile.clear();
 
-    inFile.open("./prizes/medium.txt");
+    inFile.open("./prizes/" + medInput);
     while (inFile)
     {
         mptr = new medium;
@@ -4915,7 +4915,7 @@ void playItsOptional()
     inFile.close();
     inFile.clear();
 
-    inFile.open("./prizes/small.txt");
+    inFile.open("./prizes/" + smalInput);
     while (inFile)
     {
         sptr = new small;
@@ -5259,7 +5259,7 @@ void playLineEmUp()
     ifstream inFile;
 
     /// Load cars
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -5276,7 +5276,7 @@ void playLineEmUp()
     inFile.clear();
 
     /// Load small prizes
-    inFile.open("./prizes/small.txt");
+    inFile.open("./prizes/" + smalInput);
     while (inFile)
     {
     sptr = new small;
@@ -5293,7 +5293,7 @@ void playLineEmUp()
     inFile.clear();
 
     /// Load medium prizes
-    inFile.open("./prizes/medium.txt");
+    inFile.open("./prizes/" + medInput);
     while (inFile)
     {
     mptr = new medium;
@@ -5590,7 +5590,7 @@ void playLuckySeven()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -5715,7 +5715,7 @@ void playMasterPrice()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -5837,7 +5837,7 @@ void playMoneyGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -6605,7 +6605,7 @@ void playMoreOrLess()
     int i = 0;
     int j = 0;
     ifstream inFile;
-    inFile.open("./prizes/medium.txt");
+    inFile.open("./prizes/" + medInput);
     while (inFile)
     {
     pptr = new medium;
@@ -6621,7 +6621,7 @@ void playMoreOrLess()
     inFile.close();
     inFile.clear();
 
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -6922,7 +6922,7 @@ void playOnTheNose()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -7105,7 +7105,7 @@ void playOneAway(bool mds)
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
 
     if (!mds){
     while (inFile)
@@ -7533,7 +7533,7 @@ void playPathfinder()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -7550,7 +7550,7 @@ void playPathfinder()
     inFile.clear();
 
     int j = 0;
-    inFile.open("./prizes/small.txt");
+    inFile.open("./prizes/" + smalInput);
     while (inFile)
     {
         pptr = new small;
@@ -9957,7 +9957,7 @@ void playPocketChange()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -10278,7 +10278,7 @@ void playProfessorPrice()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -10581,7 +10581,7 @@ void playSevenUp()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -10690,7 +10690,7 @@ void playShowerGame()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -11004,7 +11004,7 @@ void playSplitDecision()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -11022,7 +11022,7 @@ void playSplitDecision()
 
     int j = 0;
 
-    inFile.open("./prizes/medium.txt");
+    inFile.open("./prizes/" + medInput);
     while (inFile){
     mptr = new medium;
     if ( (inFile >> m_Description >> m_ShortName >> m_Price) && (m_Price < 1000) )
@@ -11269,7 +11269,7 @@ void playStackTheDeck()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -11286,7 +11286,7 @@ void playStackTheDeck()
     inFile.clear();
 
     int j = 0;
-    inFile.open("./prizes/grocery.txt");
+    inFile.open("./prizes/" + grocInput);
     while (inFile)
     {
     ggptr = new grocery;
@@ -11660,7 +11660,7 @@ void playSwitcheroo(bool mds)
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
 
     if (!mds){
     while (inFile)
@@ -11696,7 +11696,7 @@ void playSwitcheroo(bool mds)
     } // end if MDG
 
     int j = 0;
-    inFile.open("./prizes/small.txt");
+    inFile.open("./prizes/" + smalInput);
     while (inFile)
     {
         pptr = new small;
@@ -12590,7 +12590,7 @@ void playTelephoneGame()
     int k = 0; // Other prizes
 
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -12627,7 +12627,7 @@ void playTelephoneGame()
         useLargePrizes = true;
 
     /// Pick grocery items
-    inFile.open("./prizes/grocery.txt");
+    inFile.open("./prizes/" + grocInput);
     while (inFile){
         ggptr = new grocery;
         if ( (inFile >> t_ggDescription >> t_ggShortName >> t_ggPrice) && (t_ggPrice < 9.5) )
@@ -12647,7 +12647,7 @@ void playTelephoneGame()
 
     // large prizes
     if (secondDigit >= 5){
-    inFile.open("./prizes/large.txt");
+    inFile.open("./prizes/" + largInput);
     while (inFile){
         lptr = new large;
         if (inFile >> l_Description >> l_ShortName >> l_Price){
@@ -12663,7 +12663,7 @@ void playTelephoneGame()
     }
     // medium prizes
     else{
-    inFile.open("./prizes/medium.txt");
+    inFile.open("./prizes/" + medInput);
     while (inFile){
         lptr = new large;
         if ( (inFile >> l_Description >> l_ShortName >> l_Price) && (l_Price > 999) ){
@@ -12973,7 +12973,7 @@ void playTemptation()
     int j = 0;
 
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -12989,7 +12989,7 @@ void playTemptation()
     inFile.close();
     inFile.clear();
 
-    inFile.open("./prizes/medium.txt");
+    inFile.open("./prizes/" + medInput);
     while (inFile)
     {
     pptr = new medium;
@@ -13484,7 +13484,7 @@ void playTenChances()
     ifstream inFile;
 
     /// Load the small prizes
-    inFile.open("./prizes/small.txt");
+    inFile.open("./prizes/" + smalInput);
     while (inFile)
     {
     sptr = new small;
@@ -13502,7 +13502,7 @@ void playTenChances()
     inFile.clear();
 
     /// Load the medium prizes
-    inFile.open("./prizes/medium.txt");
+    inFile.open("./prizes/" + medInput);
     while (inFile){
     mptr = new medium;
     if ( (inFile >> m_Description >> m_ShortName >> m_Price) && (m_Price < 1000) && (m_Price % 10 == 0) && (m_Price % 100 != 0) && (m_Price % 110 != 0) )
@@ -13518,7 +13518,7 @@ void playTenChances()
     inFile.clear();
 
     /// Load the cars
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile){
     cptr = new car;
     if ( (inFile >> c_Model >> c_Options >> c_Price) && (c_Price % 10 == 0) && noRepeatingDigits(c_Price) && (c_Price < 30000) )
@@ -13713,7 +13713,7 @@ void playThatsTooMuch()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -13907,7 +13907,7 @@ void playThreeStrikes()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;
@@ -14213,7 +14213,7 @@ void playTriplePlay()
 
     int i = 0;
     ifstream inFile;
-    inFile.open("./prizes/car.txt");
+    inFile.open("./prizes/" + carInput);
     while (inFile)
     {
         cptr = new car;

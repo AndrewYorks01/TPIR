@@ -290,74 +290,69 @@ int main()
 
         case 7:
             system("CLS");
-            playMagicNumber();
+            playMakeYourMove();
             break;
 
         case 8:
             system("CLS");
-            playMakeYourMove();
+            playMostExpensive();
             break;
 
         case 9:
             system("CLS");
-            playMostExpensive();
+            playOneRightPrice();
             break;
 
         case 10:
             system("CLS");
-            playOneRightPrice();
+            playOneWrongPrice();
             break;
 
         case 11:
             system("CLS");
-            playOneWrongPrice();
+            playRaceGame();
             break;
 
         case 12:
             system("CLS");
-            playRaceGame();
+            playSafeCrackers();
             break;
 
         case 13:
             system("CLS");
-            playSafeCrackers();
+            playShoppingSpree();
             break;
 
         case 14:
             system("CLS");
-            playShoppingSpree();
+            playSwapMeet();
             break;
 
         case 15:
             system("CLS");
-            playSwapMeet();
+            playSwitch();
             break;
 
         case 16:
             system("CLS");
-            playSwitch();
+            playTakeTwo();
             break;
 
         case 17:
             system("CLS");
-            playTakeTwo();
+            playTwoForOne();
             break;
 
         case 18:
             system("CLS");
-            playTwoForOne();
-            break;
-
-        case 19:
-            system("CLS");
             break;
 
         default:
-            cout << endl << "Please enter a number between 1 and 19.";
+            cout << endl << "Please enter a number between 1 and 18.";
 
         } // end switch statement for multi-prize games
         }
-        while (mul != 19);
+        while (mul != 18);
         break;
 
     case 5: /// Car games
@@ -768,94 +763,99 @@ int main()
         switch (re2){
         case 1:
             system("CLS");
-            playMakeYourMark();
+            playMagicNumber();
             break;
 
         case 2:
             system("CLS");
-            playMysteryPrice();
+            playMakeYourMark();
             break;
 
         case 3:
             system("CLS");
-            playOnTheNose();
+            playMysteryPrice();
             break;
 
         case 4:
             system("CLS");
-            playOnTheSpot();
+            playOnTheNose();
             break;
 
         case 5:
             system("CLS");
-            playPennyAnte();
+            playOnTheSpot();
             break;
 
         case 6:
             system("CLS");
-            playPokerGame();
+            playPennyAnte();
             break;
 
         case 7:
             system("CLS");
-            playProfessorPrice();
+            playPokerGame();
             break;
 
         case 8:
             system("CLS");
-            playShowerGame();
+            playProfessorPrice();
             break;
 
         case 9:
             system("CLS");
-            playSplitDecision();
+            playShowerGame();
             break;
 
         case 10:
             system("CLS");
-            playStepUp();
+            playSplitDecision();
             break;
 
         case 11:
             system("CLS");
-            playSuperBall();
+            playStepUp();
             break;
 
         case 12:
             system("CLS");
-            playSuperSaver();
+            playSuperBall();
             break;
 
         case 13:
             system("CLS");
-            playTelephoneGame();
+            playSuperSaver();
             break;
 
         case 14:
             system("CLS");
-            playThePhoneHomeGame();
+            playTelephoneGame();
             break;
 
         case 15:
             system("CLS");
-            playTraderBob();
+            playThePhoneHomeGame();
             break;
 
         case 16:
             system("CLS");
-            playWalkOfFame();
+            playTraderBob();
             break;
 
         case 17:
             system("CLS");
+            playWalkOfFame();
+            break;
+
+        case 18:
+            system("CLS");
             break;
 
         default:
-            cout << endl << "Please enter a number between 1 and 17.";
+            cout << endl << "Please enter a number between 1 and 18.";
 
         } // end switch statement for retired games M-W
         }
-        while (re2 != 17);
+        while (re2 != 18);
         break;
 
     case 10:
@@ -1151,16 +1151,15 @@ void displaySingMenu()
 void displayMultMenu()
 {
     cout << endl << "MULTI PRIZE GAMES" << endl;
-    cout << endl << "1. Bargain Game     11. One Wrong Price";
-    cout << endl << "2. Clock Game       12. Race Game";
-    cout << endl << "3. Danger Price     13. Safe Crackers";
-    cout << endl << "4. Do the Math      14. Shopping Spree";
-    cout << endl << "5. Double Cross     15. Swap Meet";
-    cout << endl << "6. Easy as 1-2-3    16. Switch?";
-    cout << endl << "7. Magic #          17. Take Two";
-    cout << endl << "8. Make Your Move   18. Two for the Price of One";
-    cout << endl << "9. Most Expensive   19. Go back";
-    cout << endl << "10. One Right Price";
+    cout << endl << "1. Bargain Game     10. One Wrong Price";
+    cout << endl << "2. Clock Game       11. Race Game";
+    cout << endl << "3. Danger Price     12. Safe Crackers";
+    cout << endl << "4. Do the Math      13. Shopping Spree";
+    cout << endl << "5. Double Cross     14. Swap Meet";
+    cout << endl << "6. Easy as 1-2-3    15. Switch?";
+    cout << endl << "7. Make Your Move   16. Take Two";
+    cout << endl << "8. Most Expensive   17. Two for the Price of One";
+    cout << endl << "9. One Right Price  18. Go back";
     cout << endl << "Select a pricing game: ";
 }
 
@@ -1221,15 +1220,15 @@ void displayRetiredMenu()
 void displayRetired2Menu()
 {
     cout << endl << "RETIRED GAMES (M-W)" << endl;
-    cout << endl << "1. Make Your Mark   10. Step Up";
-    cout << endl << "2. Mystery Price    11. Super Ball!!";
-    cout << endl << "3. On the Nose      12. $uper $aver";
-    cout << endl << "4. On the Spot      13. Telephone Game";
-    cout << endl << "5. Penny Ante       14. The Phone Home Game";
-    cout << endl << "6. Poker Game       15. Trader Bob";
-    cout << endl << "7. Professor Price  16. Walk of Fame";
-    cout << endl << "8. Shower Game      17. Go back";
-    cout << endl << "9. Split Decision";
+    cout << endl << "1. Magic #          10. Split Decision";
+    cout << endl << "2. Make Your Mark   11. Step Up";
+    cout << endl << "3. Mystery Price    12. $uper Ball!!";
+    cout << endl << "4. On the Nose      13. $uper $aver";
+    cout << endl << "5. On the Spot      14. Telephone Game";
+    cout << endl << "6. Penny Ante       15. The Phone Home Game";
+    cout << endl << "7. Poker Game       16. Trader Bob";
+    cout << endl << "8. Professor Price  17. Walk of Fame";
+    cout << endl << "9. Shower Game      18. Go back";
     cout << endl << "Select a pricing game: ";
 }
 

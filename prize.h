@@ -11,6 +11,13 @@ inline std::string fix(std::string str){
     return str;
 }
 
+/// Strings used in the input file paths.
+const std::string grocInput = "grocery.txt";
+const std::string smalInput = "small.txt";
+const std::string medInput = "medium.txt";
+const std::string largInput = "large.txt";
+const std::string carInput = "car.txt";
+
 /// Grocery products.
 class grocery{
 
