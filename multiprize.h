@@ -4290,7 +4290,7 @@ void playMakeYourMove()
     cout << endl;
 
     if (won)
-        cout << endl << "Congratulations, you won!";
+        cout << endl << "Congratulations, you win!";
     else
         cout << endl << "Sorry, you lose.";
 

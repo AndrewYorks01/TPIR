@@ -1183,7 +1183,7 @@ void playGroceryGame()
         cout << endl;
         cout << "Running Total: $" << setprecision(2) << runningTotal << endl;
         if (won)
-            cout << endl << "Congratulations, you won!";
+            cout << endl << "Congratulations, you win!";
         else
         {
             if (runningTotal < 20)
@@ -2991,7 +2991,7 @@ void playLetEmRoll()
     } /// end while loop
 
     if (won)
-        cout << endl << "Congratulations, you won!";
+        cout << endl << "Congratulations, you win!";
     else
         cout << endl << "You won $" << money << ". Thanks for playing!";
 
@@ -3710,9 +3710,9 @@ void playPassTheBuck()
     } /// end while loop
 
     if ((won) && (winnings > 0))
-        cout << endl << "Congratulations, you won the car and $" << winnings << "!";
+        cout << endl << "Congratulations, you win the car and $" << winnings << "!";
     else if ( (won) && (winnings == 0) )
-        cout << endl << "Congratulations, you won!";
+        cout << endl << "Congratulations, you win!";
     else if ( (!won) && (winnings > 0) )
         cout << endl << "You won $" << winnings << ". Thanks for playing!";
     else if ( (!won) && (winnings == 0) )

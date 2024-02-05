@@ -759,7 +759,7 @@ void playBonusGame()
         if ((spotControlled[0] == false) && (spotControlled[1] == false) && (spotControlled[2] == false) && (spotControlled[3] == false))
             cout << "Well... you're not the biggest loser, but you're in the top five." << endl;
         else
-            cout << "Sorry, you didn't win." << endl;
+            cout << "Sorry, you lose." << endl;
     }
 
     inFile.close();
