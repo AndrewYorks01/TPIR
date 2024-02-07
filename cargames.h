@@ -1537,7 +1537,14 @@ void playCardGame()
     random_shuffle(&cards[0], &cards[52]);
     int playerRange = ranges[rand() % 7];
 
-    int startingBid = 15000;
+    int startingBid;
+    if (carPrice < 25000)
+        startingBid = 15000;
+    else if ( (carPrice > 25000) && (carPrice < 30000) )
+        startingBid = 20000;
+    else
+        startingBid = 25000;
+
     bool stoppedDrawing = false;
 
     cout << endl << "Let's see your range..." << endl;
