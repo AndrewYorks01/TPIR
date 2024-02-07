@@ -6537,7 +6537,7 @@ void playMoneyGame()
 
     cout << endl << "$" << carPrice;
     if (won)
-        cout << endl << "Congratulations, you won!";
+        cout << endl << "Congratulations, you win!";
     else
         cout << endl << "Sorry, you lose. At least you won $" << moneyEarned << ". ";
 
@@ -6857,7 +6857,7 @@ void playMoreOrLess()
             cout << endl << "Sorry, you lose. At least you won " << prizesWon << " prizes.";
     }
     else if (won)
-        cout << endl << "Congratulations, you won!";
+        cout << endl << "Congratulations, you win!";
 
     /*
     prizeCar.showModel();
