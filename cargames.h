@@ -13825,7 +13825,7 @@ void playThreeStrikes()
     while (inFile)
     {
         cptr = new car;
-        if ((inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price > 30000) )
+        if ((inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price > 40000) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
