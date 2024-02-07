@@ -12,11 +12,14 @@ inline std::string fix(std::string str){
 }
 
 /// Strings used in the input file paths.
-const std::string grocInput = "grocery.txt";
+const std::string grocInput = "grocerynew.txt";
 const std::string smalInput = "small.txt";
 const std::string medInput = "medium.txt";
 const std::string largInput = "large.txt";
 const std::string carInput = "car.txt";
+
+/// Maximum price for cars.
+const int maxCar = 35000;
 
 /// Grocery products.
 class grocery{

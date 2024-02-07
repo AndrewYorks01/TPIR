@@ -797,7 +797,7 @@ void playAddEmUp()
     while (inFile)
     {
         cptr = new car;
-        if ((inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price < 30000) )
+        if ((inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -1044,7 +1044,7 @@ void playAnyNumber()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && compatibleForAnyNumber(t_Price) && (t_Price < 30000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && compatibleForAnyNumber(t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -1402,7 +1402,7 @@ void playBullseye72()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price > 15000) && (t_Price < 32000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price > 15000) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -1496,7 +1496,7 @@ void playCardGame()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price > 16000) && (t_Price < 30000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price > 16000) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -1640,7 +1640,7 @@ void playCoverUp()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 32000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -2173,7 +2173,7 @@ void playDiceGame()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (!incompatibleDiceGame(t_Price)) && (t_Price < 30000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (!incompatibleDiceGame(t_Price)) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -2931,7 +2931,7 @@ void playDoubleBullseye()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price > 15000) && (t_Price < 32000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price > 15000) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -3032,7 +3032,7 @@ void playDoubleDigits()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 30000) && !hasZeros(t_Price) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) && !hasZeros(t_Price) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -3386,7 +3386,7 @@ void playFillErUp()
     while (inFile)
     {
         cptr = new car;
-        if ((inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price < 30000) )
+        if ((inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -3655,7 +3655,7 @@ void playFivePriceTags()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 30000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -3936,7 +3936,7 @@ void playGasMoney()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 30000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -4508,7 +4508,7 @@ void playGridlock()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 32000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -4845,7 +4845,7 @@ void playItsOptional()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 30000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -5221,7 +5221,7 @@ void playLineEmUp()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 32000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -5552,7 +5552,7 @@ void playLuckySeven()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (!hasZeros(t_Price)) && (t_Price < 30000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (!hasZeros(t_Price)) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -5677,7 +5677,7 @@ void playMasterPrice()
     while (inFile)
     {
         cptr = new car;
-        if ((inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price < 30000) )
+        if ((inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -5799,7 +5799,7 @@ void playMoneyGame()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (!incompatibleMoneyGame(t_Price)) && (t_Price < 32000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (!incompatibleMoneyGame(t_Price)) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -6583,7 +6583,7 @@ void playMoreOrLess()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 32000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -6884,7 +6884,7 @@ void playOnTheNose()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 30000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -7048,7 +7048,7 @@ void playOneAway(bool mds)
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 32000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -7064,7 +7064,7 @@ void playOneAway(bool mds)
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price > 32000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price > maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -7474,7 +7474,7 @@ void playPathfinder()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 30000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -9898,7 +9898,7 @@ void playPocketChange()
     while (inFile)
     {
         cptr = new car;
-        if ((inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price < 30000) )
+        if ((inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -10219,7 +10219,7 @@ void playProfessorPrice()
     while (inFile)
     {
         cptr = new car;
-        if ((inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price < 30000) )
+        if ((inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -10522,7 +10522,7 @@ void playSevenUp()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price < 40000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -10631,7 +10631,7 @@ void playShowerGame()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 26000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -10915,7 +10915,7 @@ void playSplitDecision()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 30000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -11180,7 +11180,7 @@ void playStackTheDeck()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price < 40000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -11573,7 +11573,7 @@ void playSwitcheroo(bool mds)
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 30000) && (compatibleForSwitcheroo(t_Price)) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) && (compatibleForSwitcheroo(t_Price)) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -11589,7 +11589,7 @@ void playSwitcheroo(bool mds)
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price > 30000) && (compatibleForSwitcheroo(t_Price)) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price > maxCar) && (compatibleForSwitcheroo(t_Price)) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -12501,7 +12501,7 @@ void playTelephoneGame()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && compatibleForTelephoneGame(t_Price) && (t_Price < 30000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && compatibleForTelephoneGame(t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -12884,7 +12884,7 @@ void playTemptation()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 30000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -13428,7 +13428,7 @@ void playTenChances()
     inFile.open("./prizes/" + carInput);
     while (inFile){
     cptr = new car;
-    if ( (inFile >> c_Model >> c_Options >> c_Price) && (c_Price % 10 == 0) && noRepeatingDigits(c_Price) && (c_Price < 30000) )
+    if ( (inFile >> c_Model >> c_Options >> c_Price) && (c_Price % 10 == 0) && noRepeatingDigits(c_Price) && (c_Price < maxCar) )
     {
         cptr->setModel(c_Model);
         cptr->setOptions(c_Options);
@@ -13624,7 +13624,7 @@ void playThatsTooMuch()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 32000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < maxCar) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
