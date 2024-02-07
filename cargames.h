@@ -771,6 +771,12 @@ using namespace std;
             return true;
     }
 
+    /// Rounds a car price down to the nearest multiple of 5000. This is used in games with multiple car prices, like
+    /// Five Price Tags and Gas Money.
+    int roundDown(int price){
+        return price - (price % 5000);
+    }
+
 /// Add 'em Up
 void playAddEmUp()
 {
@@ -3649,7 +3655,7 @@ void playFivePriceTags()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 26000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 30000) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -3686,44 +3692,20 @@ void playFivePriceTags()
     int price4 = carPrice;
     int price5 = carPrice;
 
-   if (carPrice < 20000){
+    int loBound = roundDown(carPrice);
+    int hiBound = loBound + 5000;
+
     while (price2 == carPrice)
-        price2 = rand() % (20000 - 15000) + 15000;
+        price2 = rand() % (hiBound - loBound) + loBound;
 
     while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (20000 - 15000) + 15000;
+        price3 = rand() % (hiBound - loBound) + loBound;
 
-    while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (20000 - 15000) + 15000;
-
-     while ((price4 == carPrice) || (price4 == price2) || (price4 == price3) )
-        price4 = rand() % (20000 - 15000) + 15000;
+    while ((price4 == carPrice) || (price4 == price2) || (price4 == price3) )
+        price4 = rand() % (hiBound - loBound) + loBound;
 
      while ((price5 == carPrice) || (price5 == price2) || (price5 == price3) || (price5 == price4))
-        price5 = rand() % (20000 - 15000) + 15000;
-
-    price2 += (rand() % (20 - 10) + 10) * 100;
-    price3 -= (rand() % (20 - 10) + 10) * 100;
-    price4 += (rand() % (20 - 10) + 10) * 100;
-    price5 -= (rand() % (20 - 10) + 10) * 100;
-
-    }
-    else if ( (carPrice > 20000) && (carPrice < 26000) ){
-    while (price2 == carPrice)
-        price2 = rand() % (26000 - 20000) + 20000;
-
-    while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (26000 - 20000) + 20000;
-
-    while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (26000 - 20000) + 20000;
-
-     while ((price4 == carPrice) || (price4 == price2) || (price4 == price3) )
-        price4 = rand() % (26000 - 20000) + 20000;
-
-     while ((price5 == carPrice) || (price5 == price2) || (price5 == price3) || (price5 == price4))
-        price5 = rand() % (26000 - 20000) + 20000;
-    }
+        price5 = rand() % (hiBound - loBound) + loBound;
 
     /// Put the prices in an array and randomize them.
     int prices[5] = {carPrice, price2, price3, price4, price5};
@@ -3954,7 +3936,7 @@ void playGasMoney()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 26000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 30000) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -3991,44 +3973,20 @@ void playGasMoney()
     int price4 = carPrice;
     int price5 = carPrice;
 
-    if (carPrice < 20000){
+    int loBound = roundDown(carPrice);
+    int hiBound = loBound + 5000;
+
     while (price2 == carPrice)
-        price2 = rand() % (20000 - 15000) + 15000;
+        price2 = rand() % (hiBound - loBound) + loBound;
 
     while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (20000 - 15000) + 15000;
+        price3 = rand() % (hiBound - loBound) + loBound;
 
-    while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (20000 - 15000) + 15000;
-
-     while ((price4 == carPrice) || (price4 == price2) || (price4 == price3) )
-        price4 = rand() % (20000 - 15000) + 15000;
+    while ((price4 == carPrice) || (price4 == price2) || (price4 == price3) )
+        price4 = rand() % (hiBound - loBound) + loBound;
 
      while ((price5 == carPrice) || (price5 == price2) || (price5 == price3) || (price5 == price4))
-        price5 = rand() % (20000 - 15000) + 15000;
-
-    price2 += (rand() % (20 - 10) + 10) * 100;
-    price3 -= (rand() % (20 - 10) + 10) * 100;
-    price4 += (rand() % (20 - 10) + 10) * 100;
-    price5 -= (rand() % (20 - 10) + 10) * 100;
-
-    }
-    else if ( (carPrice > 20000) && (carPrice < 26000) ){
-    while (price2 == carPrice)
-        price2 = rand() % (26000 - 20000) + 20000;
-
-    while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (26000 - 20000) + 20000;
-
-    while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (26000 - 20000) + 20000;
-
-     while ((price4 == carPrice) || (price4 == price2) || (price4 == price3) )
-        price4 = rand() % (26000 - 20000) + 20000;
-
-     while ((price5 == carPrice) || (price5 == price2) || (price5 == price3) || (price5 == price4))
-        price5 = rand() % (26000 - 20000) + 20000;
-    }
+        price5 = rand() % (hiBound - loBound) + loBound;
 
     bool picked[5];
     for (int x = 0; x < 5; x++)
@@ -6926,7 +6884,7 @@ void playOnTheNose()
     while (inFile)
     {
         cptr = new car;
-        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 26000) )
+        if ( (inFile >> t_Model >> t_Options >> t_Price) && (t_Price < 30000) )
         {
             cptr->setModel(t_Model);
             cptr->setOptions(t_Options);
@@ -6962,38 +6920,17 @@ void playOnTheNose()
     int price3 = carPrice;
     int price4 = carPrice;
 
-    if (carPrice < 20000){
+    int loBound = roundDown(carPrice);
+    int hiBound = loBound + 5000;
+
     while (price2 == carPrice)
-        price2 = rand() % (20000 - 15000) + 15000;
+        price2 = rand() % (hiBound - loBound) + loBound;
 
     while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (20000 - 15000) + 15000;
+        price3 = rand() % (hiBound - loBound) + loBound;
 
-    while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (20000 - 15000) + 15000;
-
-     while ((price4 == carPrice) || (price4 == price2) || (price4 == price3) )
-        price4 = rand() % (20000 - 15000) + 15000;
-
-    price2 += (rand() % (20 - 10) + 10) * 100;
-    price3 -= (rand() % (20 - 10) + 10) * 100;
-    price4 += (rand() % (20 - 10) + 10) * 100;
-    //cout << endl << "set car price variables" << endl;
-    }
-
-    else if ( (carPrice > 20000) && (carPrice < 26000) ){
-    while (price2 == carPrice)
-        price2 = rand() % (26000 - 20000) + 20000;
-
-    while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (26000 - 20000) + 20000;
-
-    while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (26000 - 20000) + 20000;
-
-     while ((price4 == carPrice) || (price4 == price2) || (price4 == price3) )
-        price4 = rand() % (26000 - 20000) + 20000;
-    }
+    while ((price4 == carPrice) || (price4 == price2) || (price4 == price3) )
+        price4 = rand() % (hiBound - loBound) + loBound;
 
     int allPrices[4] = {carPrice, price2, price3, price4};
     random_shuffle(&allPrices[0], &allPrices[4]);
@@ -10735,53 +10672,23 @@ void playShowerGame()
 
     //cout << endl << "price = $" << carPrice;
 
-    if (carPrice < 20000){
+    int loBound = roundDown(carPrice);
+    int hiBound = loBound + 5000;
+
     while (price2 == carPrice)
-        price2 = rand() % (20000 - 15000) + 15000;
+        price2 = rand() % (hiBound - loBound) + loBound;
 
     while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (20000 - 15000) + 15000;
+        price3 = rand() % (hiBound - loBound) + loBound;
 
-    while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (20000 - 15000) + 15000;
+    while ((price4 == carPrice) || (price4 == price2) || (price4 == price3) )
+        price4 = rand() % (hiBound - loBound) + loBound;
 
-     while ((price4 == carPrice) || (price4 == price2) || (price4 == price3) )
-        price4 = rand() % (20000 - 15000) + 15000;
+    while ((price5 == carPrice) || (price5 == price2) || (price5 == price3) || (price5 == price4))
+        price5 = rand() % (hiBound - loBound) + loBound;
 
-     while ((price5 == carPrice) || (price5 == price2) || (price5 == price3) || (price5 == price4))
-        price5 = rand() % (20000 - 15000) + 15000;
-
-     while ((price6 == carPrice) || (price6 == price2) || (price6 == price3) || (price6 == price4) || (price6 == price5))
-        price6 = rand() % (20000 - 15000) + 15000;
-
-    price2 += (rand() % (20 - 10) + 10) * 100;
-    price3 -= (rand() % (20 - 10) + 10) * 100;
-    price4 += (rand() % (20 - 10) + 10) * 100;
-    price5 -= (rand() % (20 - 10) + 10) * 100;
-    price6 += (rand() % (20 - 10) + 10) * 100;
-    //cout << endl << "set car price variables" << endl;
-    }
-
-    else if ( (carPrice > 20000) && (carPrice < 26000) ){
-    while (price2 == carPrice)
-        price2 = rand() % (26000 - 20000) + 20000;
-
-    while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (26000 - 20000) + 20000;
-
-    while ((price3 == carPrice) || (price3 == price2))
-        price3 = rand() % (26000 - 20000) + 20000;
-
-     while ((price4 == carPrice) || (price4 == price2) || (price4 == price3) )
-        price4 = rand() % (26000 - 20000) + 20000;
-
-     while ((price5 == carPrice) || (price5 == price2) || (price5 == price3) || (price5 == price4))
-        price5 = rand() % (26000 - 20000) + 20000;
-
-     while ((price6 == carPrice) || (price6 == price2) || (price6 == price3) || (price6 == price4) || (price6 == price5))
-        price6 = rand() % (26000 - 20000) + 20000;
-    //cout << endl << "set car price variables" << endl;
-    }
+    while ((price6 == carPrice) || (price6 == price2) || (price6 == price3) || (price6 == price4) || (price6 == price5))
+        price6 = rand() % (hiBound - loBound) + loBound;
 
     bool picked[6];
     for (int x = 0; x < 6; x++)
