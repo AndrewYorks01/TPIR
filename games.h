@@ -3046,18 +3046,44 @@ void playNowOrThen()
     inFile.close();
     inFile.clear();
 
-    int month = rand() % 5;
+    int month = rand() % 7;
+    string monthString;
 
     if (month == 0)      /// APR 2008
+    {
         inFile.open("./prizes/groceryapr2008.txt");
+        monthString = "APRIL 2008";
+    }
     else if (month == 1) /// FEB 2007
+    {
         inFile.open("./prizes/groceryfeb2007.txt");
+        monthString = "FEBRUARY 2007";
+    }
     else if (month == 2) /// JUNE 2009
+    {
         inFile.open("./prizes/groceryjun2009.txt");
+        monthString = "JUNE 2009";
+    }
     else if (month == 3) /// MARCH 2010
+    {
         inFile.open("./prizes/grocerymar2010.txt");
+        monthString = "MARCH 2010";
+    }
+    else if (month == 4) /// APR 2012
+    {
+        inFile.open("./prizes/groceryapr2012.txt");
+        monthString = "APRIL 2012";
+    }
+    else if (month == 5) /// APR 2013
+    {
+        inFile.open("./prizes/groceryapr2013.txt");
+        monthString = "APRIL 2013";
+    }
     else                 /// MAY 2006
+    {
         inFile.open("./prizes/grocerymay2006.txt");
+        monthString = "MAY 2006";
+    }
     while (inFile){
     tptr = new grocery;
     if (inFile >> thenDescr >> thenShort >> thenPrice)
@@ -3289,7 +3315,8 @@ void playNowOrThen()
     int wrongs = 0;
     int rights = 0;
 
-    cout << endl << "THEN: ";
+    cout << endl << "THEN: " << monthString;
+    /*
     if (month == 0)
         cout << "APRIL 2008";
     else if (month == 1)
@@ -3298,8 +3325,13 @@ void playNowOrThen()
         cout << "JUNE 2009";
     else if (month == 3)
         cout << "MARCH 2010";
+    else if (month == 4)
+        cout << "APRIL 2012";
+    else if (month == 5)
+        cout << "APRIL 2013";
     else
         cout << "MAY 2006";
+    */
 
     cout << endl;
 
