@@ -36,7 +36,7 @@ void randomGame(int r);
 
 int main()
 {
-    //playFillErUp();
+    //playTheLionsShare();
 
     int cat; /// Category selection
     int gro; /// Grocery game selection
@@ -56,7 +56,7 @@ int main()
     srand(time(0));
 
     do{
-    int rgame = rand() % 120;
+    int rgame = rand() % 121;
     //cout << endl << "random game: " << rgame;
     cat = 0;
     displayMainMenu();
@@ -631,24 +631,29 @@ int main()
 
         case 8:
             system("CLS");
-            playTimeIsMoney();
+            playTheLionsShare();
             break;
 
         case 9:
             system("CLS");
-            playToThePenny();
+            playTimeIsMoney();
             break;
 
         case 10:
             system("CLS");
+            playToThePenny();
+            break;
+
+        case 11:
+            system("CLS");
             break;
 
         default:
-            cout << endl << "Please enter a number between 1 and 10.";
+            cout << endl << "Please enter a number between 1 and 11.";
 
         } // end switch statement for cash games
         }
-        while (csh != 10);
+        while (csh != 11);
         break;
 
     case 8: /// Retired games (A-J)
@@ -1194,11 +1199,12 @@ void displayCars2Menu()
 void displayCashMenu()
 {
     cout << endl << "CASH GAMES" << endl;
-    cout << endl << "1. Grand Game       6. Plinko";
-    cout << endl << "2. 1/2 Off          7. Punch-a-Bunch";
-    cout << endl << "3. Hot Seat         8. Time Is Money";
-    cout << endl << "4. It's in the Bag  9. To the Penny";
-    cout << endl << "5. Pay the Rent     10. Go back";
+    cout << endl << "1. Grand Game       7. Punch-a-Bunch";
+    cout << endl << "2. 1/2 Off          8. The Lion's Share";
+    cout << endl << "3. Hot Seat         9. Time Is Money";
+    cout << endl << "4. It's in the Bag  10. To the Penny";
+    cout << endl << "5. Pay the Rent     11. Go back";
+    cout << endl << "6. Plinko";
     cout << endl << "Select a pricing game: ";
 }
 
@@ -1487,6 +1493,8 @@ void randomGame(int r)
         playJam();
     else if (r == 118)
         playFillErUp();
+    else if (r == 119)
+        playTheLionsShare();
     else
         playVendOPrice();
 }

@@ -6578,6 +6578,205 @@ void playSuperBall()
     system("CLS");
 }
 
+/// The Lion's Share
+void playTheLionsShare()
+{
+    list<small> bonusItems;
+    list<small>::iterator bonusItemIt;
+
+    string t_bonusDescription;
+    string t_bonusShortName;
+    int     t_bonusPrice;
+
+    small * bonusptr;
+
+    srand(time(0));
+
+    int i = 0;
+    ifstream inFile;
+    inFile.open("./prizes/" + smalInput);
+    while (inFile)
+    {
+        bonusptr = new small;
+        if ((inFile >> t_bonusDescription >> t_bonusShortName >> t_bonusPrice) && (t_bonusPrice < 100) && ( (t_bonusPrice % 10) != 0) && ( (t_bonusPrice % 11) != 0) )
+        {
+            bonusptr->setDescription(t_bonusDescription);
+            bonusptr->setShortName(t_bonusShortName);
+            bonusptr->setPrice(t_bonusPrice);
+            bonusItems.push_back(*bonusptr);
+            i++;
+        }
+    } // end while loop
+
+    cout << "THE LION'S SHARE" << endl;
+
+    int ballNos[40] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                       21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40};
+    random_shuffle(&ballNos[0], &ballNos[40]);
+
+    /// For now, these values are just placeholders until we know the actual distribution.
+    int ballids[40] = {0, 0, 0, 0, 0, 100000, 100000, 100000,
+                       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+                       500, 500, 1000, 1000, 2500, 2500, 5000, 5000,
+                       10000, 10000, 25000, 25000, 50000, 50000, 75000};
+    random_shuffle(&ballids[0], &ballids[40]);
+
+    /// Randomization works by making an array of random numbers as big
+    /// as the list of items, then reordering the array randomly. This way,
+    /// it feels like the items in the list are being arranged randomly.
+    int randomizationField[i];
+    for (int j = 0; j < i; j++)
+    {
+        randomizationField[j] = j;
+    }
+    // rearrange the numbers
+    random_shuffle(&randomizationField[0], &randomizationField[i]);
+
+    int z = 0;
+    small items[4];
+
+    /// Generate four integers that are either 0 or 1.
+    /// If the integer is 0, the correct price will be choice #1.
+    /// If the integer is 1, the correct price will be choice #2.
+    int orientation[4];
+    for (int q = 0; q < 4; q++)
+    {
+        orientation[q] = rand() % 2;
+    }
+
+    /// Set each item
+    for (int itemCount = 0; itemCount < 4; itemCount++)
+    {
+        bonusItemIt = bonusItems.begin();
+        for (z = 0; z < randomizationField[itemCount]; z++)
+        {
+            bonusItemIt++;
+        }
+
+        items[itemCount].setDescription(bonusItemIt->getDescription());
+        items[itemCount].setShortName(bonusItemIt->getShortName());
+        items[itemCount].setPrice(bonusItemIt->getPrice());
+    }
+
+
+    int picks = 1;
+    int winnings = 0;
+    int prizesWon = 0;
+
+    for (int start = 0; start < 4; start++){
+        cout << endl;
+        char answer = 'x';
+        cout << start+1 << ". ";
+        items[start].showPrize();
+        if (orientation[start] == 0){
+            cout << endl << " " << (items[start].getPrice() / 10 % 10);
+            cout << endl << "*" << (items[start].getPrice() % 10) << "*";
+            }
+        else{
+            cout << endl << " " << (items[start].getPrice() % 10);
+            cout << endl << "*" << (items[start].getPrice() / 10 % 10) << "*";
+        }
+        while ( (answer != 'L') && (answer != 'l') && (answer != 'R') && (answer != 'r') ){
+            if (orientation[start] == 0){
+                cout << endl << "Is the price $" << items[start].getPrice() << " (L) or $" << invert(items[start].getPrice()) << " (R)?: ";
+            }
+            else{
+                cout << endl << "Is the price $" << invert(items[start].getPrice()) << " (L) or $" << items[start].getPrice() << " (R)?: ";
+            }
+            cin >> answer;
+        }
+        cout << endl << "The actual retail price is $" << items[start].getPrice();
+        if  ( ( ((answer == 'L') || (answer == 'l')) && (orientation[start] == 0) ) ||
+              ( ((answer == 'R') || (answer == 'r')) && (orientation[start] == 1) ) )
+        {
+            cout << endl << "Yes, that's correct! You earn a pick.";
+            picks += 1;
+        } // end if statement for a correct answer
+        else
+            cout << endl << "Sorry, that's not correct.";
+    cout << endl;
+    } // end while loop
+
+    if (picks == 1)
+        cout << endl << "You have 1 pick.";
+    else
+        cout << endl << "You have " << picks << " picks.";
+    cout << endl << "Let's see which balls you earn in the wind tunnel...";
+    cout << endl;
+    system("pause");
+
+    bool stopNow = false;
+    for (int onPick = 0; onPick < picks; onPick++){
+        if (!stopNow){
+        char keepGoing = 'A';
+        cout << endl << "You picked ball #" << ballNos[onPick];
+        cout << endl << "Associated with this number is...";
+        if (ballids[onPick] == 0){
+            cout << endl << "LOSE IT ALL";
+            winnings = 0;
+            prizesWon = 0;
+            if (onPick != picks-1){
+                cout << endl;
+                system("pause");
+            }
+            }
+        else if ( (ballids[onPick] > 0) && (ballids[onPick] < 16) ){
+            cout << endl << "Prize #" << ballids[onPick];
+            cout << endl << "A prize worth $XXXX!"; /// this is temporary until we add actual prizes to the game
+            prizesWon += 1;
+            if (onPick != picks-1){
+                while ( (keepGoing != 'Y') && (keepGoing != 'N') &&  (keepGoing != 'y') && (keepGoing != 'n') ){
+                cout << endl << "Do you want to move on (Y) or stop now (N)?: ";
+                cin >> keepGoing;
+                }
+                if ( (keepGoing == 'N') || (keepGoing == 'n') )
+                    stopNow = true;
+            }
+        }
+        else{
+            cout << endl << "You've won $" << ballids[onPick] << "!";
+            winnings += ballids[onPick];
+            if (onPick != picks-1){
+                while ( (keepGoing != 'Y') && (keepGoing != 'N') &&  (keepGoing != 'y') && (keepGoing != 'n') ){
+                cout << endl << "Do you want to move on (Y) or stop now (N)?: ";
+                cin >> keepGoing;
+                }
+                if ( (keepGoing == 'N') || (keepGoing == 'n') )
+                    stopNow = true;
+            }
+        }
+        }
+    } /// end for loop for prize-winning segment
+
+    /// Recap what the player won
+    cout << endl;
+    if ( (winnings == 0) && (prizesWon == 0) )
+        cout << endl << "Sorry, you lose.";
+    else if ( (winnings > 0) && (prizesWon == 0) ){
+        if (winnings == 500000)
+            cout << endl << "Congratulations, you won $500,000!";
+        else
+            cout << endl << "You've won $" << winnings << ". Thanks for playing!";
+    }
+    else if ( (winnings == 0) && (prizesWon > 0)){
+        if (prizesWon == 1)
+            cout << endl << "You've won 1 prize. Thanks for playing!";
+        else
+            cout << endl << "You've won " << prizesWon << " prizes. Thanks for playing!";
+    }
+    else{
+        if (prizesWon == 1)
+            cout << endl << "You've won $" << winnings << " and 1 prize. Thanks for playing!";
+        else
+            cout << endl << "You've won $" << winnings << " and " << prizesWon << " prizes. Thanks for playing!";
+    }
+
+    /// end of the game
+    cout << endl;
+    system("pause");
+    system("CLS");
+}
+
 /// Trader Bob
 void playTraderBob()
 {
