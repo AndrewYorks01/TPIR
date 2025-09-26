@@ -529,8 +529,17 @@ using namespace std;
 
         if (fours[1] == fours[0]) // digits 1 and 2 are the same (AABB or AABA)
         {
+            // price is either AABB or AABA
+            if (fours[2] != fours[0]){
             result = fours[0]*10 + fours[2];
             return result;
+            }
+            // price is AAAB
+            else{
+            result = fours[0]*10 + fours[3];
+            return result;
+            }
+
         }
         else
         {
