@@ -5994,6 +5994,19 @@ void playRaceGame()
     else
         cout << endl << "Sorry, you lose.";
 
+    // if the player didn't win, show the prices of each of the items
+    if (!won){
+        cout << endl << endl << "The prices of the items are: ";
+
+        for (int s = 0; s < 4; s++){
+            cout << endl;
+            prizes[s].showShortName();
+            cout << " - ";
+            prizes[s].showARP();
+        }
+
+    }
+
     cout << endl;
     system("pause");
     system("CLS");
