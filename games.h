@@ -5717,8 +5717,29 @@ void playTimeIsMoney()
         cout << endl << "Congratulations, you win $8572!";
     else if ( (won) && (chances == 1) )
         cout << endl << "Congratulations, you win $5715!";
-    else
+    else{
         cout << endl << "Sorry, you lose.";
+        cout << endl << endl << "The correct ranges are: ";
+        for (int i = 0; i < 5; i++){
+            cout << endl;
+            items[i].showShortName();
+            if (items[i].getPrice() < 3){
+                cout << " - $0-$2.99 (";
+                items[i].showARP();
+                cout << ")";
+                }
+            else if (items[i].getPrice() > 6){
+                cout << " - $6+ (";
+                items[i].showARP();
+                cout << ")";
+            }
+            else{
+                cout << " - $3-$5.99 (";
+                items[i].showARP();
+                cout << ")";
+            }
+        }
+        }
 
     } // end else statement if player didn't get prices right on first try
 
