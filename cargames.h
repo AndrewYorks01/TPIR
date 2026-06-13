@@ -12241,6 +12241,17 @@ void playSwitcheroo(bool mds)
         cout << endl << "Let's see which prices you have right.";
         cout << endl;
         system("pause");
+        cout << endl;
+        cout << "The items' prices are: ";
+        cout << endl << "CAR - $" << carPrice;
+        for (int i = 0; i < 4; i++){
+            cout << endl;
+            items[i].showShortName();
+            cout << " - ";
+            items[i].showARP();
+        }
+        cout << endl;
+
         for (int v = 4; v > 0; v--){
         if (playerOrder[v] == rightOrder[v]){
             cout << endl << "You won the ";
@@ -12463,6 +12474,17 @@ void playSwitcheroo(bool mds)
             cout << endl << "You have " << hasRightSecond << " this time. Let's see which ones are right.";
             cout << endl;
             system("pause");
+            cout << endl;
+            cout << "The items' prices are: ";
+            cout << endl << "CAR - $" << carPrice;
+            for (int i = 0; i < 4; i++){
+                cout << endl;
+                items[i].showShortName();
+                cout << " - ";
+                items[i].showARP();
+            }
+            cout << endl;
+
             for (int v = 4; v > 0; v--){
             if (playerOrder[v] == rightOrder[v]){
                 cout << endl << "You won the ";
@@ -12475,6 +12497,8 @@ void playSwitcheroo(bool mds)
 
         } // end if player changes the prices and has at least one right
     } // end if player has 1 to 3 prices right on the first try
+
+
 
     /// end of the game
     cout << endl;
