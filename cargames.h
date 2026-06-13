@@ -13560,8 +13560,12 @@ void playTenChances()
             cout << ": $";
             cin >> inSmall;
             }
-            if (inSmall == prizeSma.getPrice())
+            if (inSmall == prizeSma.getPrice()){
                 wonSmall = true;
+                cout << endl << "That's correct! On to the ";
+                prizeMed.showShortName();
+                cout << "..." << endl;
+                }
         } // end if the player hasn't won the small prize
         else if (wonSmall && !wonMed)
         {
@@ -13572,8 +13576,10 @@ void playTenChances()
             cout << ": $";
             cin >> inMed;
             }
-            if (inMed == prizeMed.getPrice())
+            if (inMed == prizeMed.getPrice()){
                 wonMed = true;
+                cout << endl << "That's correct! On to the car..." << endl;
+                }
         } // end if player hasn't won the medium prize
         else if (wonMed && !wonCar)
         {
