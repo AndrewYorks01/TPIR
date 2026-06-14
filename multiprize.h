@@ -7046,8 +7046,19 @@ void playTakeTwo()
 
         if (finTotal == total)
             cout << endl << "Congratulations, you win!";
-        else
+        else{
             cout << endl << "Sorry, you lose.";
+            cout << endl << "The correct items were the: ";
+            cout << endl;
+            prizes[topick[0]].showShortName();
+            cout << " - ";
+            prizes[topick[0]].showARP();
+            cout << " and the";
+            cout << endl;
+            prizes[topick[1]].showShortName();
+            cout << " - ";
+            prizes[topick[1]].showARP();
+            }
 
 
 
