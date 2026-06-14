@@ -3671,46 +3671,157 @@ void playMagicNumber()
     cout << endl << "Enter a number that falls between the two items' prices: ";
     cin >> magicNo;
 
+    int order = rand() % 2;
+
     if (side == 1) /// prizes[1] is more expensive
     {
-        cout << endl << "The actual retail price of the ";
-        prizes[1].showShortName();
-        cout << " is ";
-        prizes[1].showARP();
+        /// If player won, the reveal order is random
+        if ( (magicNo >= prizes[0].getPrice()) && (magicNo <= prizes[1].getPrice()) )
+        {
+            if (order == 0){
+                cout << endl << "The actual retail price of the ";
+                prizes[1].showShortName();
+                cout << " is ";
+                prizes[1].showARP();
 
-        cout << endl;
-        system("pause");
+                cout << endl;
+                system("pause");
 
-        cout << endl << "The actual retail price of the ";
-        prizes[0].showShortName();
-        cout << " is ";
-        prizes[0].showARP();
+                cout << endl << "The actual retail price of the ";
+                prizes[0].showShortName();
+                cout << " is ";
+                prizes[0].showARP();
+            }
+            else{
+                cout << endl << "The actual retail price of the ";
+                prizes[0].showShortName();
+                cout << " is ";
+                prizes[0].showARP();
+
+                cout << endl;
+                system("pause");
+
+                cout << endl << "The actual retail price of the ";
+                prizes[1].showShortName();
+                cout << " is ";
+                prizes[1].showARP();
+            }
+
+        } // end if player won
+
+        /// The magic number is too low
+        else if (magicNo < prizes[0].getPrice()){
+                cout << endl << "The actual retail price of the ";
+                prizes[1].showShortName();
+                cout << " is ";
+                prizes[1].showARP();
+
+                cout << endl;
+                system("pause");
+
+                cout << endl << "The actual retail price of the ";
+                prizes[0].showShortName();
+                cout << " is ";
+                prizes[0].showARP();
+        } // end if the magic number is too low
+
+        /// The magic number is too high
+        else if (magicNo > prizes[1].getPrice()){
+                cout << endl << "The actual retail price of the ";
+                prizes[0].showShortName();
+                cout << " is ";
+                prizes[0].showARP();
+
+                cout << endl;
+                system("pause");
+
+                cout << endl << "The actual retail price of the ";
+                prizes[1].showShortName();
+                cout << " is ";
+                prizes[1].showARP();
+        }
 
         if ( (magicNo >= prizes[0].getPrice()) && (magicNo <= prizes[1].getPrice()) )
             cout << endl << "Congratulations, you win!";
         else
             cout << endl << "Sorry, you lose.";
-    }
+
+    } // end side 1
+
+    /// Side = 2 - prizes[0] is the more expensive
     else
     {
-        cout << endl << "The actual retail price of the ";
-        prizes[0].showShortName();
-        cout << " is ";
-        prizes[0].showARP();
+      /// If player won, the reveal order is random
+        if ( (magicNo >= prizes[1].getPrice()) && (magicNo <= prizes[0].getPrice()) )
+        {
+            if (order == 0){
+                cout << endl << "The actual retail price of the ";
+                prizes[0].showShortName();
+                cout << " is ";
+                prizes[0].showARP();
 
-        cout << endl;
-        system("pause");
+                cout << endl;
+                system("pause");
 
-        cout << endl << "The actual retail price of the ";
-        prizes[1].showShortName();
-        cout << " is ";
-        prizes[1].showARP();
+                cout << endl << "The actual retail price of the ";
+                prizes[1].showShortName();
+                cout << " is ";
+                prizes[1].showARP();
+            }
+            else{
+                cout << endl << "The actual retail price of the ";
+                prizes[1].showShortName();
+                cout << " is ";
+                prizes[1].showARP();
+
+                cout << endl;
+                system("pause");
+
+                cout << endl << "The actual retail price of the ";
+                prizes[0].showShortName();
+                cout << " is ";
+                prizes[0].showARP();
+            }
+
+        } // end if player won
+
+        /// The magic number is too low
+        else if (magicNo < prizes[1].getPrice()){
+                cout << endl << "The actual retail price of the ";
+                prizes[0].showShortName();
+                cout << " is ";
+                prizes[0].showARP();
+
+                cout << endl;
+                system("pause");
+
+                cout << endl << "The actual retail price of the ";
+                prizes[1].showShortName();
+                cout << " is ";
+                prizes[1].showARP();
+        } // end if the magic number is too low
+
+        /// The magic number is too high
+        else if (magicNo > prizes[0].getPrice()){
+                cout << endl << "The actual retail price of the ";
+                prizes[1].showShortName();
+                cout << " is ";
+                prizes[1].showARP();
+
+                cout << endl;
+                system("pause");
+
+                cout << endl << "The actual retail price of the ";
+                prizes[0].showShortName();
+                cout << " is ";
+                prizes[0].showARP();
+        }
 
         if ( (magicNo >= prizes[1].getPrice()) && (magicNo <= prizes[0].getPrice()) )
             cout << endl << "Congratulations, you win!";
         else
             cout << endl << "Sorry, you lose.";
-    }
+    } // end side 2
 
     /// End of the game
     cout << endl;
