@@ -1443,7 +1443,7 @@ void playBump()
         cout << endl << "$" << wrongPriceB;
         */
 
-        cout << endl << "$" << item1Price << " $" << item2Price << " $" << wrongPriceA << " $" << wrongPriceB;
+        cout << endl << "$" << item1Price << " $" << item2Price << " $" << wrongPriceA << " $" << item1Price;
         cout << endl << "________#1____#2_______";
 
         cout << endl;
@@ -1457,7 +1457,7 @@ void playBump()
         cout << endl << "2. Bump LEFT:";
         cout << endl << "$" << wrongPriceA << " - ";
         prizes[0].showShortName();
-        cout << endl << "$" << wrongPriceB << " - ";
+        cout << endl << "$" << item1Price << " - ";
         prizes[1].showShortName();
         cout << endl;
     }
@@ -1472,12 +1472,12 @@ void playBump()
         cout << endl << "$" << item2Price;
         */
 
-        cout << endl << "$" << wrongPriceA << " $" << wrongPriceB << " $" << item1Price << " $" << item2Price;
+        cout << endl << "$" << item2Price << " $" << wrongPriceB << " $" << item1Price << " $" << item2Price;
         cout << endl << "________#1____#2_______";
 
         cout << endl;
         cout << endl << "1. Bump RIGHT:";
-        cout << endl << "$" << wrongPriceA << " - ";
+        cout << endl << "$" << item2Price << " - ";
         prizes[0].showShortName();
         cout << endl << "$" << wrongPriceB << " - ";
         prizes[1].showShortName();
