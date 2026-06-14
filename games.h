@@ -2378,7 +2378,7 @@ void playItsInTheBag()
         ggptr->setDescription(t_ggDescription);
         ggptr->setShortName(t_ggShortName);
         ggptr->setPrice(t_ggPrice);
-        if (t_ggPrice < 1){
+        if (t_ggPrice < 2){
             firstItems.push_back(*ggptr);
             ofType1++;
         }
