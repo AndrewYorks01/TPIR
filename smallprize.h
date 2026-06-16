@@ -4234,6 +4234,30 @@ void playPlinko()
     else if (winnings == 50000)
         cout << endl << "Congratulations, you won $50,000!";
 
+    int highScore = 0;
+
+    inFile.open("plinko_hiscore.txt");
+
+    if (!inFile)
+        highScore = winnings;
+    else{
+        inFile >> highScore;
+        inFile.close();
+    }
+
+    if (winnings > highScore){
+       highScore = winnings;
+       cout << endl << "Congratulations, you set a new high score!";
+       }
+
+    ofstream outFile;
+    outFile.open("plinko_hiscore.txt");
+
+    if (outFile) {
+        outFile << highScore;
+        outFile.close();
+    }
+
     /// end of the game
     cout << endl;
     system("pause");
