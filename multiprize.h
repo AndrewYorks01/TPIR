@@ -2525,8 +2525,23 @@ void playDoTheMath()
     }
     else /// The more expensive prize is on the right. The correct answer is PLUS.
     {
+
     if ( prizes[1].getPrice() >=  prizes[0].getPrice() )
     {
+        /// switch the prices around if the equation could return a negative value
+        if ( (prizes[0].getPrice() - prizes[1].getPrice()) < 0){
+            order = 0;
+            cout << "1. ";
+            prizes[1].showPrize();
+            cout << endl;
+            cout << "2. ";
+            prizes[0].showPrize();
+            cout << endl;
+            prize1More = true;
+            oneThenZero = true;
+        }
+        else
+        {
         cout << "1. ";
         prizes[0].showPrize();
         cout << endl;
@@ -2535,9 +2550,24 @@ void playDoTheMath()
         cout << endl;
         prize1More = true;
         zeroThenOne = true;
+        }
     }
     else
     {
+        /// switch the prices around if the equation could return a negative value
+        if ( (prizes[1].getPrice() - prizes[0].getPrice()) < 0){
+            order = 0;
+            cout << "1. ";
+            prizes[0].showPrize();
+            cout << endl;
+            cout << "2. ";
+            prizes[1].showPrize();
+            cout << endl;
+            prize0More = true;
+            zeroThenOne = true;
+        }
+        else
+        {
         cout << "1. ";
         prizes[1].showPrize();
         cout << endl;
@@ -2546,6 +2576,7 @@ void playDoTheMath()
         cout << endl;
         prize0More = true;
         oneThenZero = true;
+        }
     }
 
     } // end if
