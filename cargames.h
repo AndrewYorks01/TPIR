@@ -12219,6 +12219,16 @@ void playSwitcheroo(bool mds)
         cout << endl << "You have " << hasRightSecond << " right this time. \nLet's see which ones are right.";
         cout << endl;
         system("pause");
+        cout << endl;
+        cout << "The items' prices are: ";
+        cout << endl << "CAR - $" << carPrice;
+        for (int i = 0; i < 4; i++){
+            cout << endl;
+            items[i].showShortName();
+            cout << " - ";
+            items[i].showARP();
+        }
+        cout << endl;
         for (int v = 4; v > 0; v--){
         if (playerOrder[v] == rightOrder[v]){
             cout << endl << "You won the ";
