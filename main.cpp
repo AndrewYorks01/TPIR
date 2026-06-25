@@ -36,7 +36,7 @@ void randomGame(int r);
 
 int main()
 {
-    //playTheLionsShare();
+    //playPriceSearch();
 
     int cat; /// Category selection
     int gro; /// Grocery game selection
@@ -56,7 +56,7 @@ int main()
     srand(time(0));
 
     do{
-    int rgame = rand() % 121;
+    int rgame = rand() % 122;
     //cout << endl << "random game: " << rgame;
     cat = 0;
     displayMainMenu();
@@ -906,19 +906,24 @@ int main()
 
         case 8:
             system("CLS");
-            playSevenUp();
+            playPriceSearch();
             break;
 
         case 9:
             system("CLS");
+            playSevenUp();
+            break;
+
+        case 10:
+            system("CLS");
             break;
 
         default:
-            cout << endl << "Please enter a number between 1 and 9.";
+            cout << endl << "Please enter a number between 1 and 10.";
 
         } // end switch for custom games
         }
-        while (cus != 9);
+        while (cus != 10);
         break;
 
     case 11: /// Play a user-generated line-up
@@ -1248,8 +1253,9 @@ void displayCustomMenu()
     cout << endl << "5. Master Price";
     cout << endl << "6. One For All";
     cout << endl << "7. One Way Or Another";
-    cout << endl << "8. 7Up";
-    cout << endl << "9. Go back";
+    cout << endl << "8. Price Search";
+    cout << endl << "9. 7Up";
+    cout << endl << "10. Go back";
     cout << endl << "Select a pricing game: ";
 }
 
@@ -1495,6 +1501,8 @@ void randomGame(int r)
         playFillErUp();
     else if (r == 119)
         playTheLionsShare();
+    else if (r == 120)
+        playPriceSearch();
     else
         playVendOPrice();
 }

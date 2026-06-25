@@ -206,6 +206,27 @@ void showPlayerDomino(bool arr[]){
         cout << "0";
 }
 
+/// Attempts to place a string in the grid. Returns true if successful.
+bool tryPlace(char grid[4][4], const string& str, bool isHorizontal, int index){
+    // First pass: Validate if the placement is safe (no conflicting digits)
+    for (int i = 0; i < 4; ++i) {
+        char currentCell = isHorizontal ? grid[index][i] : grid[i][index];
+        if (currentCell != ' ' && currentCell != str[i]) {
+            return false; // Collision detected
+        }
+    }
+
+    // Second pass: Actually write the digits to the grid
+    for (int i = 0; i < 4; ++i) {
+        if (isHorizontal) {
+            grid[index][i] = str[i];
+        } else {
+            grid[i][index] = str[i];
+        }
+    }
+    return true;
+}
+
 /// Back to '72
 void playBackTo72()
 {
@@ -4263,6 +4284,361 @@ void playPlinko()
     system("pause");
     system("CLS");
 }
+
+/// Price Search
+void playPriceSearch()
+{
+    /// Credit to ntpir for making this game!
+    list<small> gameItems;
+    list<small>::iterator gameItemIt;
+    string t_Description;
+    string t_ShortName;
+    int t_Price;
+    small * pptr;
+
+    list<large> gameItemsLarge;
+    list<large>::iterator gameItemsLargeIt;
+    string l_Description;
+    string l_ShortName;
+    int l_Price;
+    large * lptr;
+
+    srand(time(0));
+
+    int i = 0;
+    int j = 0;
+
+    ifstream inFile;
+    inFile.open("./prizes/" + smalInput);
+    while (inFile)
+    {
+        pptr = new small;
+        if ((inFile >> t_Description >> t_ShortName >> t_Price) && (t_Price < 100) )
+        {
+            pptr->setDescription(t_Description);
+            pptr->setShortName(t_ShortName);
+            pptr->setPrice(t_Price);
+            gameItems.push_back(*pptr);
+            i++;
+        }
+    } // end while loop checking for small prizes
+    inFile.close();
+    inFile.clear();
+
+    inFile.open("./prizes/" + largInput);
+    while (inFile)
+    {
+        lptr = new large;
+        if ( (inFile >> l_Description >> l_ShortName >> l_Price) && (l_Price < 10000) )
+        {
+            lptr->setDescription(l_Description);
+            lptr->setShortName(l_ShortName);
+            lptr->setPrice(l_Price);
+            gameItemsLarge.push_back(*lptr);
+            j++;
+        }
+    } // end while loop checking for large prizes
+    inFile.close();
+    inFile.clear();
+
+    int smallID1 = rand() % i;
+    int smallID2 = smallID1;
+    while (smallID2 == smallID1)
+        smallID2 = rand() % i;
+
+    int largeID1 = rand() % j;
+    int largeID2 = largeID1;
+    while (largeID2 == largeID1)
+        largeID2 = rand() % j;
+
+    small sm1;
+    small sm2;
+
+    large la1;
+    large la2;
+
+    cout << "PRICE SEARCH" << endl;
+
+    /// set the two small prizes
+    gameItemIt = gameItems.begin();
+    for (int z4 = 0; z4 < smallID1; z4++)
+        gameItemIt++;
+    sm1.setDescription(gameItemIt->getDescription());
+    sm1.setShortName(gameItemIt->getShortName());
+    sm1.setPrice(gameItemIt->getPrice());
+
+    gameItemIt = gameItems.begin();
+    for (int z5 = 0; z5 < smallID2; z5++)
+        gameItemIt++;
+    sm2.setDescription(gameItemIt->getDescription());
+    sm2.setShortName(gameItemIt->getShortName());
+    sm2.setPrice(gameItemIt->getPrice());
+
+    /// set the two large prizes
+    gameItemsLargeIt = gameItemsLarge.begin();
+    for (int z2 = 0; z2 < largeID1; z2++)
+        gameItemsLargeIt++;
+    la1.setDescription(gameItemsLargeIt->getDescription());
+    la1.setShortName(gameItemsLargeIt->getShortName());
+    la1.setPrice(gameItemsLargeIt->getPrice());
+
+    gameItemsLargeIt = gameItemsLarge.begin();
+    for (int z3 = 0; z3 < largeID2; z3++)
+        gameItemsLargeIt++;
+    la2.setDescription(gameItemsLargeIt->getDescription());
+    la2.setShortName(gameItemsLargeIt->getShortName());
+    la2.setPrice(gameItemsLargeIt->getPrice());
+
+    int largePrice1 = la1.getPrice();
+    int largePrice2 = la2.getPrice();
+
+    /// The large prices as strings so they can be added to the grid
+    string large1 = to_string(largePrice1);
+    string large2 = to_string(largePrice2);
+
+    /// Initialize the grid
+    char grid[4][4];
+
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            grid[i][j] = ' ';
+        }
+    }
+
+    /// Place the first number (always succeeds on an empty grid)
+    bool xHorizontal = std::rand() % 2;
+    int xIndex = std::rand() % 4;
+    tryPlace(grid, large1, xHorizontal, xIndex);
+
+    /// Place the second number (loops until a valid non-overlapping spot is found)
+    bool yPlaced = false;
+    int safetyCounter = 0; // Prevents infinite loops for impossible combinations
+
+    while (!yPlaced && safetyCounter < 100) {
+        bool yHorizontal = std::rand() % 2;
+        int yIndex = std::rand() % 4;
+
+        if (tryPlace(grid, large2, yHorizontal, yIndex)) {
+            yPlaced = true;
+        }
+        safetyCounter++;
+    }
+
+    /// This activates if for whatever reason, the game can't generate a puzzle. Hopefully that doesn't happen.
+    if (!yPlaced) {
+        cout << endl << "The game couldn't generate a puzzle. Try again!";
+    }
+    else{
+
+    /// Fill the rest of the grid with decoy numbers
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            if (grid[i][j] == ' ') {
+                grid[i][j] = '0' + (std::rand() % 10);
+            }
+        }
+    }
+
+    cout << endl << "1. ";
+    la1.showPrize();
+    cout << endl << "2. ";
+    la2.showPrize();
+    cout << endl << endl;
+
+    /// Output the grid
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            cout << grid[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    cout << endl << "You start with one free guess, but you can earn two more \nwith these small prizes...";
+    cout << endl;
+
+    int picks = 1;
+
+    /// If 0, appears at the top and horizontal.
+    /// If 1, appears at the bottom and horizontal.
+    /// If 2, appears on the left and vertical.
+    /// If 3, appears on the right and vertical.
+    int prize1Pos = rand() % 4;
+    int prize2Pos = rand() % 4;
+
+    /// Bids
+    int smallbid1;
+    int smallbid2;
+
+    /// Small prize #1
+    int decoyDigit1A = rand() % 10;
+    int decoyDigit1B = rand() % 10;
+    int correctDigit1A = sm1.getPrice() / 10;
+    int correctDigit1B = sm1.getPrice() % 10;
+
+    /// Show small prize #1
+    cout << endl << "1. ";
+    sm1.showPrize();
+    cout << endl;
+    if (prize1Pos == 0){
+        cout << endl << correctDigit1A << " " << correctDigit1B;
+        cout << endl << decoyDigit1A << " " << decoyDigit1B;
+    }
+    else if (prize1Pos == 1){
+        cout << endl << decoyDigit1A << " " << decoyDigit1B;
+        cout << endl << correctDigit1A << " " << correctDigit1B;
+    }
+    else if (prize1Pos == 2){
+        cout << endl << correctDigit1A << " " << decoyDigit1A;
+        cout << endl << correctDigit1B << " " << decoyDigit1B;
+    }
+    else{
+        cout << endl << decoyDigit1A << " " << correctDigit1A;
+        cout << endl << decoyDigit1B << " " << correctDigit1B;
+    }
+    cout << endl << "Enter the correct price: $";
+    cin >> smallbid1;
+    cout << endl << "The actual retail price of the ";
+    sm1.showShortName();
+    cout << " is ";
+    sm1.showARP();
+    if (smallbid1 == sm1.getPrice()){
+        cout << endl << "That's correct! You've earned another guess on the big board.";
+        picks += 1;
+        }
+    else
+        cout << endl << "Sorry, that's not correct.";
+
+    cout << endl;
+    /// Small prize #2
+    int decoyDigit2A = rand() % 10;
+    int decoyDigit2B = rand() % 10;
+    int correctDigit2A = sm2.getPrice() / 10;
+    int correctDigit2B = sm2.getPrice() % 10;
+
+    /// Show small prize #2
+    cout << endl << "2. ";
+    sm2.showPrize();
+    cout << endl;
+    if (prize1Pos == 0){
+        cout << endl << correctDigit2A << " " << correctDigit2B;
+        cout << endl << decoyDigit2A << " " << decoyDigit2B;
+    }
+    else if (prize1Pos == 1){
+        cout << endl << decoyDigit2A << " " << decoyDigit2B;
+        cout << endl << correctDigit2A << " " << correctDigit2B;
+    }
+    else if (prize1Pos == 2){
+        cout << endl << correctDigit2A << " " << decoyDigit2A;
+        cout << endl << correctDigit2B << " " << decoyDigit2B;
+    }
+    else{
+        cout << endl << decoyDigit2A << " " << correctDigit2A;
+        cout << endl << decoyDigit2B << " " << correctDigit2B;
+    }
+
+    cout << endl << "Enter the correct price: $";
+    cin >> smallbid2;
+    cout << endl << "The actual retail price of the ";
+    sm2.showShortName();
+    cout << " is ";
+    sm2.showARP();
+    if (smallbid2 == sm2.getPrice()){
+        cout << endl << "That's correct! You've earned another guess on the big board.";
+        picks += 1;
+        }
+    else
+        cout << endl << "Sorry, that's not correct.";
+
+    cout << endl;
+    if (picks == 1)
+        cout << endl << "You have 1 pick on the big board.";
+    else
+        cout << endl << "You have " << picks << " picks on the big board.";
+    cout << endl << "Press any key to go over to the big board.";
+    cout << endl;
+    system("pause");
+    system("CLS");
+
+    bool won = false;
+
+    int large1bid;
+    int large2bid;
+
+    while ( (picks > 0) && (!won) ){
+    cout << "1. ";
+    la1.showPrize();
+    cout << endl << "2. ";
+    la2.showPrize();
+    cout << endl << endl;
+
+    /// Output the grid
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            cout << grid[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    large1bid = 0;
+    large2bid = 0;
+
+    cout << endl << "Enter the price of the ";
+    la1.showShortName();
+    cout << ": $";
+    cin >> large1bid;
+
+    cout << "Enter the price of the ";
+    la2.showShortName();
+    cout << ": $";
+    cin >> large2bid;
+
+    cout << endl << "Are these prices correct?";
+    cout << endl;
+    system("pause");
+    if ( (large1bid == la1.getPrice()) && (large2bid == la2.getPrice()) )
+        won = true;
+    else{
+        cout << endl << "Sorry, that's not correct.";
+        // show how many prices the player has right
+        if (picks > 1){
+            if ( (large1bid == la1.getPrice()) && (large2bid != la2.getPrice()) )
+                cout << endl << "You have 1 price right.";
+            else if ( (large1bid != la1.getPrice()) && (large2bid == la2.getPrice()) )
+                cout << endl << "You have 1 price right.";
+            else
+                cout << endl << "You have 0 prices right.";
+        cout << endl;
+        system("pause");
+        system("CLS");
+        }
+        picks -= 1;
+    }
+
+    } // end while loop
+
+    if (won)
+        cout << endl << "Congratulations, you win!";
+    else{
+        cout << endl << "Sorry, you lose.";
+        cout << endl << "The price of the ";
+        la1.showShortName();
+        cout << " was $" << la1.getPrice() << " and";
+        cout << endl << "the price of the ";
+        la2.showShortName();
+        cout << " was $" << la2.getPrice() << ".";
+
+    }
+
+    } // end else if game continues normally
+
+    /// end of the game
+    cout << endl;
+    system("pause");
+    system("CLS");
+
+
+}
+
 
 /// Punch-a-Bunch
 void playPunchABunch()
