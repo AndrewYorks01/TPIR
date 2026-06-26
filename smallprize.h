@@ -4453,10 +4453,10 @@ void playPriceSearch()
         cout << endl;
     }
 
-    cout << endl << "You start with one free guess, but you can earn two more \nwith these small prizes...";
+    cout << endl << "You start with two free guesses, but you can earn two more \nwith these small prizes...";
     cout << endl;
 
-    int picks = 1;
+    int picks = 2;
 
     /// If 0, appears at the top and horizontal.
     /// If 1, appears at the bottom and horizontal.
