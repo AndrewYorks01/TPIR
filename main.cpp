@@ -928,7 +928,7 @@ int main()
 
         } // end switch for custom games
         }
-        while (cus != 10);
+        while (cus != 11);
         break;
 
     case 11: /// Play a user-generated line-up

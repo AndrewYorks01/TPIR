@@ -1613,6 +1613,7 @@ void playEthsPastas()
 
             if (picks > 1){
             while ( (keepGoing != 'Y') && (keepGoing != 'N') &&  (keepGoing != 'y') && (keepGoing != 'n') ){
+            cout << endl << "Right now you have $" << winnings << ".";
             cout << endl << "Do you want to move on (Y) or stop now (N)?: ";
             cin >> keepGoing;
             }
