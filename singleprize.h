@@ -2301,7 +2301,7 @@ void playPushOver()
     while (inFile)
     {
         pptr = new large;
-        if ( ( inFile >> t_Description >> t_ShortName >> t_Price ) && (t_Price < 10000) )
+        if ( ( inFile >> t_Description >> t_ShortName >> t_Price ) && (t_Price < 20000) )
         {
             pptr->setDescription(t_Description);
             pptr->setShortName(t_ShortName);
@@ -2503,7 +2503,7 @@ void playPushOver()
             cout << " ";
         for (int x = 0; x < (9-blocksPushedB); x++)
             cout << blocks[x];
-        cout << endl << "     ####|_|";
+        cout << endl << "    #####|_|";
         while ( (choiceB != 'Y') && (choiceB != 'N') &&  (choiceB != 'y') && (choiceB != 'n') )
         {
             cout << endl << "Do you want to push the blocks (Y) or stop now (N)?: ";
@@ -2787,6 +2787,7 @@ void playSqueezePlay()
 
     gamePrize.showPrize();
     cout << endl;
+
     int itemPrice = gamePrize.getPrice();
 
     /// This makes sure the player still wins if there are duplicates and they eliminate the "wrong" number.
