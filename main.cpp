@@ -36,7 +36,7 @@ void randomGame(int r);
 
 int main()
 {
-    //playPriceSearch();
+    //playEthsPastas();
 
     int cat; /// Category selection
     int gro; /// Grocery game selection
@@ -56,7 +56,7 @@ int main()
     srand(time(0));
 
     do{
-    int rgame = rand() % 122;
+    int rgame = rand() % 123;
     //cout << endl << "random game: " << rgame;
     cat = 0;
     displayMainMenu();
@@ -881,45 +881,50 @@ int main()
 
         case 3:
             system("CLS");
-            playFillErUp();
+            playEthsPastas();
             break;
 
         case 4:
             system("CLS");
-            playJam();
+            playFillErUp();
             break;
 
         case 5:
             system("CLS");
-            playMasterPrice();
+            playJam();
             break;
 
         case 6:
             system("CLS");
-            playOneForAll();
+            playMasterPrice();
             break;
 
         case 7:
             system("CLS");
-            playOneWayOrAnother();
+            playOneForAll();
             break;
 
         case 8:
             system("CLS");
-            playPriceSearch();
+            playOneWayOrAnother();
             break;
 
         case 9:
             system("CLS");
-            playSevenUp();
+            playPriceSearch();
             break;
 
         case 10:
             system("CLS");
+            playSevenUp();
+            break;
+
+        case 11:
+            system("CLS");
             break;
 
         default:
-            cout << endl << "Please enter a number between 1 and 10.";
+            cout << endl << "Please enter a number between 1 and 11.";
 
         } // end switch for custom games
         }
@@ -1246,16 +1251,12 @@ void displayRetired2Menu()
 void displayCustomMenu()
 {
     cout << endl << "CUSTOM GAMES" << endl;
-    cout << endl << "1. Big Item Bash";
-    cout << endl << "2. Domino Game";
-    cout << endl << "3. Fill 'er Up";
-    cout << endl << "4. Jam";
-    cout << endl << "5. Master Price";
-    cout << endl << "6. One For All";
-    cout << endl << "7. One Way Or Another";
-    cout << endl << "8. Price Search";
-    cout << endl << "9. 7Up";
-    cout << endl << "10. Go back";
+    cout << endl << "1. Big Item Bash   7. One For All";
+    cout << endl << "2. Domino Game     8. One Way Or Another";
+    cout << endl << "3. Eth's Pastas    9. Price Search";
+    cout << endl << "4. Fill 'er Up     10. 7UP";
+    cout << endl << "5. Jam             11. Go back";
+    cout << endl << "6. Master Price";
     cout << endl << "Select a pricing game: ";
 }
 
@@ -1503,6 +1504,8 @@ void randomGame(int r)
         playTheLionsShare();
     else if (r == 120)
         playPriceSearch();
+    else if (r == 121)
+        playEthsPastas();
     else
         playVendOPrice();
 }

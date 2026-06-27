@@ -1294,6 +1294,359 @@ void playDominoGame()
     system("CLS");
 }
 
+/// Eth's Pastas
+void playEthsPastas()
+{
+    list<small> bonusItems;
+    list<small>::iterator bonusItemIt;
+
+    string t_bonusDescription;
+    string t_bonusShortName;
+    int     t_bonusPrice;
+
+    small * bonusptr;
+
+    srand(time(0));
+
+    int i = 0;
+    ifstream inFile;
+    inFile.open("./prizes/" + smalInput);
+    while (inFile)
+    {
+        bonusptr = new small;
+        if ((inFile >> t_bonusDescription >> t_bonusShortName >> t_bonusPrice))
+        {
+            bonusptr->setDescription(t_bonusDescription);
+            bonusptr->setShortName(t_bonusShortName);
+            bonusptr->setPrice(t_bonusPrice);
+            bonusItems.push_back(*bonusptr);
+            i++;
+        }
+    } // end while loop
+
+    cout << "ETH'S PASTAS" << endl;
+
+        ///----Work on randomization----///
+
+    /// Randomization works by making an array of random numbers as big
+    /// as the list of items, then reordering the array randomly. This way,
+    /// it feels like the items in the list are being arranged randomly.
+    int randomizationField[i];
+    for (int j = 0; j < i; j++)
+    {
+        randomizationField[j] = j;
+    }
+
+
+    // rearrange the numbers
+    random_shuffle(&randomizationField[0], &randomizationField[i]);
+
+    int z = 0;
+    small items[3];
+
+    /// All the pasta bowls' prices are self-explanatory, except 2, which
+    /// represents a "LOSE EVERYTHING."
+    int pastas[26] = {0, 0, 100, 100, 500, 500, 500, 500, 500, 1000, 1000, 1000, 1000, 1000, 1000,
+                      1500, 1500, 1500, 2000, 2000, 2000, 3000, 5000, 10000, 2, 2};
+
+    random_shuffle(&pastas[0], &pastas[26]);
+
+    int picks = 1;
+    int wrongPrices[3]; // these will become the wrong prices
+
+    /// If this is 0, choice #1 will be the correct answer for prize #1.
+    /// If it is 1, choice #2 will be the correct answer.
+    bool prizePos = rand() % 2;
+
+    /// If this is 0, the corresponding price will be too
+    /// low, and the correct answer will be HIGHER. If this is 1,
+    /// the corresponding price will be too high, and the correct
+    /// answer will be LOWER.
+    bool hiLoPos = rand() % 2;
+
+    /// If this is 0, the correct answer will be TRUE. If this is
+    /// 1, the correct answer will be FALSE.
+    bool trueFalsePos = rand() % 2;
+
+    /// Set each item
+    for (int itemCount = 0; itemCount < 3; itemCount++)
+    {
+        bonusItemIt = bonusItems.begin();
+        for (z = 0; z < randomizationField[itemCount]; z++)
+        {
+            bonusItemIt++;
+        }
+
+        items[itemCount].setDescription(bonusItemIt->getDescription());
+        items[itemCount].setShortName(bonusItemIt->getShortName());
+        items[itemCount].setPrice(bonusItemIt->getPrice());
+    }
+
+    /// set the "pick one" fake price
+    int fakePrice1;
+    int tp;
+    int fp;
+    bool wv = rand() % 2;
+    if (wv == 0) /// The wrong price will be less than the ARP.
+    {
+        tp = items[0].getPrice();
+        //cout << tempPrice << endl;
+        if (tp >= 20)
+            fp = rand() % ((tp+1) - 10) + 10;
+        else
+            fp = rand() % ((tp+1) - 5) + 5;
+        //cout << "Wrong price: " << finalPrice << endl;
+        wrongPrices[0] = fp;
+    }
+    else /// The wrong price will be more than the ARP.
+    {
+        tp = items[0].getPrice();
+        //cout << tempPrice << endl;
+        int addition = (rand() % (37 - 10) + 10);
+        fp = tp + addition;
+        wrongPrices[0] = fp;
+    }
+
+
+    /// set the higher/lower fake price
+    // tempPrice holds the original price, and finalPrice holds the changed wrong price.
+    int tempPrice = 0;
+    int finalPrice = 0;
+
+    if (hiLoPos == 0) /// the correct answer will be HIGHER. The wrong price will be less than the ARP.
+    {
+        tempPrice = items[1].getPrice();
+        //cout << tempPrice << endl;
+        if (tempPrice >= 20)
+            finalPrice = rand() % ((tempPrice+1) - 10) + 10;
+        else
+            finalPrice = rand() % ((tempPrice+1) - 5) + 5;
+        //cout << "Wrong price: " << finalPrice << endl;
+        wrongPrices[1] = finalPrice;
+    }
+    else /// the correct answer will be LOWER. The wrong price will be more than the ARP.
+    {
+        tempPrice = items[1].getPrice();
+        //cout << tempPrice << endl;
+        int addition = (rand() % (51 - 10) + 10);
+        finalPrice = tempPrice + addition;
+        wrongPrices[1] = finalPrice;
+    }
+
+    /// set the "false" price (set it anyway even if the correct answer is TRUE)
+    int fakePrice3;
+    int temp;
+    int fin;
+    bool wrong = rand() % 2;
+
+    if (wrong == 0) /// The wrong price will be less than the ARP.
+    {
+        temp = items[2].getPrice();
+        //cout << tempPrice << endl;
+        if (temp >= 20)
+            fin = rand() % ((temp+1) - 10) + 10;
+        else
+            fin = rand() % ((temp+1) - 5) + 5;
+        //cout << "Wrong price: " << finalPrice << endl;
+        wrongPrices[2] = fin;
+    }
+    else /// The wrong price will be more than the ARP.
+    {
+        temp = items[2].getPrice();
+        //cout << tempPrice << endl;
+        int addition = (rand() % (37 - 10) + 10);
+        fin = temp + addition;
+        wrongPrices[2] = fin;
+    }
+
+    int answer1 = -1;
+    char answer2 = '*';
+    char answer3 = '*';
+
+    /// start the game
+    cout << endl;
+
+    /// prize #1 (A or B)
+    items[0].showPrize();
+    if (prizePos == 1){
+        cout << endl << "1. $" << items[0].getPrice();
+        cout << endl << "2. $" << wrongPrices[0];
+    }
+    else{
+        cout << endl << "1. $" << wrongPrices[0];
+        cout << endl << "2. $" << items[0].getPrice();
+    }
+    cout << endl;
+    while (answer1 < 1 || answer1 > 2)
+    {
+        cout << "Which price (1-2) is correct?: ";
+        cin >> answer1;
+    }
+    cout << endl << "The actual retail price is ";
+    items[0].showARP();
+    if (prizePos == 0 && answer1 == 2)
+    {
+        cout << endl << "That's correct! You earn another bowl of pasta.";
+        picks += 1;
+        cout << endl;
+    }
+    else if (prizePos == 1 && answer1 == 1)
+    {
+        cout << endl << "That's correct! You earn another bowl of pasta.";
+        picks += 1;
+        cout << endl;
+    }
+    else if (prizePos == 0 && answer1 == 1)
+    {
+        cout << endl << "Sorry, that's not correct.";
+        cout << endl;
+    }
+    else if (prizePos == 1 && answer1 == 2)
+    {
+        cout << endl << "Sorry, that's not correct.";
+        cout << endl;
+    }
+    else
+    {
+        cout << endl << "Sorry, that's not correct.";
+        cout << endl;
+    }
+
+    /// prize #2 (higher or lower)
+    cout << endl;
+    items[1].showPrize();
+    cout << endl << "$" << wrongPrices[1];
+        while ( (answer2 != 'H') && (answer2 != 'L') &&  (answer2 != 'h') && (answer2 != 'l') ){
+        cout << endl << "This price is wrong. \nIs the correct price higher (H) or lower (L)?: ";
+        cin >> answer2;
+        } /// end while loop
+        cout << endl;
+        if ((answer2 == 'H') || (answer2 == 'h'))
+        {
+            cout << "The actual retail price is ";
+            items[1].showARP();
+            if ((items[1].getPrice() >= wrongPrices[1])){
+                cout << endl << "That's correct! You earn another bowl of pasta.";
+                picks += 1;
+                }
+            else
+            {
+                cout << endl << "Sorry, that's not correct.";
+            }
+
+            cout << endl;
+        }
+        else
+        {
+            cout << "The actual retail price is ";
+            items[1].showARP();
+            if ((items[1].getPrice() <= wrongPrices[1])){
+                cout << endl << "That's correct! You earn another bowl of pasta.";
+                picks += 1;
+                }
+            else
+            {
+                cout << endl << "Sorry, that's not correct.";
+            }
+            cout << endl;
+        }
+
+    /// prize #3 (true or false)
+    cout << endl;
+    items[2].showPrize();
+    if (trueFalsePos == 0)
+        cout << endl << "$" << items[2].getPrice();
+    else
+        cout << endl << "$" << wrongPrices[2];
+    while ( (answer3 != 'T') && (answer3 != 'F') &&  (answer3 != 't') && (answer3 != 'f') ){
+    cout << endl << "Is this price true (T) or false (F)?: ";
+    cin >> answer3;
+    } /// end while loop
+    cout << endl;
+    if ((answer3 == 'T') || (answer3 == 't')){
+        cout << "The actual retail price is ";
+        items[2].showARP();
+        if (trueFalsePos == 0){
+            cout << endl << "That's correct! You earn another bowl of pasta.";
+            picks += 1;
+        }
+        else{
+            cout << endl << "Sorry, that's not correct.";
+        }
+    }
+    else{
+        cout << "The actual retail price is ";
+        items[2].showARP();
+        if (trueFalsePos == 1){
+            cout << endl << "That's correct! You earn another bowl of pasta.";
+            picks += 1;
+        }
+        else{
+            cout << endl << "Sorry, that's not correct.";
+        }
+    }
+
+    cout << endl;
+    if (picks == 1)
+        cout << endl << "You can eat 1 bowl of pasta.";
+    else
+        cout << endl << "You can eat " << picks << " bowls of pasta.";
+
+    bool bail = false;
+    int on = 0;
+    int winnings = 0;
+
+    cout << endl;
+    while ((picks > 0) && (!bail)){
+        char keepGoing = 'A';
+        cout << endl << "Let's see what's in the next bowl of pasta..." << endl;
+        system("pause");
+        //cout << endl << "You punched out $" << pastas[onPunch];
+        if (pastas[on] == 2){
+            cout << endl << "Inside this bowl of pasta is... LOSE EVERYTHING";
+            winnings = 0;
+        }
+        else{
+            cout << endl << "Inside this bowl of pasta is $" << pastas[on];
+            winnings += pastas[on];
+        }
+
+            if (picks > 1){
+            while ( (keepGoing != 'Y') && (keepGoing != 'N') &&  (keepGoing != 'y') && (keepGoing != 'n') ){
+            cout << endl << "Do you want to move on (Y) or stop now (N)?: ";
+            cin >> keepGoing;
+            }
+            if ((keepGoing == 'Y') || (keepGoing == 'y'))
+            {
+                cout << endl << "All right, then.";
+                picks -= 1;
+                on += 1;
+            }
+            else{
+                bail = true;
+            }
+            }
+            else{
+                picks -= 1;
+            }
+    }
+
+    if (picks == 0)
+        cout << endl;
+
+    if (winnings == 20000)
+        cout << endl << "Congratulations, you win $20,000!";
+    else if (winnings > 0)
+        cout << endl << "You've won $" << winnings << ". Thanks for playing!";
+    else
+        cout << endl << "Sorry, you lose.";
+
+    /// end of the game
+    cout << endl;
+    system("pause");
+    system("CLS");
+}
+
 /// Finish Line
 void playFinishLine()
 {
@@ -4638,7 +4991,6 @@ void playPriceSearch()
 
 
 }
-
 
 /// Punch-a-Bunch
 void playPunchABunch()
