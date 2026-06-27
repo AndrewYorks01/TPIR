@@ -1323,6 +1323,7 @@ void playEthsPastas()
             i++;
         }
     } // end while loop
+    inFile.close();
 
     cout << "ETH'S PASTAS" << endl;
 
@@ -1641,6 +1642,30 @@ void playEthsPastas()
         cout << endl << "You've won $" << winnings << ". Thanks for playing!";
     else
         cout << endl << "Sorry, you lose.";
+
+    int highScore = 0;
+
+    inFile.open("pastas_hiscore.txt");
+
+    if (!inFile)
+        highScore = winnings;
+    else{
+        inFile >> highScore;
+        inFile.close();
+    }
+
+    if (winnings > highScore){
+       highScore = winnings;
+       cout << endl << "Congratulations, you set a new high score!";
+       }
+
+    ofstream outFile;
+    outFile.open("pastas_hiscore.txt");
+
+    if (outFile) {
+        outFile << highScore;
+        outFile.close();
+    }
 
     /// end of the game
     cout << endl;
