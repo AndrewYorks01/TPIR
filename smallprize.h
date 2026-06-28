@@ -3715,6 +3715,39 @@ void playMasterKey()
 
     } // end else statement for key portion
 
+    /// recap what the player won at the end of the game
+    if (earnedKeys != 0){
+        if (wonMasterKey)
+            cout << endl << endl << "Congratulations, you've won everything!";
+        else if (wonPrize3){
+            // if player won car
+            if ( (wonPrize1) || (wonPrize2) ){
+                cout << endl << endl << "You've won the car and these prizes:";
+                if (wonPrize1){
+                    cout << endl;
+                    prize1.showShortName();
+                }
+                if (wonPrize2){
+                    cout << endl;
+                    prize2.showShortName();
+                }
+            } // end prizes
+        } // end if won the car
+            else if ( (wonPrize1) || (wonPrize2) ){
+            cout << endl << endl << "You've won these prizes:";
+            if (wonPrize1){
+                cout << endl;
+                prize1.showShortName();
+            }
+            if (wonPrize2){
+                cout << endl;
+                prize2.showShortName();
+            }
+        } // end prizes
+            else
+                cout << endl << endl << "Sorry, you lose.";
+    } // end if player won at least one key
+
     /// end of the game
     cout << endl;
     system("pause");
