@@ -36,7 +36,7 @@ void randomGame(int r);
 
 int main()
 {
-    //playEthsPastas();
+    //playShotInTheDark();
 
     int cat; /// Category selection
     int gro; /// Grocery game selection
@@ -56,7 +56,7 @@ int main()
     srand(time(0));
 
     do{
-    int rgame = rand() % 123;
+    int rgame = rand() % 124;
     //cout << endl << "random game: " << rgame;
     cat = 0;
     displayMainMenu();
@@ -921,14 +921,19 @@ int main()
 
         case 11:
             system("CLS");
+            playShotInTheDark();
+            break;
+
+        case 12:
+            system("CLS");
             break;
 
         default:
-            cout << endl << "Please enter a number between 1 and 11.";
+            cout << endl << "Please enter a number between 1 and 12.";
 
         } // end switch for custom games
         }
-        while (cus != 11);
+        while (cus != 12);
         break;
 
     case 11: /// Play a user-generated line-up
@@ -1255,8 +1260,8 @@ void displayCustomMenu()
     cout << endl << "2. Domino Game     8. One Way Or Another";
     cout << endl << "3. Eth's Pastas    9. Price Search";
     cout << endl << "4. Fill 'er Up     10. 7UP";
-    cout << endl << "5. Jam             11. Go back";
-    cout << endl << "6. Master Price";
+    cout << endl << "5. Jam             11. Shot in the Dark";
+    cout << endl << "6. Master Price    12. Go back";
     cout << endl << "Select a pricing game: ";
 }
 
@@ -1506,6 +1511,8 @@ void randomGame(int r)
         playPriceSearch();
     else if (r == 121)
         playEthsPastas();
+    else if (r == 122)
+        playShotInTheDark();
     else
         playVendOPrice();
 }
