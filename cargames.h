@@ -14406,7 +14406,7 @@ void playTriplePlay()
     gameCarIt = gameCars.begin();
     for (int z = 0; z < val1; z++)
         gameCarIt++;
-    if ( (gameCarIt->getPrice()) < 20000 ){
+    if ( (gameCarIt->getPrice()) < 25000 ){
         tpCars[0].setModel(gameCarIt->getModel());
         tpCars[0].setOptions(gameCarIt->getOptions());
         tpCars[0].setPrice(gameCarIt->getPrice());
@@ -14421,7 +14421,7 @@ void playTriplePlay()
     gameCarIt = gameCars.begin();
     for (int z = 0; z < val2; z++)
         gameCarIt++;
-    if ( ((gameCarIt->getPrice()) > 20000) && ((gameCarIt->getPrice()) < 25000) ){
+    if ( ((gameCarIt->getPrice()) > 30000) && ((gameCarIt->getPrice()) < 35000) ){
         tpCars[1].setModel(gameCarIt->getModel());
         tpCars[1].setOptions(gameCarIt->getOptions());
         tpCars[1].setPrice(gameCarIt->getPrice());
@@ -14436,7 +14436,7 @@ void playTriplePlay()
     gameCarIt = gameCars.begin();
     for (int z = 0; z < val3; z++)
         gameCarIt++;
-    if ( ((gameCarIt->getPrice()) > 25000) && ((gameCarIt->getPrice()) < 35000) ){
+    if ( ((gameCarIt->getPrice()) > 35000) && ((gameCarIt->getPrice()) < 60000) ){
         tpCars[2].setModel(gameCarIt->getModel());
         tpCars[2].setOptions(gameCarIt->getOptions());
         tpCars[2].setPrice(gameCarIt->getPrice());
