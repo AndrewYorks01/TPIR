@@ -10627,6 +10627,210 @@ void playSevenUp()
 
 }
 
+/// Shot in the Dark
+void playShotInTheDark()
+{
+    /// Credit to Gauch08 for making this game!
+
+    list<car> gameCars;
+    list<car>::iterator gameCarIt;
+
+    string t_Model;
+    string t_Options;
+    int t_Price;
+
+    car * cptr;
+
+    srand(time(0));
+
+    int i = 0;
+    ifstream inFile;
+    inFile.open("./prizes/" + carInput);
+    while (inFile)
+    {
+        cptr = new car;
+        if ((inFile >> t_Model >> t_Options >> t_Price) && noRepeatingDigits(t_Price) )
+        {
+            cptr->setModel(t_Model);
+            cptr->setOptions(t_Options);
+            cptr->setPrice(t_Price);
+            gameCars.push_back(*cptr);
+            i++;
+        }
+    } // end while loop
+    inFile.close();
+
+    cout << "SHOT IN THE DARK" << endl;
+    cout << endl;
+
+    /// Since there's only one prize, randomization is a lot simpler than the randomizationField
+    /// method used in other games.
+    int randomPrize = rand() % i;
+
+    int z = 0;
+    car prizeCar;
+
+    gameCarIt = gameCars.begin();
+    for (z = 0; z < randomPrize; z++)
+        gameCarIt++;
+    prizeCar.setModel(gameCarIt->getModel());
+    prizeCar.setOptions(gameCarIt->getOptions());
+    prizeCar.setPrice(gameCarIt->getPrice());
+
+    prizeCar.showModel();
+    cout << endl << "Comes with: ";
+    prizeCar.showOptions();
+
+    int carPrice = prizeCar.getPrice();
+
+    int digits[5];
+    digits[0] = carPrice / 10000 % 10;
+    digits[1] = carPrice / 1000 % 10;
+    digits[2] = carPrice / 100 % 10;
+    digits[3] = carPrice / 10 % 10;
+    digits[4] = carPrice % 10;
+
+    /// checks whether a digiit position has been revealed
+    bool digitPosRevealed[5];
+    digitPosRevealed[0] = true;
+    digitPosRevealed[1] = false;
+    digitPosRevealed[2] = false;
+    digitPosRevealed[3] = false;
+    digitPosRevealed[4] = false;
+
+    /// checks whether the digit itself has been revealed
+    bool revealed[9];
+    for (int r = 0; r < 10; r++){
+        if (r == digits[0])
+            revealed[r] = true;
+        else
+            revealed[r] = false;
+    }
+
+    int remaining = 4; // remaining digits the player can guess
+    int correct = 1; // correctly guessed digits
+
+    cout << endl;
+
+    /// the player gets 4 chances to find more digits
+    while (remaining > 0){
+    cout << endl << "$" << digits[0];
+    if (digitPosRevealed[1])
+        cout << digits[1];
+    else
+        cout << "*";
+    if (digitPosRevealed[2])
+        cout << digits[2];
+    else
+        cout << "*";
+    if (digitPosRevealed[3])
+        cout << digits[3];
+    else
+        cout << "*";
+    if (digitPosRevealed[4])
+        cout << digits[4];
+    else
+        cout << "*";
+    int choice = 10;
+    while ( (choice < 0) || (choice > 9) ){
+        cout << endl << "Which digit do you want?: ";
+        cin >> choice;
+        }
+    if ( (revealed[choice]) )
+        cout << endl << "You've already revealed this digit. Please pick another.";
+    else
+    {
+        revealed[choice] = true;
+        if (digits[1] == choice){
+            digitPosRevealed[1] = true;
+            cout << endl << "Yes, " << choice << " is the second digit in the price.";
+            correct += 1;
+        }
+        else if (digits[2] == choice){
+            digitPosRevealed[2] = true;
+            cout << endl << "Yes, " << choice << " is the third digit in the price.";
+            correct += 1;
+        }
+        else if (digits[3] == choice){
+            digitPosRevealed[3] = true;
+            cout << endl << "Yes, " << choice << " is the fourth digit in the price.";
+            correct += 1;
+        }
+        else if (digits[4] == choice){
+            digitPosRevealed[4] = true;
+            cout << endl << "Yes, " << choice << " is the fifth digit in the price.";
+            correct += 1;
+        }
+        else
+            cout << endl << "No, " << choice << " is not in the price.";
+    remaining -= 1;
+    } // end else
+    cout << endl;
+    } // end while loop for guessing digits
+
+    int blanks = 0;
+
+    cout << endl << "$" << digits[0];
+    if (digitPosRevealed[1])
+        cout << digits[1];
+    else
+        cout << "*";
+    if (digitPosRevealed[2])
+        cout << digits[2];
+    else
+        cout << "*";
+    if (digitPosRevealed[3])
+        cout << digits[3];
+    else
+        cout << "*";
+    if (digitPosRevealed[4])
+        cout << digits[4];
+    else
+        cout << "*";
+
+    if ( (digitPosRevealed[1]) && (digitPosRevealed[2]) && (digitPosRevealed[3]) && (digitPosRevealed[4]) )
+        cout << endl << "Congratulations, you win!";
+    else{
+
+        /// get digits that are not revealed and not in the car
+        vector<int> fakeDigits;
+        for (int m = 0; m < 10; m++){
+        if (!revealed[m]){
+            if ( (m != digits[1]) && (m != digits[2]) && (m != digits[3]) && (m != digits[4]) )
+                fakeDigits.push_back(m);
+            } // end if
+        } // end for loop
+
+        /// pick a random fake digit to use as a decoy
+        int pos = rand() % fakeDigits.size();
+        int decoy = fakeDigits[pos];
+
+        cout << endl;
+        for (int n = 0; n < 10; n++){
+        if (!revealed[n]){
+            if ( (n == digits[1]) || (n == digits[2]) || (n == digits[3]) || (n == digits[4]) || (n == decoy) )
+                cout << n;
+            } // end if
+            } // end for loop
+
+        cout << endl;
+        cout << endl << "Here are the remaining digits, along with one that doesn't belong.";
+        int bid;
+        cout << endl << "What do you think is the price of the car?: $";
+        cin >> bid;
+        cout << endl << "The actual retail price of the car is $" << carPrice;
+        if (bid == carPrice)
+            cout << endl << "Congratulations, you win!";
+        else
+            cout << endl << "Sorry, you lose.";
+        } // end else
+
+    /// end of the game
+    cout << endl;
+    system("pause");
+    system("CLS");
+}
+
 /// Shower Game
 void playShowerGame()
 {
