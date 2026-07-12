@@ -11764,6 +11764,238 @@ void playStackTheDeck()
     system("CLS");
 }
 
+/// Starting Points
+void playStartingPoints()
+{
+    /// Fun fact: this was the 125th game completed!
+    /// Credit to BigJon (probably) for making this game!
+
+    list<car> gameCars;
+    list<car>::iterator gameCarIt;
+
+    string t_Model;
+    string t_Options;
+    int t_Price;
+
+    car * cptr;
+
+    srand(time(0));
+
+    int i = 0;
+    ifstream inFile;
+    inFile.open("./prizes/" + carInput);
+    while (inFile)
+    {
+        cptr = new car;
+        if ( (inFile >> t_Model >> t_Options >> t_Price) )
+        {
+            cptr->setModel(t_Model);
+            cptr->setOptions(t_Options);
+            cptr->setPrice(t_Price);
+            gameCars.push_back(*cptr);
+            i++;
+        }
+    } // end while loop
+    inFile.close();
+
+    cout << "STARTING POINTS" << endl;
+
+    car spCars[3];
+
+    int val1;
+    int val2;
+    int val3;
+
+    /// These will make sure the cars' prices always appear in a different order.
+    int indices[3] = {0, 1, 2};
+    random_shuffle(&indices[0], &indices[3]);
+
+    /// Set car #1
+    bool setFirst = false;
+    while (!setFirst){
+    val1 = rand() % i;
+    gameCarIt = gameCars.begin();
+    for (int z = 0; z < val1; z++)
+        gameCarIt++;
+        spCars[0].setModel(gameCarIt->getModel());
+        spCars[0].setOptions(gameCarIt->getOptions());
+        spCars[0].setPrice(gameCarIt->getPrice());
+        setFirst = true;
+    } // end while loop setting car #1
+
+    /// Set car #2
+    bool setSecond = false;
+    while (!setSecond){
+    val2 = val1;
+    while (val2 == val1)
+        val2 = rand() % i;
+    gameCarIt = gameCars.begin();
+    for (int z = 0; z < val2; z++)
+        gameCarIt++;
+        spCars[1].setModel(gameCarIt->getModel());
+        spCars[1].setOptions(gameCarIt->getOptions());
+        spCars[1].setPrice(gameCarIt->getPrice());
+        setSecond = true;
+    } // end while loop setting car #2
+
+    /// Set car #3
+    bool setThird = false;
+    while (!setThird){
+    val3 = val2;
+    while ( (val3 == val1) || (val3 == val2) )
+        val3 = rand() % i;
+    for (int z = 0; z < val3; z++)
+        gameCarIt++;
+        spCars[2].setModel(gameCarIt->getModel());
+        spCars[2].setOptions(gameCarIt->getOptions());
+        spCars[2].setPrice(gameCarIt->getPrice());
+        setThird = true;
+    } // end while loop setting car #3
+
+    //cout << endl << val1;
+    //cout << endl << val2;
+    //cout << endl << val3;
+
+    /// Put the cars' prices in an array.
+    int carPrices[3];
+    carPrices[0] = spCars[0].getPrice();
+    carPrices[1] = spCars[1].getPrice();
+    carPrices[2] = spCars[2].getPrice();
+
+    /// Sort the three cars' prices from least to most expensive. This will make it easier to check if the player has won.
+    sortSplitPlaces(carPrices);
+
+    /// Define 5 random digits to use as decoys.
+    int decoy[5];
+    decoy[0] = rand() % 5;
+    decoy[1] = rand() % 5;
+    decoy[2] = rand() % 5;
+    decoy[3] = rand() % 5;
+    decoy[4] = rand() % 5;
+
+    /// Positions that define where a car price will go after each decoy digit.
+    int decoyPos1 = rand() % 4;
+
+    int decoyPos2 = decoyPos1;
+    while (decoyPos2 == decoyPos1)
+        decoyPos2 = rand() % 4;
+
+    int decoyPos3 = decoyPos1;
+    while ( (decoyPos3 == decoyPos1) || (decoyPos3 == decoyPos2) )
+        decoyPos3 = rand() % 4;
+
+    /// Place the decoy positions into an array, then sort it.
+    int positions[3];
+    positions[0] = decoyPos1;
+    positions[1] = decoyPos2;
+    positions[2] = decoyPos3;
+    sortSplitPlaces(positions);
+
+    cout << endl << "1. ";
+    spCars[0].showModel();
+    cout << endl << "Comes with: ";
+    spCars[0].showOptions();
+    cout << endl;
+    cout << endl << "2. ";
+    spCars[1].showModel();
+    cout << endl << "Comes with: ";
+    spCars[1].showOptions();
+    cout << endl;
+    cout << endl << "3. ";
+    spCars[2].showModel();
+    cout << endl << "Comes with: ";
+    spCars[2].showOptions();
+    cout << endl;
+
+    /// display the string of digits
+    cout << endl;
+    cout << decoy[0];
+    if (positions[0] == 0)
+        cout << spCars[indices[0]].getPrice();
+    if (positions[1] == 0)
+        cout << spCars[indices[1]].getPrice();
+    if (positions[2] == 0)
+        cout << spCars[indices[2]].getPrice();
+    cout << decoy[1];
+    if (positions[0] == 1)
+        cout << spCars[indices[0]].getPrice();
+    if (positions[1] == 1)
+        cout << spCars[indices[1]].getPrice();
+    if (positions[2] == 1)
+        cout << spCars[indices[2]].getPrice();
+    cout << decoy[2];
+    if (positions[0] == 2)
+        cout << spCars[indices[0]].getPrice();
+    if (positions[1] == 2)
+        cout << spCars[indices[1]].getPrice();
+    if (positions[2] == 2)
+        cout << spCars[indices[2]].getPrice();
+    cout << decoy[3];
+    if (positions[0] == 3)
+        cout << spCars[indices[0]].getPrice();
+    if (positions[1] == 3)
+        cout << spCars[indices[1]].getPrice();
+    if (positions[2] == 3)
+        cout << spCars[indices[2]].getPrice();
+    cout << decoy[4];
+    if (positions[0] == 4)
+        cout << spCars[indices[0]].getPrice();
+    if (positions[1] == 4)
+        cout << spCars[indices[1]].getPrice();
+    if (positions[2] == 4)
+        cout << spCars[indices[2]].getPrice();
+
+
+    /// players' inputs, which will eventually be sorted
+    int price1;
+    int price2;
+    int price3;
+    int playerPrices[3];
+
+    cout << endl;
+    cout << endl << "Enter a car's price you see on the board: $";
+    cin >> price1;
+    cout << endl << "Enter another car's price you see on the board: $";
+    cin >> price2;
+    cout << endl << "Enter a third car's price you see on the board: $";
+    cin >> price3;
+    playerPrices[0] = price1;
+    playerPrices[1] = price2;
+    playerPrices[2] = price3;
+    sortSplitPlaces(playerPrices);
+
+    cout << endl << "Here are the prices you've chosen:";
+    cout << endl << "$" << playerPrices[0];
+    cout << endl << "$" <<  playerPrices[1];
+    cout << endl << "$" <<  playerPrices[2];
+
+    cout << endl;
+    cout << endl << "The prices of the cars are:";
+    cout << endl << "1. ";
+    spCars[0].showModel();
+    cout << " - ";
+    spCars[0].showARP();
+    cout << endl << "2. ";
+    spCars[1].showModel();
+    cout << " - ";
+    spCars[1].showARP();
+    cout << endl << "3. ";
+    spCars[2].showModel();
+    cout << " - ";
+    spCars[2].showARP();
+
+    cout << endl;
+    if ( (carPrices[0] == playerPrices[0]) && (carPrices[1] == playerPrices[1]) && (carPrices[2] == playerPrices[2]))
+        cout << endl << "Congratulations, you win!";
+    else
+        cout << endl << "Sorry, you lose.";
+
+    /// end of the game
+    cout << endl;
+    system("pause");
+    system("CLS");
+}
+
 /// Switcheroo
 void playSwitcheroo(bool mds)
 {

@@ -36,7 +36,7 @@ void randomGame(int r);
 
 int main()
 {
-    //playShotInTheDark();
+    //playStartingPoints();
 
     int cat; /// Category selection
     int gro; /// Grocery game selection
@@ -56,7 +56,7 @@ int main()
     srand(time(0));
 
     do{
-    int rgame = rand() % 124;
+    int rgame = rand() % 125;
     //cout << endl << "random game: " << rgame;
     cat = 0;
     displayMainMenu();
@@ -926,6 +926,11 @@ int main()
 
         case 12:
             system("CLS");
+            playStartingPoints();
+            break;
+
+        case 13:
+            system("CLS");
             break;
 
         default:
@@ -933,7 +938,7 @@ int main()
 
         } // end switch for custom games
         }
-        while (cus != 12);
+        while (cus != 13);
         break;
 
     case 11: /// Play a user-generated line-up
@@ -1256,12 +1261,13 @@ void displayRetired2Menu()
 void displayCustomMenu()
 {
     cout << endl << "CUSTOM GAMES" << endl;
-    cout << endl << "1. Big Item Bash   7. One For All";
-    cout << endl << "2. Domino Game     8. One Way Or Another";
-    cout << endl << "3. Eth's Pastas    9. Price Search";
-    cout << endl << "4. Fill 'er Up     10. 7UP";
-    cout << endl << "5. Jam             11. Shot in the Dark";
-    cout << endl << "6. Master Price    12. Go back";
+    cout << endl << "1. Big Item Bash   8. One Way Or Another";
+    cout << endl << "2. Domino Game     9. Price Search";
+    cout << endl << "3. Eth's Pastas    10. 7UP";
+    cout << endl << "4. Fill 'er Up     11. Shot in the Dark";
+    cout << endl << "5. Jam             12. Starting Points";
+    cout << endl << "6. Master Price    13. Go back";
+    cout << endl << "7. One For All";
     cout << endl << "Select a pricing game: ";
 }
 
@@ -1513,6 +1519,8 @@ void randomGame(int r)
         playEthsPastas();
     else if (r == 122)
         playShotInTheDark();
+    else if (r == 123)
+        playStartingPoints();
     else
         playVendOPrice();
 }
