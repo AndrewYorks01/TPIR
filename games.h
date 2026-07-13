@@ -7335,6 +7335,497 @@ void playToThePenny()
     system("CLS");
 }
 
+/// Tower of Cash
+void playTowerOfCash()
+{
+    /// Credit to PricinPatrick for making this game!
+
+    list<grocery> ggItems;
+    list<grocery>::iterator ggItemIt;
+
+    string t_ggDescription;
+    string t_ggShortName;
+    double t_ggPrice;
+
+    grocery * ggptr;
+
+    srand(time(0));
+
+    int i = 0;
+    ifstream inFile;
+    inFile.open("./prizes/" + grocInput);
+    while (inFile)
+    {
+    ggptr = new grocery;
+    if ( (inFile >> t_ggDescription >> t_ggShortName >> t_ggPrice) && (t_ggPrice > 0.5) )
+    {
+        ggptr->setDescription(t_ggDescription);
+        ggptr->setShortName(t_ggShortName);
+        ggptr->setPrice(t_ggPrice);
+        ggItems.push_back(*ggptr);
+        i++;
+    }
+    } // end while loop
+    inFile.close();
+
+    cout << "TOWER OF CASH" << endl;
+
+    grocery items[10];
+
+    int first;
+
+    int second;
+    bool foundSecond = false;
+
+    int third;
+    bool foundThird = false;
+
+    int fourth;
+    bool foundFourth = false;
+
+    int fifth;
+    bool foundFifth = false;
+
+    int sixth;
+    bool foundSixth = false;
+
+    int seventh;
+    bool foundSeventh = false;
+
+    int eighth;
+    bool foundEighth = false;
+
+    int ninth;
+    bool foundNinth = false;
+
+    int tenth;
+    bool foundTenth = false;
+
+    /// Generate first item.
+    first = rand() % i;
+    ggItemIt = ggItems.begin();
+    for (int z = 0; z < first; z++)
+        ggItemIt++;
+    items[0].setDescription(ggItemIt->getDescription());
+    items[0].setShortName(ggItemIt->getShortName());
+    items[0].setPrice(ggItemIt->getPrice());
+
+    /// Generate second item.
+    while (!foundSecond){
+    second = first;
+    while (second == first)
+        second = rand() % i;
+    ggItemIt = ggItems.begin();
+    for (int z2 = 0; z2 < second; z2++)
+        ggItemIt++;
+    if (ggItemIt->getPrice() != items[0].getPrice()){
+        items[1].setDescription(ggItemIt->getDescription());
+        items[1].setShortName(ggItemIt->getShortName());
+        items[1].setPrice(ggItemIt->getPrice());
+        foundSecond = true;
+    } // end if
+    } // end while loop that generates the second item
+
+    /// Generate third item.
+    while (!foundThird){
+    third = first;
+    while ( (third == first) || (third == second) )
+        third = rand() % i;
+    ggItemIt = ggItems.begin();
+    for (int z3 = 0; z3 < third; z3++)
+        ggItemIt++;
+    if ( (ggItemIt->getPrice() != items[0].getPrice()) && (ggItemIt->getPrice() != items[1].getPrice()) ){
+        items[2].setDescription(ggItemIt->getDescription());
+        items[2].setShortName(ggItemIt->getShortName());
+        items[2].setPrice(ggItemIt->getPrice());
+        foundThird = true;
+    } // end if
+    } // end while loop that generates the third item
+
+    /// Generate fourth item.
+    while (!foundFourth){
+    fourth = first;
+    while ( (fourth == first) || (fourth == second) || (fourth == third) )
+        fourth = rand() % i;
+    ggItemIt = ggItems.begin();
+    for (int z4 = 0; z4 < fourth; z4++)
+        ggItemIt++;
+     if ( (ggItemIt->getPrice() != items[0].getPrice()) && (ggItemIt->getPrice() != items[1].getPrice())
+         && (ggItemIt->getPrice() != items[2].getPrice()) ){
+        items[3].setDescription(ggItemIt->getDescription());
+        items[3].setShortName(ggItemIt->getShortName());
+        items[3].setPrice(ggItemIt->getPrice());
+        foundFourth = true;
+    } // end if
+    } // end while loop that generates the fourth item
+
+    /// Generate fifth item.
+    while (!foundFifth){
+    fifth = first;
+    while ( (fifth == first) || (fifth == second) || (fifth == third) || (fifth == fourth) )
+        fifth = rand() % i;
+    ggItemIt = ggItems.begin();
+    for (int z5 = 0; z5 < fifth; z5++)
+        ggItemIt++;
+     if ( (ggItemIt->getPrice() != items[0].getPrice()) && (ggItemIt->getPrice() != items[1].getPrice())
+         && (ggItemIt->getPrice() != items[2].getPrice()) && (ggItemIt->getPrice() != items[3].getPrice()) ){
+        items[4].setDescription(ggItemIt->getDescription());
+        items[4].setShortName(ggItemIt->getShortName());
+        items[4].setPrice(ggItemIt->getPrice());
+        foundFifth = true;
+    } // end if
+    } // end while loop that generates the fifth item
+
+    /// Generate sixth item.
+    while (!foundSixth){
+    sixth = first;
+    while ( (sixth == first) || (sixth == second) || (sixth == third) || (sixth == fourth) || (sixth == fifth) )
+        sixth = rand() % i;
+    ggItemIt = ggItems.begin();
+    for (int z6 = 0; z6 < sixth; z6++)
+        ggItemIt++;
+     if ( (ggItemIt->getPrice() != items[0].getPrice()) && (ggItemIt->getPrice() != items[1].getPrice())
+         && (ggItemIt->getPrice() != items[2].getPrice()) && (ggItemIt->getPrice() != items[3].getPrice())
+         && (ggItemIt->getPrice() != items[4].getPrice()) ){
+        items[5].setDescription(ggItemIt->getDescription());
+        items[5].setShortName(ggItemIt->getShortName());
+        items[5].setPrice(ggItemIt->getPrice());
+        foundSixth = true;
+    } // end if
+    } // end while loop that generates the sixth item
+
+    /// Generate seventh item.
+    while (!foundSeventh){
+    seventh = first;
+    while ( (seventh == first) || (seventh == second) || (seventh == third) || (seventh == fourth) || (seventh == fifth) || (seventh == sixth) )
+        seventh = rand() % i;
+    ggItemIt = ggItems.begin();
+    for (int z7 = 0; z7 < seventh; z7++)
+        ggItemIt++;
+     if ( (ggItemIt->getPrice() != items[0].getPrice()) && (ggItemIt->getPrice() != items[1].getPrice())
+         && (ggItemIt->getPrice() != items[2].getPrice()) && (ggItemIt->getPrice() != items[3].getPrice())
+         && (ggItemIt->getPrice() != items[4].getPrice()) && (ggItemIt->getPrice() != items[5].getPrice()) ){
+        items[6].setDescription(ggItemIt->getDescription());
+        items[6].setShortName(ggItemIt->getShortName());
+        items[6].setPrice(ggItemIt->getPrice());
+        foundSeventh = true;
+    } // end if
+    } // end while loop that generates the seventh item
+
+    /// Generate eighth item.
+    while (!foundEighth){
+    eighth = first;
+    while ( (eighth == first) || (eighth == second) || (eighth == third) || (eighth == fourth) || (eighth == fifth) || (eighth == sixth) || (eighth == seventh) )
+        eighth = rand() % i;
+    ggItemIt = ggItems.begin();
+    for (int z8 = 0; z8 < eighth; z8++)
+        ggItemIt++;
+     if ( (ggItemIt->getPrice() != items[0].getPrice()) && (ggItemIt->getPrice() != items[1].getPrice())
+         && (ggItemIt->getPrice() != items[2].getPrice()) && (ggItemIt->getPrice() != items[3].getPrice())
+         && (ggItemIt->getPrice() != items[4].getPrice()) && (ggItemIt->getPrice() != items[5].getPrice())
+         && (ggItemIt->getPrice() != items[6].getPrice()) ){
+        items[7].setDescription(ggItemIt->getDescription());
+        items[7].setShortName(ggItemIt->getShortName());
+        items[7].setPrice(ggItemIt->getPrice());
+        foundEighth = true;
+    } // end if
+    } // end while loop that generates the eighth item
+
+    /// Generate ninth item.
+    while (!foundNinth){
+    ninth = first;
+    while ( (ninth == first) || (ninth == second) || (ninth == third) || (ninth == fourth) || (ninth == fifth) || (ninth == sixth) || (ninth == seventh) || (ninth == eighth) )
+        ninth = rand() % i;
+    ggItemIt = ggItems.begin();
+    for (int z9 = 0; z9 < ninth; z9++)
+        ggItemIt++;
+     if ( (ggItemIt->getPrice() != items[0].getPrice()) && (ggItemIt->getPrice() != items[1].getPrice())
+         && (ggItemIt->getPrice() != items[2].getPrice()) && (ggItemIt->getPrice() != items[3].getPrice())
+         && (ggItemIt->getPrice() != items[4].getPrice()) && (ggItemIt->getPrice() != items[5].getPrice())
+         && (ggItemIt->getPrice() != items[6].getPrice()) && (ggItemIt->getPrice() != items[7].getPrice())  ){
+        items[8].setDescription(ggItemIt->getDescription());
+        items[8].setShortName(ggItemIt->getShortName());
+        items[8].setPrice(ggItemIt->getPrice());
+        foundNinth = true;
+    } // end if
+    } // end while loop that generates the ninth item
+
+    /// Generate tenth item.
+    while (!foundTenth){
+    tenth = first;
+    while ( (tenth == first) || (tenth == second) || (tenth == third) || (tenth == fourth) || (tenth == fifth) || (tenth == sixth) || (tenth == seventh) || (tenth == eighth) || (tenth == ninth) )
+        tenth = rand() % i;
+    ggItemIt = ggItems.begin();
+    for (int z10 = 0; z10 < tenth; z10++)
+        ggItemIt++;
+     if ( (ggItemIt->getPrice() != items[0].getPrice()) && (ggItemIt->getPrice() != items[1].getPrice())
+         && (ggItemIt->getPrice() != items[2].getPrice()) && (ggItemIt->getPrice() != items[3].getPrice())
+         && (ggItemIt->getPrice() != items[4].getPrice()) && (ggItemIt->getPrice() != items[5].getPrice())
+         && (ggItemIt->getPrice() != items[6].getPrice()) && (ggItemIt->getPrice() != items[7].getPrice())
+         && (ggItemIt->getPrice() != items[8].getPrice()) ){
+        items[9].setDescription(ggItemIt->getDescription());
+        items[9].setShortName(ggItemIt->getShortName());
+        items[9].setPrice(ggItemIt->getPrice());
+        foundTenth = true;
+    } // end if
+    } // end while loop that generates the ninth item
+
+    /// Represents if an item has been picked.
+    bool picked[10];
+    for (int p = 0; p < 10; p++)
+            picked[p] = false;
+
+    /// The ints here will be the ids for each grocery item.
+    int arrangement[10];
+
+    /// The ints here will be the order for each item.
+    int order[10];
+
+    cout << endl;
+
+    int on = 0;
+
+    while (on < 10)
+    {
+        cout << endl;
+        for (int y = 0; y < 10; y++)
+        {
+            cout << y+1 << ". ";
+            items[y].showPrize();
+            if (picked[y])
+                cout << " - " << order[y];
+            cout << endl;
+        }
+        int choice = 0;
+        while ( (choice < 1) ||  (choice > 10) )
+        {
+            if (on == 0)
+                cout << endl << "Which item is the least expensive?: ";
+            else if (on == 9)
+                cout << endl << "Which item is the most expensive?: ";
+            else
+                cout << endl << "Which item is the next least expensive?: ";
+            cin >> choice;
+        }
+        if (picked[choice-1])
+            cout << endl << "You've already chosen this item. Please choose another.";
+        else
+        {
+            picked[choice-1] = true;
+            arrangement[on] = choice-1;
+            order[choice-1] = on+1;
+            on++;
+        }
+
+    } // end while loop
+
+    cout << endl;
+    for (int y = 0; y < 10; y++)
+    {
+        cout << y+1 << ". ";
+        items[y].showPrize();
+        if (picked[y])
+            cout << " - " << order[y];
+        cout << endl;
+    }
+
+    cout << endl << "Here's how you've ranked the items.";
+    cout << endl << "Let's see how you did...";
+    cout << endl;
+    system("pause");
+
+    double lastPrice;
+    char goOn = 'x';
+
+    cout << endl << "The actual retail price of the ";
+    items[arrangement[0]].showShortName();
+    cout << " is ";
+    items[arrangement[0]].showARP();
+    lastPrice = items[arrangement[0]].getPrice();
+    cout << endl;
+    system("pause");
+
+    cout << endl << "The actual retail price of the ";
+    items[arrangement[1]].showShortName();
+    cout << " is ";
+    items[arrangement[1]].showARP();
+    if (items[arrangement[1]].getPrice() >= lastPrice)
+    {
+        lastPrice = items[arrangement[1]].getPrice();
+        cout << endl;
+        cout << "You now have $500.";
+        while ( (goOn != 'Y') && (goOn != 'y') && (goOn != 'N') && (goOn != 'n') ){
+         cout << endl << "Do you want to go for $1000 (Y) or stop now (N)?: ";
+         cin >> goOn;
+         }
+        if ( (goOn == 'Y') || (goOn == 'y') ){
+            goOn = 'x';
+            cout << endl << "The actual retail price of the ";
+            items[arrangement[2]].showShortName();
+            cout << " is ";
+            items[arrangement[2]].showARP();
+            if (items[arrangement[2]].getPrice() >= lastPrice){
+                lastPrice = items[arrangement[2]].getPrice();
+                cout << endl;
+                cout << "You now have $1000.";
+                while ( (goOn != 'Y') && (goOn != 'y') && (goOn != 'N') && (goOn != 'n') ){
+                 cout << endl << "Do you want to go for $2500 (Y) or stop now (N)?: ";
+                 cin >> goOn;
+                }
+                if ( (goOn == 'Y') || (goOn == 'y') ){
+                    goOn = 'x';
+                    cout << endl << "The actual retail price of the ";
+                    items[arrangement[3]].showShortName();
+                    cout << " is ";
+                    items[arrangement[3]].showARP();
+                    if (items[arrangement[3]].getPrice() >= lastPrice){
+                    lastPrice = items[arrangement[3]].getPrice();
+                    cout << endl;
+                    cout << "You now have $2500, and are now guaranteed at least that much.";
+                    while ( (goOn != 'Y') && (goOn != 'y') && (goOn != 'N') && (goOn != 'n') ){
+                     cout << endl << "Do you want to go for $5000 (Y) or stop now (N)?: ";
+                     cin >> goOn;
+                    }
+                    if ( (goOn == 'Y') || (goOn == 'y') ){
+                        goOn = 'x';
+                        cout << endl << "The actual retail price of the ";
+                        items[arrangement[4]].showShortName();
+                        cout << " is ";
+                        items[arrangement[4]].showARP();
+                        if (items[arrangement[4]].getPrice() >= lastPrice){
+                        lastPrice = items[arrangement[4]].getPrice();
+                        cout << endl;
+                        cout << "You now have $5000.";
+                        while ( (goOn != 'Y') && (goOn != 'y') && (goOn != 'N') && (goOn != 'n') ){
+                         cout << endl << "Do you want to go for $7500 (Y) or stop now (N)?: ";
+                         cin >> goOn;
+                        }
+                        if ( (goOn == 'Y') || (goOn == 'y') ){
+                            goOn = 'x';
+                            cout << endl << "The actual retail price of the ";
+                            items[arrangement[5]].showShortName();
+                            cout << " is ";
+                            items[arrangement[5]].showARP();
+                            if (items[arrangement[5]].getPrice() >= lastPrice){
+                            lastPrice = items[arrangement[5]].getPrice();
+                            cout << endl;
+                            cout << "You now have $7500.";
+                            while ( (goOn != 'Y') && (goOn != 'y') && (goOn != 'N') && (goOn != 'n') ){
+                             cout << endl << "Do you want to go for $10,000 (Y) or stop now (N)?: ";
+                             cin >> goOn;
+                            }
+                            if ( (goOn == 'Y') || (goOn == 'y') ){
+                                goOn = 'x';
+                                cout << endl << "The actual retail price of the ";
+                                items[arrangement[6]].showShortName();
+                                cout << " is ";
+                                items[arrangement[6]].showARP();
+                                if (items[arrangement[6]].getPrice() >= lastPrice){
+                                lastPrice = items[arrangement[6]].getPrice();
+                                cout << endl;
+                                cout << "You now have $10,000, and are guaranteed at least that much.";
+                                while ( (goOn != 'Y') && (goOn != 'y') && (goOn != 'N') && (goOn != 'n') ){
+                                 cout << endl << "Do you want to go for $12,500 (Y) or stop now (N)?: ";
+                                 cin >> goOn;
+                                }
+                                if ( (goOn == 'Y') || (goOn == 'y') ){
+                                    goOn = 'x';
+                                    cout << endl << "The actual retail price of the ";
+                                    items[arrangement[7]].showShortName();
+                                    cout << " is ";
+                                    items[arrangement[7]].showARP();
+                                    if (items[arrangement[7]].getPrice() >= lastPrice){
+                                        lastPrice = items[arrangement[7]].getPrice();
+                                        cout << endl;
+                                        cout << "You now have $12,500.";
+                                        while ( (goOn != 'Y') && (goOn != 'y') && (goOn != 'N') && (goOn != 'n') ){
+                                         cout << endl << "Do you want to go for $25,000 (Y) or stop now (N)?: ";
+                                         cin >> goOn;
+                                        }
+                                        if ( (goOn == 'Y') || (goOn == 'y') ){
+                                            goOn = 'x';
+                                            cout << endl << "The actual retail price of the ";
+                                            items[arrangement[8]].showShortName();
+                                            cout << " is ";
+                                            items[arrangement[8]].showARP();
+                                            if (items[arrangement[8]].getPrice() >= lastPrice){
+                                                lastPrice = items[arrangement[8]].getPrice();
+                                                cout << endl;
+                                                cout << "You now have $25,000.";
+                                                while ( (goOn != 'Y') && (goOn != 'y') && (goOn != 'N') && (goOn != 'n') ){
+                                                 cout << endl << "Do you want to go for $50,000 (Y) or stop now (N)?: ";
+                                                 cin >> goOn;
+                                                }
+                                                if ( (goOn == 'Y') || (goOn == 'y') ){
+                                                    cout << endl << "The actual retail price of the ";
+                                                    items[arrangement[9]].showShortName();
+                                                    cout << " is ";
+                                                    items[arrangement[9]].showARP();
+                                                    if (items[arrangement[9]].getPrice() >= lastPrice)
+                                                        cout << endl << "Congratulations, you win $50,000!";
+                                                    else
+                                                        cout << endl << "Sorry, you lose. You did win $10,000 though.";
+                                                }
+                                                else
+                                                    cout << endl << "You're walking away with $25,000. Thanks for playing!";
+
+                                            } // ninth item is more expensive than eighth
+                                            else
+                                                cout << endl << "Sorry, you lose. You did win $10,000 though.";
+                                            } // continue after receiving $12,500
+                                        else
+                                            cout << endl << "You're walking away with $12,500. Thanks for playing!";
+                                    } // eighth item is more expensive than seventh
+                                    else
+                                        cout << endl << "Sorry, you lose. You did win $10,000 though.";
+                                    } // continue after receiving $10,000
+                                else
+                                    cout << endl << "You're walking away with $10,000. Thanks for playing!";
+
+                                } // seventh item is more expensive than sixth
+                                else
+                                    cout << endl << "Sorry, you lose. You did win $2500 though.";
+
+                            } // continue after receiving $7500
+                            else
+                                cout << endl << "You're walking away with $7500. Thanks for playing!";
+
+                            } // sixth item is more expensive than fifth
+                            else
+                                cout << endl << "Sorry, you lose. You did win $2500 though.";
+                        } // continue after receiving $5000
+                        else
+                            cout << endl << "You're walking away with $5000. Thanks for playing!";
+                        } // fifth item is more expensive than fourth
+                        else
+                            cout << endl << "Sorry, you lose. You did win $2500 though.";
+                    } // continue after receiving $2500
+                    else
+                        cout << endl << "You're walking away with $2500. Thanks for playing!";
+                    } // fourth item is more expensive than third
+                    else
+                        cout << endl << "Sorry, you lose.";
+
+                } // continue after receiving $1000
+                else
+                    cout << endl << "You're walking away with $1000. Thanks for playing!";
+            } // third item is more expensive than second
+            else
+                cout << endl << "Sorry, you lose.";
+
+        } // continue after receiving $500
+        else
+            cout << endl << "You're walking away with $500. Thanks for playing!";
+    } // second item is more expensive than first
+    else
+        cout << endl << "Sorry, you lose.";
+
+    /// end of the game
+    cout << endl;
+    system("pause");
+    system("CLS");
+}
+
 /// Vend-o-Price
 void playVendOPrice()
 {

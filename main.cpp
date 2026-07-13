@@ -36,7 +36,7 @@ void randomGame(int r);
 
 int main()
 {
-    //playStartingPoints();
+    //playTowerOfCash();
 
     int cat; /// Category selection
     int gro; /// Grocery game selection
@@ -56,7 +56,7 @@ int main()
     srand(time(0));
 
     do{
-    int rgame = rand() % 125;
+    int rgame = rand() % 126;
     //cout << endl << "random game: " << rgame;
     cat = 0;
     displayMainMenu();
@@ -931,14 +931,19 @@ int main()
 
         case 13:
             system("CLS");
+            playTowerOfCash();
+            break;
+
+        case 14:
+            system("CLS");
             break;
 
         default:
-            cout << endl << "Please enter a number between 1 and 12.";
+            cout << endl << "Please enter a number between 1 and 14.";
 
         } // end switch for custom games
         }
-        while (cus != 13);
+        while (cus != 14);
         break;
 
     case 11: /// Play a user-generated line-up
@@ -1266,8 +1271,8 @@ void displayCustomMenu()
     cout << endl << "3. Eth's Pastas    10. 7UP";
     cout << endl << "4. Fill 'er Up     11. Shot in the Dark";
     cout << endl << "5. Jam             12. Starting Points";
-    cout << endl << "6. Master Price    13. Go back";
-    cout << endl << "7. One For All";
+    cout << endl << "6. Master Price    13. Tower of Cash";
+    cout << endl << "7. One For All     14. Go back";
     cout << endl << "Select a pricing game: ";
 }
 
@@ -1521,6 +1526,8 @@ void randomGame(int r)
         playShotInTheDark();
     else if (r == 123)
         playStartingPoints();
+    else if (r == 124)
+        playTowerOfCash();
     else
         playVendOPrice();
 }
