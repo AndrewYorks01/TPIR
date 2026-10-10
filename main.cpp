@@ -22,16 +22,21 @@ using namespace std;
 
 /// function prototypes for the menu functions
 void displayMainMenu();
-void displayGrocMenu();
-void displaySmalMenu();
+void displayFeeMenu();
 void displaySingMenu();
 void displayMultMenu();
 void displayCarsMenu();
 void displayCars2Menu();
 void displayCashMenu();
-void displayRetiredMenu();
-void displayRetired2Menu();
 void displayCustomMenu();
+void displayGamesACMenu();
+void displayGamesDGMenu();
+void displayGamesHMMenu();
+void displayGamesNPMenu();
+void displayGamesRSMenu();
+void displayGamesTWMenu();
+
+/// play a random game
 void randomGame(int r);
 
 int main()
@@ -41,14 +46,21 @@ int main()
     int cat; /// Category selection
     int gro; /// Grocery game selection
     int sma; /// Small prize game selection
+    int fee; /// Fee game selection
     int sng; /// Single-prize game selection
     int mul; /// Multi-prize game selection
     int cgs; /// Car game selection
     int cms; /// Car games with other items selection
     int csh; /// Cash game selection
-    int ret; /// Retired games (A-J) selection
-    int re2; /// Retired games (M-W) selection
     int cus; /// Custom games selection
+
+    int all; /// Choose when selecting from all games
+    int g_ac; /// Games A-C selection
+    int g_dg; /// Games D-G selection
+    int g_hm; /// Games H-M selection
+    int g_np; /// Games N-P selection
+    int g_rs; /// Games R-S selection
+    int g_tw; /// Games T-W selection
 
     bool mdsMode;
 
@@ -69,69 +81,12 @@ int main()
         randomGame(rgame);
         break;
 
-
-    case 1: /// Grocery games
-        gro = 0;
+    case 1: /// Fee games
+        fee = 0;
         do{
-        displayGrocMenu();
-        cin >> gro;
-        switch (gro)
-        {
-
-        case 1:
-            system("CLS");
-            playBullseye();
-            break;
-
-        case 2:
-            system("CLS");
-            playCheckOut();
-            break;
-
-        case 3:
-            system("CLS");
-            playGroceryGame();
-            break;
-
-        case 4:
-            system("CLS");
-            playHiLo();
-            break;
-
-        case 5:
-            system("CLS");
-            playNowOrThen();
-            break;
-
-        case 6:
-            system("CLS");
-            playPickAPair();
-            break;
-
-        case 7:
-            system("CLS");
-            playVendOPrice();
-            break;
-
-        case 8:
-            system("CLS");
-            break;
-
-        default:
-            cout << endl << "Please enter a number between 1 and 8.";
-
-        } // end switch statement for grocery games
-
-        } // end grocery do-while loop
-        while (gro != 8);
-        break;
-
-    case 2: /// Small prize games
-        sma = 0;
-        do{
-        displaySmalMenu();
-        cin >> sma;
-        switch (sma)
+            displayFeeMenu();
+            cin >> fee;
+        switch (fee)
         {
         case 1:
             system("CLS");
@@ -140,38 +95,123 @@ int main()
 
         case 2:
             system("CLS");
-            playBonusGame();
+            playBalanceGame84();
             break;
 
         case 3:
             system("CLS");
-            playCliffHangers();
+            playBonusGame();
             break;
 
         case 4:
             system("CLS");
-            playSecretX();
+            playBullseye();
             break;
 
         case 5:
             system("CLS");
-            playShellGame();
+            playCheckOut();
             break;
 
         case 6:
             system("CLS");
+            playCliffHangers();
+            break;
+
+        case 7:
+            system("CLS");
+            playFinishLine();
+            break;
+
+        case 8:
+            system("CLS");
+            playGiveOrKeep();
+            break;
+
+        case 9:
+            system("CLS");
+            playGroceryGame();
+            break;
+
+        case 10:
+            system("CLS");
+            playHiLo();
+            break;
+
+        case 11:
+            system("CLS");
+            playHitMe();
+            break;
+
+        case 12:
+            system("CLS");
+            playHurdles();
+            break;
+
+        case 13:
+            system("CLS");
+            playJoker();
+            break;
+
+        case 14:
+            system("CLS");
+            playMysteryPrice();
+            break;
+
+        case 15:
+            system("CLS");
+            playNowOrThen();
+            break;
+
+        case 16:
+            system("CLS");
+            playPennyAnte();
+            break;
+
+        case 17:
+            system("CLS");
+            playPickAPair();
+            break;
+
+        case 18:
+            system("CLS");
+            playSecretX();
+            break;
+
+        case 19:
+            system("CLS");
+            playShellGame();
+            break;
+
+        case 20:
+            system("CLS");
+            playSuperSaver();
+            break;
+
+        case 21:
+            system("CLS");
+            playTraderBob();
+            break;
+
+        case 22:
+            system("CLS");
+            playVendOPrice();
+            break;
+
+        case 23:
+            system("CLS");
             break;
 
         default:
-            cout << endl << "Please enter a number between 1 and 6.";
+            cout << endl << "Please enter a number between 1 and 23.";
 
-        } // end switch statement for small prize games
+        } // end switch statement for fee games
+        } // end fee do-while
+        while (fee != 23);
 
-        } // end small do-while loop
-        while (sma != 6);
         break;
 
-    case 3: /// Single-prize games
+    case 2: /// Single-prize games
         sng = 0;
         do{
         displaySingMenu();
@@ -215,43 +255,48 @@ int main()
 
         case 8:
             system("CLS");
-            playPickANumber();
+            playGalleryGame();
             break;
 
         case 9:
             system("CLS");
-            playPushOver();
+            playPickANumber();
             break;
 
         case 10:
             system("CLS");
-            playRangeGame();
+            playPushOver();
             break;
 
         case 11:
             system("CLS");
-            playSideBySide();
+            playRangeGame();
             break;
 
         case 12:
             system("CLS");
-            playSqueezePlay();
+            playSideBySide();
             break;
 
         case 13:
             system("CLS");
+            playSqueezePlay();
+            break;
+
+        case 14:
+            system("CLS");
             break;
 
         default:
-           cout << endl << "Please enter a number between 1 and 13.";
+           cout << endl << "Please enter a number between 1 and 14.";
 
         } // end switch statement for single-prize games
 
-        } // end small do-while loop
-        while (sng != 13);
+        } // end do-while loop
+        while (sng != 14);
         break;
 
-    case 4: /// Multi-prize games
+    case 3: /// Multi-prize games
         mul = 0;
         do{
         displayMultMenu();
@@ -265,139 +310,215 @@ int main()
 
         case 2:
             system("CLS");
-            playClockGame();
+            playBump();
             break;
 
         case 3:
             system("CLS");
-            playDangerPrice();
+            playBuyOrSell();
             break;
 
         case 4:
             system("CLS");
-            playDoTheMath();
+            playClearanceSale();
             break;
 
         case 5:
             system("CLS");
-            playDoubleCross();
+            playClockGame();
             break;
 
         case 6:
             system("CLS");
-            playEasyAs123();
+            playCreditCard();
             break;
 
         case 7:
             system("CLS");
-            playMakeYourMove();
+            playDangerPrice();
             break;
 
         case 8:
             system("CLS");
-            playMostExpensive();
+            playDoTheMath();
             break;
 
         case 9:
             system("CLS");
-            playOneRightPrice();
+            playDoubleCross();
             break;
 
         case 10:
             system("CLS");
-            playOneWrongPrice();
+            playEasyAs123();
             break;
 
         case 11:
             system("CLS");
-            playRaceGame();
+            playMagicNumber();
             break;
 
         case 12:
             system("CLS");
-            playSafeCrackers();
+            playMakeYourMark();
             break;
 
         case 13:
             system("CLS");
-            playShoppingSpree();
+            playMakeYourMove();
             break;
 
         case 14:
             system("CLS");
-            playSwapMeet();
+            playMostExpensive();
             break;
 
         case 15:
             system("CLS");
-            playSwitch();
+            playOneRightPrice();
             break;
 
         case 16:
             system("CLS");
-            playTakeTwo();
+            playOneWrongPrice();
             break;
 
         case 17:
             system("CLS");
-            playTwoForOne();
+            playPokerGame();
             break;
 
         case 18:
             system("CLS");
+            playRaceGame();
+            break;
+
+        case 19:
+            system("CLS");
+            playSafeCrackers();
+            break;
+
+        case 20:
+            system("CLS");
+            playShoppingSpree();
+            break;
+
+        case 21:
+            system("CLS");
+            playStepUp();
+            break;
+
+        case 22:
+            system("CLS");
+            playSuperBall();
+            break;
+
+        case 23:
+            system("CLS");
+            playSwapMeet();
+            break;
+
+        case 24:
+            system("CLS");
+            playSwitch();
+            break;
+
+        case 25:
+            system("CLS");
+            playTakeTwo();
+            break;
+
+        case 26:
+            system("CLS");
+            playTwoForOne();
+            break;
+
+        case 27:
+            system("CLS");
+            playWalkOfFame();
+            break;
+
+        case 28:
+            system("CLS");
             break;
 
         default:
-            cout << endl << "Please enter a number between 1 and 18.";
+            cout << endl << "Please enter a number between 1 and 28.";
 
         } // end switch statement for multi-prize games
-        }
-        while (mul != 18);
+        } // end do-while loop
+        while (mul != 28);
         break;
 
-    case 5: /// Car games
+    case 4: /// Car games
         cgs = 0;
         do{
         displayCarsMenu();
         cin >> cgs;
         switch (cgs)
         {
+
         case 1:
             system("CLS");
-            playCardGame();
+            playAddEmUp();
             break;
 
         case 2:
             system("CLS");
-            playCoverUp();
+            playBullseye72();
             break;
 
         case 3:
             system("CLS");
-            playDiceGame();
+            playCardGame();
             break;
 
         case 4:
             system("CLS");
-            playGasMoney();
+            playCoverUp();
             break;
 
         case 5:
             system("CLS");
-            playGridlock();
+            playDiceGame();
             break;
 
         case 6:
             system("CLS");
-            playLuckySeven();
+            playDoubleBullseye();
             break;
 
         case 7:
             system("CLS");
-            playMoneyGame();
+            playGasMoney();
             break;
 
         case 8:
+            system("CLS");
+            playGridlock();
+            break;
+
+        case 9:
+            system("CLS");
+            playItsOptional();
+            break;
+
+        case 10:
+            system("CLS");
+            playLuckySeven();
+            break;
+
+        case 11:
+            system("CLS");
+            playMoneyGame();
+            break;
+
+        case 12:
+            system("CLS");
+            playOnTheNose();
+            break;
+
+        case 13:
         {
             char oneAwayMDG = '!';
             while ( (oneAwayMDG != 'Y') && (oneAwayMDG != 'N') &&  (oneAwayMDG != 'y') && (oneAwayMDG != 'n') ){
@@ -415,39 +536,49 @@ int main()
             break;
         }
 
-        case 9:
+        case 14:
             system("CLS");
             playPocketChange();
             break;
 
-        case 10:
+        case 15:
+            system("CLS");
+            playProfessorPrice();
+            break;
+
+        case 16:
+            system("CLS");
+            playShowerGame();
+            break;
+
+        case 17:
             system("CLS");
             playThatsTooMuch();
             break;
 
-        case 11:
+        case 18:
             system("CLS");
             playThreeStrikes();
             break;
 
-        case 12:
+        case 19:
             system("CLS");
             playTriplePlay();
             break;
 
-        case 13:
+        case 20:
             system("CLS");
             break;
 
         default:
-            cout << endl << "Please enter a number between 1 and 13.";
+            cout << endl << "Please enter a number between 1 and 20.";
 
         } // end switch statement for car games
         }
-        while (cgs != 13);
+        while (cgs != 20);
         break;
 
-    case 6: /// Car/other prizes games
+    case 5: /// Car/other prizes games
         cms = 0;
         do{
         displayCars2Menu();
@@ -462,65 +593,80 @@ int main()
 
         case 2:
             system("CLS");
-            playFivePriceTags();
+            playDoubleDigits();
             break;
 
         case 3:
             system("CLS");
-            playGoldenRoad();
+            playFivePriceTags();
             break;
 
         case 4:
             system("CLS");
-            playHoleInOne();
+            playGoldenRoad();
             break;
 
         case 5:
             system("CLS");
-            playLetEmRoll();
+            playHoleInOne();
             break;
 
         case 6:
             system("CLS");
-            playLineEmUp();
+            playLetEmRoll();
             break;
 
         case 7:
             system("CLS");
-            playMasterKey();
+            playLineEmUp();
             break;
 
         case 8:
             system("CLS");
-            playMoreOrLess();
+            playMasterKey();
             break;
 
         case 9:
             system("CLS");
-            playPassTheBuck();
+            playMoreOrLess();
             break;
 
         case 10:
             system("CLS");
-            playPathfinder();
+            playOnTheSpot();
             break;
 
         case 11:
             system("CLS");
-            playRatRace();
+            playPassTheBuck();
             break;
 
         case 12:
             system("CLS");
-            playSpellingBee();
+            playPathfinder();
             break;
 
         case 13:
             system("CLS");
-            playStackTheDeck();
+            playRatRace();
             break;
 
         case 14:
+            system("CLS");
+            playSpellingBee();
+            break;
+
+        case 15:
+            system("CLS");
+            playSplitDecision();
+            break;
+
+        case 16:
+            system("CLS");
+            playStackTheDeck();
+            break;
+
+        case 17:
         {
             char switcherooMDG = '!';
             while ( (switcherooMDG != 'Y') && (switcherooMDG != 'N') && (switcherooMDG != 'y') && (switcherooMDG != 'n') ){
@@ -540,40 +686,51 @@ int main()
             break;
         }
 
-        case 15:
+        case 18:
+            system("CLS");
+            playTelephoneGame();
+            break;
+
+        case 19:
             system("CLS");
             playTemptation();
             break;
 
-        case 16:
+        case 20:
             system("CLS");
             playTenChances();
             break;
 
-        case 17:
+        case 21:
             system("CLS");
             break;
 
         default:
-            cout << endl << "Please enter a number between 1 and 17.";
+            cout << endl << "Please enter a number between 1 and 21.";
         } // end switch statement for car/prize games
         }
-        while (cms != 17);
+        while (cms != 21);
         break;
 
-    case 7: /// Cash games
+    case 6: /// Cash games
         csh = 0;
         do{
         displayCashMenu();
         cin >> csh;
         switch (csh)
         {
+
         case 1:
+            system("CLS");
+            playFortuneHunter();
+            break;
+
+        case 2:
             system("CLS");
             playGrandGame();
             break;
 
-        case 2:
+        case 3:
         {
             char halfOffMDS = '!';
             char halfOffMDG = '!';
@@ -604,266 +761,64 @@ int main()
             break;
         }
 
-        case 3:
+        case 4:
             system("CLS");
             playHotSeat();
             break;
 
-        case 4:
+        case 5:
             system("CLS");
             playItsInTheBag();
             break;
 
-        case 5:
+        case 6:
             system("CLS");
             playPayTheRent();
             break;
 
-        case 6:
+        case 7:
             system("CLS");
             playPlinko();
             break;
 
-        case 7:
+        case 8:
             system("CLS");
             playPunchABunch();
             break;
 
-        case 8:
+        case 9:
             system("CLS");
             playTheLionsShare();
             break;
 
-        case 9:
-            system("CLS");
-            playTimeIsMoney();
-            break;
-
         case 10:
-            system("CLS");
-            playToThePenny();
-            break;
-
-        case 11:
-            system("CLS");
-            break;
-
-        default:
-            cout << endl << "Please enter a number between 1 and 11.";
-
-        } // end switch statement for cash games
-        }
-        while (csh != 11);
-        break;
-
-    case 8: /// Retired games (A-J)
-        ret = 0;
-        do{
-        displayRetiredMenu();
-        cin >> ret;
-        switch (ret)
-        {
-        case 1:
-            system("CLS");
-            playAddEmUp();
-            break;
-
-        case 2:
-            system("CLS");
-            playBalanceGame84();
-            break;
-
-        case 3:
-            system("CLS");
-            playBullseye72();
-            break;
-
-        case 4:
-            system("CLS");
-            playBump();
-            break;
-
-        case 5:
-            system("CLS");
-            playBuyOrSell();
-            break;
-
-        case 6:
-            system("CLS");
-            playClearanceSale();
-            break;
-
-        case 7:
-            system("CLS");
-            playCreditCard();
-            break;
-
-        case 8:
-            system("CLS");
-            playDoubleBullseye();
-            break;
-
-        case 9:
-            system("CLS");
-            playDoubleDigits();
-            break;
-
-        case 10:
-            system("CLS");
-            playFinishLine();
-            break;
-
-        case 11:
-            system("CLS");
-            playFortuneHunter();
-            break;
-
-        case 12:
-            system("CLS");
-            playGalleryGame();
-            break;
-
-        case 13:
-            system("CLS");
-            playGiveOrKeep();
-            break;
-
-        case 14:
-            system("CLS");
-            playHitMe();
-            break;
-
-        case 15:
-            system("CLS");
-            playHurdles();
-            break;
-
-        case 16:
-            system("CLS");
-            playItsOptional();
-            break;
-
-        case 17:
-            system("CLS");
-            playJoker();
-            break;
-
-        case 18:
-            system("CLS");
-            break;
-
-        default:
-            cout << endl << "Please enter a number between 1 and 18.";
-
-        } // end switch statement for retired games A-J
-        }
-        while (ret != 18);
-        break;
-
-    case 9:
-        re2 = 0;
-        do{
-        displayRetired2Menu();
-        cin >> re2;
-        switch (re2){
-        case 1:
-            system("CLS");
-            playMagicNumber();
-            break;
-
-        case 2:
-            system("CLS");
-            playMakeYourMark();
-            break;
-
-        case 3:
-            system("CLS");
-            playMysteryPrice();
-            break;
-
-        case 4:
-            system("CLS");
-            playOnTheNose();
-            break;
-
-        case 5:
-            system("CLS");
-            playOnTheSpot();
-            break;
-
-        case 6:
-            system("CLS");
-            playPennyAnte();
-            break;
-
-        case 7:
-            system("CLS");
-            playPokerGame();
-            break;
-
-        case 8:
-            system("CLS");
-            playProfessorPrice();
-            break;
-
-        case 9:
-            system("CLS");
-            playShowerGame();
-            break;
-
-        case 10:
-            system("CLS");
-            playSplitDecision();
-            break;
-
-        case 11:
-            system("CLS");
-            playStepUp();
-            break;
-
-        case 12:
-            system("CLS");
-            playSuperBall();
-            break;
-
-        case 13:
-            system("CLS");
-            playSuperSaver();
-            break;
-
-        case 14:
-            system("CLS");
-            playTelephoneGame();
-            break;
-
-        case 15:
             system("CLS");
             playThePhoneHomeGame();
             break;
 
-        case 16:
+        case 11:
             system("CLS");
-            playTraderBob();
+            playTimeIsMoney();
             break;
 
-        case 17:
+        case 12:
             system("CLS");
-            playWalkOfFame();
+            playToThePenny();
             break;
 
-        case 18:
+        case 13:
             system("CLS");
             break;
 
         default:
-            cout << endl << "Please enter a number between 1 and 18.";
+            cout << endl << "Please enter a number between 1 and 13.";
 
-        } // end switch statement for retired games M-W
+        } // end switch statement for cash games
         }
-        while (re2 != 18);
+        while (csh != 13);
         break;
 
-    case 10:
+    case 7:
         cus = 0;
         do{
         displayCustomMenu();
@@ -946,7 +901,857 @@ int main()
         while (cus != 14);
         break;
 
-    case 11: /// Play a user-generated line-up
+    case 8:
+        all = 0;
+        do{
+        cout << endl << "ALL GAMES";
+        cout << endl << "1. Games A-C";
+        cout << endl << "2. Games D-G";
+        cout << endl << "3. Games H-M";
+        cout << endl << "4. Games N-P";
+        cout << endl << "5. Games R-S";
+        cout << endl << "6. Games T-W";
+        cout << endl << "7. Go back";
+        cout << endl << "Select a range: ";
+        cin >> all;
+        switch (all){
+
+        /// Games A-C
+        case 1:
+            g_ac = 0;
+            do{
+            displayGamesACMenu();
+            cin >> g_ac;
+            switch (g_ac){
+            case 1:
+                system("CLS");
+                playAddEmUp();
+                break;
+
+            case 2:
+                system("CLS");
+                playAnyNumber();
+                break;
+
+            case 3:
+                system("CLS");
+                playBackTo72();
+                break;
+
+            case 4:
+                system("CLS");
+                playBalanceGame84();
+                break;
+
+            case 5:
+                system("CLS");
+                playBalanceGame();
+                break;
+
+            case 6:
+                system("CLS");
+                playBargainGame();
+                break;
+
+            case 7:
+                system("CLS");
+                playBigItemBash();
+                break;
+
+            case 8:
+                system("CLS");
+                playBonkers();
+                break;
+
+            case 9:
+                system("CLS");
+                playBonusGame();
+                break;
+
+            case 10:
+                system("CLS");
+                playBullseye72();
+                break;
+
+            case 11:
+                system("CLS");
+                playBullseye();
+                break;
+
+            case 12:
+                system("CLS");
+                playBump();
+                break;
+
+            case 13:
+                system("CLS");
+                playBuyOrSell();
+                break;
+
+            case 14:
+                system("CLS");
+                playCardGame();
+                break;
+
+            case 15:
+                system("CLS");
+                playCheckGame();
+                break;
+
+            case 16:
+                system("CLS");
+                playCheckOut();
+                break;
+
+            case 17:
+                system("CLS");
+                playClearanceSale();
+                break;
+
+            case 18:
+                system("CLS");
+                playCliffHangers();
+                break;
+
+            case 19:
+                system("CLS");
+                playClockGame();
+                break;
+
+            case 20:
+                system("CLS");
+                playComingOrGoing();
+                break;
+
+            case 21:
+                system("CLS");
+                playCoverUp();
+                break;
+
+            case 22:
+                system("CLS");
+                playCreditCard();
+                break;
+
+            case 23:
+                system("CLS");
+                break;
+
+            case 24:
+                all = 7;
+                system("CLS");
+                break;
+
+            default:
+                cout << endl << "Please enter a number between 1 and 24.";
+            } // end switch
+            } // end do
+            while ((g_ac != 23) && (g_ac != 24));
+            break;
+
+        case 7:
+            system("CLS");
+            break;
+
+        /// Games D-G
+        case 2:
+            g_dg = 0;
+            do{
+            displayGamesDGMenu();
+            cin >> g_dg;
+            switch (g_dg){
+
+            case 1:
+                system("CLS");
+                playDangerPrice();
+                break;
+
+            case 2:
+                system("CLS");
+                playDiceGame();
+                break;
+
+            case 3:
+                system("CLS");
+                playDoTheMath();
+                break;
+
+            case 4:
+                system("CLS");
+                playDominoGame();
+                break;
+
+            case 5:
+                system("CLS");
+                playDoubleBullseye();
+                break;
+
+            case 6:
+                system("CLS");
+                playDoubleCross();
+                break;
+
+            case 7:
+                system("CLS");
+                playDoubleDigits();
+                break;
+
+            case 8:
+                system("CLS");
+                playDoublePrices();
+                break;
+
+            case 9:
+                system("CLS");
+                playEasyAs123();
+                break;
+
+            case 10:
+                system("CLS");
+                playEthsPastas();
+                break;
+
+            case 11:
+                system("CLS");
+                playFillErUp();
+                break;
+
+            case 12:
+                system("CLS");
+                playFinishLine();
+                break;
+
+            case 13:
+                system("CLS");
+                playFivePriceTags();
+                break;
+
+            case 14:
+                system("CLS");
+                playFlipFlop();
+                break;
+
+            case 15:
+                system("CLS");
+                playFortuneHunter();
+                break;
+
+            case 16:
+                system("CLS");
+                playFreezeFrame();
+                break;
+
+            case 17:
+                system("CLS");
+                playGalleryGame();
+                break;
+
+            case 18:
+                system("CLS");
+                playGasMoney();
+                break;
+
+            case 19:
+                system("CLS");
+                playGiveOrKeep();
+                break;
+
+            case 20:
+                system("CLS");
+                playGoldenRoad();
+                break;
+
+            case 21:
+                system("CLS");
+                playGrandGame();
+                break;
+
+            case 22:
+                system("CLS");
+                playGridlock();
+                break;
+
+            case 23:
+                system("CLS");
+                playGroceryGame();
+                break;
+
+            case 24:
+                system("CLS");
+                break;
+
+            case 25:
+                all = 7;
+                system("CLS");
+                break;
+
+            default:
+                cout << endl << "Please enter a number between 1 and 25.";
+            } // end switch
+            } // end do
+            while ((g_dg != 24) && (g_dg != 25));
+
+            break;
+
+        case 3:
+            g_hm = 0;
+            do{
+            displayGamesHMMenu();
+            cin >> g_hm;
+            switch (g_hm){
+
+            case 1:
+            {
+                char halfOffMDS = '!';
+                char halfOffMDG = '!';
+                while ( (halfOffMDS != 'Y') && (halfOffMDS != 'y') && (halfOffMDS != 'N') && (halfOffMDS != 'n') ){
+                    cout << endl << "Play 1/2 Off for $25,000 (Y/N)?: ";
+                    cin >> halfOffMDS;
+                }
+                if ( (halfOffMDS == 'Y') || (halfOffMDS == 'y') ){
+                /// Playing 1/2 Off for $25,000
+                while ( (halfOffMDG != 'Y') && (halfOffMDG != 'y') && (halfOffMDG != 'N') && (halfOffMDG != 'n') ){
+                    cout << endl << "Play 1/2 Off as the Million Dollar Game (Y/N)?: ";
+                    cin >> halfOffMDG;
+                }
+                if ( (halfOffMDG == 'Y') || (halfOffMDG == 'y') ){
+                    system("CLS");
+                    playHalfOff(true, true);
+                }
+                else{
+                    system("CLS");
+                    playHalfOff(true, false);
+                }
+
+                } // play for $25,000
+                else{
+                system("CLS");
+                playHalfOff(false, false);
+                }
+                break;
+            }
+
+            case 2:
+                system("CLS");
+                playHiLo();
+                break;
+
+            case 3:
+                system("CLS");
+                playHitMe();
+                break;
+
+            case 4:
+                system("CLS");
+                playHoleInOne();
+                break;
+
+            case 5:
+                system("CLS");
+                playHotSeat();
+                break;
+
+            case 6:
+                system("CLS");
+                playHurdles();
+                break;
+
+            case 7:
+                system("CLS");
+                playItsInTheBag();
+                break;
+
+            case 8:
+                system("CLS");
+                playItsOptional();
+                break;
+
+            case 9:
+                system("CLS");
+                playJam();
+                break;
+
+            case 10:
+                system("CLS");
+                playJoker();
+                break;
+
+            case 11:
+                system("CLS");
+                playLetEmRoll();
+                break;
+
+            case 12:
+                system("CLS");
+                playLineEmUp();
+                break;
+
+            case 13:
+                system("CLS");
+                playLuckySeven();
+                break;
+
+            case 14:
+                system("CLS");
+                playMagicNumber();
+                break;
+
+            case 15:
+                system("CLS");
+                playMakeYourMark();
+                break;
+
+            case 16:
+                system("CLS");
+                playMakeYourMove();
+                break;
+
+            case 17:
+                system("CLS");
+                playMasterKey();
+                break;
+
+            case 18:
+                system("CLS");
+                playMasterPrice();
+                break;
+
+            case 19:
+                system("CLS");
+                playMoneyGame();
+                break;
+
+            case 20:
+                system("CLS");
+                playMoreOrLess();
+                break;
+
+            case 21:
+                system("CLS");
+                playMostExpensive();
+                break;
+
+            case 22:
+                system("CLS");
+                playMysteryPrice();
+                break;
+
+            case 23:
+                system("CLS");
+                break;
+
+            case 24:
+                all = 7;
+                system("CLS");
+                break;
+
+            default:
+                cout << endl << "Please enter a number between 1 and 24.";
+            } // end switch
+            } // end do
+            while ((g_hm != 23) && (g_hm != 24));
+             break;
+
+        case 4:
+            g_np = 0;
+            do{
+            displayGamesNPMenu();
+            cin >> g_np;
+            switch (g_np){
+
+            case 1:
+                system("CLS");
+                playNowOrThen();
+                break;
+
+            case 2:
+                system("CLS");
+                playOnTheNose();
+                break;
+
+            case 3:
+                system("CLS");
+                playOnTheSpot();
+                break;
+
+            case 4:
+                {
+                    char oneAwayMDG = '!';
+                    while ( (oneAwayMDG != 'Y') && (oneAwayMDG != 'N') &&  (oneAwayMDG != 'y') && (oneAwayMDG != 'n') ){
+                    cout << endl << "Play One Away as the Million Dollar Game (Y/N)?: ";
+                    cin >> oneAwayMDG;
+                    } // end while
+                    if ((oneAwayMDG == 'Y') || (oneAwayMDG == 'y')){
+                    system("CLS");
+                    playOneAway(true);
+                    }
+                    else{
+                    system("CLS");
+                    playOneAway(false);
+                    }
+                    break;
+                }
+
+            case 5:
+                system("CLS");
+                playOneForAll();
+                break;
+
+            case 6:
+                system("CLS");
+                playOneRightPrice();
+                break;
+
+            case 7:
+                system("CLS");
+                playOneWayOrAnother();
+                break;
+
+            case 8:
+                system("CLS");
+                playOneWrongPrice();
+                break;
+
+            case 9:
+                system("CLS");
+                playPassTheBuck();
+                break;
+
+            case 10:
+                system("CLS");
+                playPathfinder();
+                break;
+
+            case 11:
+                system("CLS");
+                playPayTheRent();
+                break;
+
+            case 12:
+                system("CLS");
+                playPennyAnte();
+                break;
+
+            case 13:
+                system("CLS");
+                playPickANumber();
+                break;
+
+            case 14:
+                system("CLS");
+                playPickAPair();
+                break;
+
+            case 15:
+                system("CLS");
+                playPlinko();
+                break;
+
+            case 16:
+                system("CLS");
+                playPocketChange();
+                break;
+
+            case 17:
+                system("CLS");
+                playPokerGame();
+                break;
+
+            case 18:
+                system("CLS");
+                playPriceSearch();
+                break;
+
+            case 19:
+                system("CLS");
+                playProfessorPrice();
+                break;
+
+            case 20:
+                system("CLS");
+                playPunchABunch();
+                break;
+
+            case 21:
+                system("CLS");
+                playPushOver();
+                break;
+
+            case 22:
+                system("CLS");
+                break;
+
+            case 23:
+                all = 7;
+                system("CLS");
+                break;
+
+            default:
+                cout << endl << "Please enter a number between 1 and 23.";
+            } // end switch
+            } // end do
+            while ((g_np != 22) && (g_np != 23));
+
+            break;
+
+        case 5:
+            g_rs = 0;
+            do{
+            displayGamesRSMenu();
+            cin >> g_rs;
+            switch (g_rs){
+
+            case 1:
+                system("CLS");
+                playRaceGame();
+                break;
+
+            case 2:
+                system("CLS");
+                playRangeGame();
+                break;
+
+            case 3:
+                system("CLS");
+                playRatRace();
+                break;
+
+            case 4:
+                system("CLS");
+                playSafeCrackers();
+                break;
+
+            case 5:
+                system("CLS");
+                playSecretX();
+                break;
+
+            case 6:
+                system("CLS");
+                playSevenUp();
+                break;
+
+            case 7:
+                system("CLS");
+                playShellGame();
+                break;
+
+            case 8:
+                system("CLS");
+                playShoppingSpree();
+                break;
+
+            case 9:
+                system("CLS");
+                playShotInTheDark();
+                break;
+
+            case 10:
+                system("CLS");
+                playShowerGame();
+                break;
+
+            case 11:
+                system("CLS");
+                playSideBySide();
+                break;
+
+            case 12:
+                system("CLS");
+                playSpellingBee();
+                break;
+
+            case 13:
+                system("CLS");
+                playSplitDecision();
+                break;
+
+            case 14:
+                system("CLS");
+                playSqueezePlay();
+                break;
+
+            case 15:
+                system("CLS");
+                playStackTheDeck();
+                break;
+
+            case 16:
+                system("CLS");
+                playStartingPoints();
+                break;
+
+            case 17:
+                system("CLS");
+                playStepUp();
+                break;
+
+            case 18:
+                system("CLS");
+                playSuperBall();
+                break;
+
+            case 19:
+                system("CLS");
+                playSuperSaver();
+                break;
+
+            case 20:
+                system("CLS");
+                playSwapMeet();
+                break;
+
+            case 21:
+                system("CLS");
+                playSwitch();
+                break;
+
+            case 22:
+            {
+                char switcherooMDG = '!';
+                while ( (switcherooMDG != 'Y') && (switcherooMDG != 'N') && (switcherooMDG != 'y') && (switcherooMDG != 'n') ){
+                cout << endl << "Play Switcheroo as the Million Dollar Game (Y/N)?: ";
+                cin >> switcherooMDG;
+                } // end while
+
+                if ((switcherooMDG == 'Y') || (switcherooMDG == 'y')){
+                system("CLS");
+                playSwitcheroo(true);
+                }
+                else{
+                system("CLS");
+                playSwitcheroo(false);
+                }
+
+                break;
+            }
+
+            case 23:
+                system("CLS");
+                break;
+
+            case 24:
+                all = 7;
+                system("CLS");
+                break;
+
+            default:
+                cout << endl << "Please enter a number between 1 and 24.";
+            } // end switch
+            } // end do
+            while ((g_rs != 23) && (g_rs != 24));
+            break;
+
+        case 6:
+            g_tw = 0;
+            do{
+            displayGamesTWMenu();
+            cin >> g_tw;
+            switch (g_tw){
+            case 1:
+                system("CLS");
+                playTakeTwo();
+                break;
+
+            case 2:
+                system("CLS");
+                playTelephoneGame();
+                break;
+
+            case 3:
+                system("CLS");
+                playTemptation();
+                break;
+
+            case 4:
+                system("CLS");
+                playTenChances();
+                break;
+
+            case 5:
+                system("CLS");
+                playThatsTooMuch();
+                break;
+
+            case 6:
+                system("CLS");
+                playTheLionsShare();
+                break;
+
+            case 7:
+                system("CLS");
+                playThePhoneHomeGame();
+                break;
+
+            case 8:
+                system("CLS");
+                playThreeStrikes();
+                break;
+
+            case 9:
+                system("CLS");
+                playTimeIsMoney();
+                break;
+
+            case 10:
+                system("CLS");
+                playToThePenny();
+                break;
+
+            case 11:
+                system("CLS");
+                playTowerOfCash();
+                break;
+
+            case 12:
+                system("CLS");
+                playTraderBob();
+                break;
+
+            case 13:
+                system("CLS");
+                playTriplePlay();
+                break;
+
+            case 14:
+                system("CLS");
+                playTwoForOne();
+                break;
+
+            case 15:
+                system("CLS");
+                playVendOPrice();
+                break;
+
+            case 16:
+                system("CLS");
+                playWalkOfFame();
+                break;
+
+            case 17:
+                system("CLS");
+                break;
+
+            case 18:
+                all = 7;
+                system("CLS");
+                break;
+            } // end switch
+            } // end do
+            while ((g_tw != 17) && (g_tw != 18));
+            break;
+
+        default:
+            cout << endl << "Please enter a number between 1 and 7.";
+        } // end big switch
+        } // end do
+        while (all != 7);
+        break;
+
+
+
+
+    case 9: /// Play a user-generated line-up
     {
         vector<int> lineup;
         ifstream in;
@@ -983,17 +1788,17 @@ int main()
     } // end case 11
 
 
-    case 12: /// Quit
+    case 10: /// Quit
         ;
         break;
 
     default:
-        cout << endl << "Please enter a number between 1 and 12.";
+        cout << endl << "Please enter a number between 1 and 10.";
 
     } // end switch statement
 
     } // end do-while loop
-    while (cat != 12);
+    while (cat != 10);
 
     /*
     playHitMe();
@@ -1124,142 +1929,113 @@ int main()
 
 void displayMainMenu()
 {
-    cout << endl << "1. Grocery games";
-    cout << endl << "2. Small prize games";
-    cout << endl << "3. Single-prize games";
-    cout << endl << "4. Multi-prize games";
-    cout << endl << "5. Car games";
-    cout << endl << "6. Car + other item games";
-    cout << endl << "7. Cash games";
-    cout << endl << "8. Retired games (A-J)";
-    cout << endl << "9. Retired games (M-W)";
-    cout << endl << "10. Custom games";
-    cout << endl << "11. Play a line-up you've created";
-    cout << endl << "12. Quit";
+    cout << endl << "1. Fee games";
+    cout << endl << "2. Single-prize games";
+    cout << endl << "3. Multi-prize games";
+    cout << endl << "4. Car games";
+    cout << endl << "5. Car + other item games";
+    cout << endl << "6. Cash games";
+    cout << endl << "7. Custom games";
+    cout << endl << "8. All games";
+    cout << endl << "9. Play a line-up you've created";
+    cout << endl << "10. Quit";
     cout << endl << "Select a game classification: ";
 }
 
-void displayGrocMenu()
+void displayFeeMenu()
 {
-    cout << endl << "GROCERY GAMES" << endl;
-    cout << endl << "1. Bullseye";
-    cout << endl << "2. Check-Out";
-    cout << endl << "3. Grocery Game";
-    cout << endl << "4. Hi-Lo";
-    cout << endl << "5. Now... or Then";
-    cout << endl << "6. Pick-a-Pair";
-    cout << endl << "7. Vend-o-Price";
-    cout << endl << "8. Go back";
-    cout << endl << "Select a pricing game: ";
-}
-
-void displaySmalMenu()
-{
-    cout << endl << "SMALL PRIZE GAMES" << endl;
-    cout << endl << "1. Back to '72";
-    cout << endl << "2. Bonus Game";
-    cout << endl << "3. Cliff Hangers";
-    cout << endl << "4. Secret \"X\"";
-    cout << endl << "5. Shell Game";
-    cout << endl << "6. Go back";
+    cout << endl << "FEE GAMES" << endl;
+    cout << endl << "1. Back to '72          13. Joker";
+    cout << endl << "2. Balance Game (1984)  14. Mystery Price";
+    cout << endl << "3. Bonus Game           15. Now... or Then";
+    cout << endl << "4. Bullseye (1976)      16. Penny Ante";
+    cout << endl << "5. Check-Out            17. Pick-a-Pair";
+    cout << endl << "6. Cliff Hangers        18. Secret \"X\"";
+    cout << endl << "7. Finish Line          19. Shell Game";
+    cout << endl << "8. Give or Keep         20. $uper $aver";
+    cout << endl << "9. Grocery Game         21. Trader Bob";
+    cout << endl << "10. Hi-Lo               22. Vend-O-Price";
+    cout << endl << "11. Hit Me              23. Go back";
+    cout << endl << "12. Hurdles";
     cout << endl << "Select a pricing game: ";
 }
 
 void displaySingMenu()
 {
     cout << endl << "SINGLE PRIZE GAMES" << endl;
-    cout << endl << "1. Balance Game (2006)  8. Pick-a-Number";
-    cout << endl << "2. Bonkers              9. Push-Over";
-    cout << endl << "3. Check Game           10. Range Game";
-    cout << endl << "4. Coming or Going      11. Side by Side";
-    cout << endl << "5. Double Prices        12. Squeeze Play";
-    cout << endl << "6. Flip Flop            13. Go back";
-    cout << endl << "7. Freeze Frame";
+    cout << endl << "1. Balance Game (2006)  8. Gallery Game";
+    cout << endl << "2. Bonkers              9. Pick-a-Number";
+    cout << endl << "3. Check Game           10. Push-Over";
+    cout << endl << "4. Coming or Going      11. Range Game";
+    cout << endl << "5. Double Prices        12. Side by Side";
+    cout << endl << "6. Flip Flop            13. Squeeze Play";
+    cout << endl << "7. Freeze Frame         14. Go back";
     cout << endl << "Select a pricing game: ";
 }
 
 void displayMultMenu()
 {
     cout << endl << "MULTI PRIZE GAMES" << endl;
-    cout << endl << "1. Bargain Game     10. One Wrong Price";
-    cout << endl << "2. Clock Game       11. Race Game";
-    cout << endl << "3. Danger Price     12. Safe Crackers";
-    cout << endl << "4. Do the Math      13. Shopping Spree";
-    cout << endl << "5. Double Cross     14. Swap Meet";
-    cout << endl << "6. Easy as 1-2-3    15. Switch?";
-    cout << endl << "7. Make Your Move   16. Take Two";
-    cout << endl << "8. Most Expensive   17. Two for the Price of One";
-    cout << endl << "9. One Right Price  18. Go back";
+    cout << endl << "1. Bargain Game     15. One Right Price";
+    cout << endl << "2. Bump             16. One Wrong Price";
+    cout << endl << "3. Buy or Sell      17. Poker Game";
+    cout << endl << "4. Clearance Sale   18. Race Game";
+    cout << endl << "5. Clock Game       19. Safe Crackers";
+    cout << endl << "6. Credit Card      20. Shopping Spree";
+    cout << endl << "7. Danger Price     21. Step Up";
+    cout << endl << "8. Do the Math      22. Super Ball!!";
+    cout << endl << "9. Double Cross     23. Swap Meet";
+    cout << endl << "10. Easy as 1-2-3   24. Switch?";
+    cout << endl << "11. Magic #         25. Take Two";
+    cout << endl << "12. Make Your Mark  26. Two for the Price of One";
+    cout << endl << "13. Make Your Move  27. Walk of Fame";
+    cout << endl << "14. Most Expensive  28. Go back";
     cout << endl << "Select a pricing game: ";
 }
 
 void displayCarsMenu()
 {
     cout << endl << "CAR GAMES" << endl;
-    cout << endl << "1. Card Game    8. One Away";
-    cout << endl << "2. Cover Up     9. Pocket Change";
-    cout << endl << "3. Dice Game    10. That's Too Much!";
-    cout << endl << "4. Gas Money    11. Three Strikes";
-    cout << endl << "5. Gridlock!    12. Triple Play";
-    cout << endl << "6. Lucky $even  13. Go back";
-    cout << endl << "7. Money Game";
+    cout << endl << "1. Add 'em Up       11. Money Game";
+    cout << endl << "2. Bullseye (1972)  12. On the Nose";
+    cout << endl << "3. Card Game        13. One Away";
+    cout << endl << "4. Cover Up         14. Pocket Change";
+    cout << endl << "5. Dice Game        15. Professor Price";
+    cout << endl << "6. Double Bullseye  16. Shower Game";
+    cout << endl << "7. Gas Money        17. That's Too Much!";
+    cout << endl << "8. Gridlock!        18. Three Strikes";
+    cout << endl << "9. It's Optional    19. Triple Play";
+    cout << endl << "10. Lucky $even     20. Go back";
     cout << endl << "Select a pricing game: ";
 }
 
 void displayCars2Menu()
 {
     cout << endl << "CAR/OTHER PRIZES GAMES" << endl;
-    cout << endl << "1. Any Number       10. Pathfinder";
-    cout << endl << "2. Five Price Tags  11. Rat Race";
-    cout << endl << "3. Golden Road      12. Spelling Bee";
-    cout << endl << "4. Hole in One      13. Stack the Deck";
-    cout << endl << "5. Let 'em Roll     14. Switcheroo";
-    cout << endl << "6. Line 'em Up      15. Temptation";
-    cout << endl << "7. Master Key       16. Ten Chances";
-    cout << endl << "8. More or Less     17. Go back";
-    cout << endl << "9. Pass the Buck";
+    cout << endl << "1. Any Number       12. Pathfinder";
+    cout << endl << "2. Double Digits    13. Rat Race";
+    cout << endl << "3. Five Price Tags  14. Spelling Bee";
+    cout << endl << "4. Golden Road      15. Split Decision";
+    cout << endl << "5. Hole in One      16. Stack the Deck";
+    cout << endl << "6. Let 'em Roll     17. Switcheroo";
+    cout << endl << "7. Line 'em Up      18. Telephone Game";
+    cout << endl << "8. Master Key       19. Temptation";
+    cout << endl << "9. More or Less     20. Ten Chances";
+    cout << endl << "10. On the Spot     21. Go back";
+    cout << endl << "11. Pass the Buck";
     cout << endl << "Select a pricing game: ";
 }
 
 void displayCashMenu()
 {
     cout << endl << "CASH GAMES" << endl;
-    cout << endl << "1. Grand Game       7. Punch-a-Bunch";
-    cout << endl << "2. 1/2 Off          8. The Lion's Share";
-    cout << endl << "3. Hot Seat         9. Time Is Money";
-    cout << endl << "4. It's in the Bag  10. To the Penny";
-    cout << endl << "5. Pay the Rent     11. Go back";
-    cout << endl << "6. Plinko";
-    cout << endl << "Select a pricing game: ";
-}
-
-void displayRetiredMenu()
-{
-    cout << endl << "RETIRED GAMES (A-J)" << endl;
-    cout << endl << "1. Add 'em Up           10. Finish Line";
-    cout << endl << "2. Balance Game (1984)  11. Fortune Hunter";
-    cout << endl << "3. Bullseye (1972)      12. Gallery Game";
-    cout << endl << "4. Bump                 13. Give or Keep";
-    cout << endl << "5. Buy or Sell          14. Hit Me";
-    cout << endl << "6. Clearance Sale       15. Hurdles";
-    cout << endl << "7. Credit Card          16. It's Optional";
-    cout << endl << "8. Double Bullseye      17. Joker";
-    cout << endl << "9. Double Digits        18. Go back";
-    cout << endl << "Select a pricing game: ";
-}
-
-void displayRetired2Menu()
-{
-    cout << endl << "RETIRED GAMES (M-W)" << endl;
-    cout << endl << "1. Magic #          10. Split Decision";
-    cout << endl << "2. Make Your Mark   11. Step Up";
-    cout << endl << "3. Mystery Price    12. $uper Ball!!";
-    cout << endl << "4. On the Nose      13. $uper $aver";
-    cout << endl << "5. On the Spot      14. Telephone Game";
-    cout << endl << "6. Penny Ante       15. The Phone Home Game";
-    cout << endl << "7. Poker Game       16. Trader Bob";
-    cout << endl << "8. Professor Price  17. Walk of Fame";
-    cout << endl << "9. Shower Game      18. Go back";
+    cout << endl << "1. Fortune Hunter   8. Punch-a-Bunch";
+    cout << endl << "2. Grand Game       9. The Lion's Share";
+    cout << endl << "3. 1/2 Off          10. The Phone Home Game";
+    cout << endl << "4. Hot Seat         11. Time Is Money";
+    cout << endl << "5. It's in the Bag  12. To the Penny";
+    cout << endl << "6. Pay the Rent     13. Go back";
+    cout << endl << "7. Plinko";
     cout << endl << "Select a pricing game: ";
 }
 
@@ -1273,6 +2049,112 @@ void displayCustomMenu()
     cout << endl << "5. Jam             12. Starting Points";
     cout << endl << "6. Master Price    13. Tower of Cash";
     cout << endl << "7. One For All     14. Go back";
+    cout << endl << "Select a pricing game: ";
+}
+
+void displayGamesACMenu()
+{
+    cout << endl << "GAMES A-C";
+    cout << endl << "1. Add 'em Up           13. Buy or Sell";
+    cout << endl << "2. Any Number           14. Card Game";
+    cout << endl << "3. Back to '72          15. Check Game";
+    cout << endl << "4. Balance Game (1984)  16. Check-Out";
+    cout << endl << "5. Balance Game (2006)  17. Clearance Sale";
+    cout << endl << "6. Bargain Game         18. Cliff Hangers";
+    cout << endl << "7. Big Item Bash        19. Clock Game";
+    cout << endl << "8. Bonkers              20. Coming or Going";
+    cout << endl << "9. Bonus Game           21. Cover Up";
+    cout << endl << "10. Bullseye (1972)     22. Credit Card";
+    cout << endl << "11. Bullseye (1976)     23. Return to all games menu";
+    cout << endl << "12. Bump                24. Return to main menu";
+    cout << endl << "Select a pricing game: ";
+}
+
+void displayGamesDGMenu()
+{
+    cout << endl << "GAMES D-G";
+    cout << endl << "1. Danger Price     14. Flip Flop";
+    cout << endl << "2. Dice Game        15. Fortune Hunter";
+    cout << endl << "3. Do the Math      16. Freeze Frame";
+    cout << endl << "4. Domino Game      17. Gallery Game";
+    cout << endl << "5. Double Bullseye  18. Gas Money";
+    cout << endl << "6. Double Cross     19. Give or Keep";
+    cout << endl << "7. Double Digits    20. Golden Road";
+    cout << endl << "8. Double Prices    21. Grand Game";
+    cout << endl << "9. Easy as 1-2-3    22. Gridlock!";
+    cout << endl << "10. Eth's Pastas    23. Grocery Game";
+    cout << endl << "11. Fill 'er Up     24. Return to all games menu";
+    cout << endl << "12. Finish Line     25. Return to main menu";
+    cout << endl << "13. Five Price Tags";
+    cout << endl << "Select a pricing game: ";
+}
+
+void displayGamesHMMenu()
+{
+    cout << endl << "GAMES H-M";
+    cout << endl << "1. 1/2 Off           13. Lucky $even";
+    cout << endl << "2. Hi-Lo             14. Magic #";
+    cout << endl << "3. Hit Me            15. Make Your Mark";
+    cout << endl << "4. Hole in One       16. Make Your Move";
+    cout << endl << "5. Hot Seat          17. Master Key";
+    cout << endl << "6. Hurdles           18. Master Price";
+    cout << endl << "7. It's in the Bag   19. Money Game";
+    cout << endl << "8. It's Optional     20. More or Less";
+    cout << endl << "9. Jam               21. Most Expensive";
+    cout << endl << "10. Joker            22. Mystery Price";
+    cout << endl << "11. Let 'em Roll     23. Return to all games menu";
+    cout << endl << "12. Line 'em Up      24. Return to main menu";
+    cout << endl << "Select a pricing game: ";
+}
+
+void displayGamesNPMenu()
+{
+    cout << endl << "GAMES N-P";
+    cout << endl << "1. Now... or Then      13. Pick-a-Number";
+    cout << endl << "2. On the Nose         14. Pick-a-Pair";
+    cout << endl << "3. On the Spot         15. Plinko";
+    cout << endl << "4. One Away            16. Pocket Change";
+    cout << endl << "5. One For All         17. Poker Game";
+    cout << endl << "6. One Right Price     18. Price Search";
+    cout << endl << "7. One Way or Another  19. Professor Price";
+    cout << endl << "8. One Wrong Price     20. Punch-a-Bunch";
+    cout << endl << "9. Pass the Buck       21. Push-Over";
+    cout << endl << "10. Pathfinder         22. Return to all games";
+    cout << endl << "11. Pay the Rent       23. Return to main menu";
+    cout << endl << "12. Penny Ante";
+    cout << endl << "Select a pricing game: ";
+}
+
+void displayGamesRSMenu()
+{
+    cout << endl << "GAMES R-S";
+    cout << endl << "1. Race Game         13. Split Decision";
+    cout << endl << "2. Range Game        14. Squeeze Play";
+    cout << endl << "3. Rat Race          15. Stack the Deck";
+    cout << endl << "4. Safe Crackers     16. Starting Points";
+    cout << endl << "5. Secret \"X\"        17. Step Up";
+    cout << endl << "6. 7UP               18. Super Ball!!";
+    cout << endl << "7. Shell Game        19. $uper $aver";
+    cout << endl << "8. Shopping Spree    20. Swap Meet";
+    cout << endl << "9. Shot in the Dark  21. Switch?";
+    cout << endl << "10. Shower Game      22. Switcheroo";
+    cout << endl << "11. Side by Side     23. Return to all games";
+    cout << endl << "12. Spelling Bee     24. Return to main menu";
+    cout << endl << "Select a pricing game: ";
+}
+
+void displayGamesTWMenu()
+{
+    cout << endl << "GAMES T-W";
+    cout << endl << "1. Take Two              10. To the Penny";
+    cout << endl << "2. Telephone Game        11. Tower of Cash";
+    cout << endl << "3. Temptation            12. Trader Bob";
+    cout << endl << "4. Ten Chances           13. Triple Play";
+    cout << endl << "5. That's Too Much!      14. Two for the Price of One";
+    cout << endl << "6. The Lion's Share      15. Vend-O-Price";
+    cout << endl << "7. The Phone Home Game   16. Walk of Fame";
+    cout << endl << "8. Three Strikes         17. Return to all games menu";
+    cout << endl << "9. Time is Money         18. Return to main menu";
     cout << endl << "Select a pricing game: ";
 }
 
