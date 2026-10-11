@@ -2606,31 +2606,31 @@ void playRangeGame()
     if (rangeStart == 5)
         bound = itemPrice - (itemPrice % 100);
     else if (rangeStart == 4)
-        bound = (itemPrice - (itemPrice % 100)) - 100;
+        bound = (itemPrice - (itemPrice % 100)) - 1000;
     else if (rangeStart == 3)
-        bound = (itemPrice - (itemPrice % 100)) - 200;
+        bound = (itemPrice - (itemPrice % 100)) - 2000;
     else if (rangeStart == 2)
-        bound = (itemPrice - (itemPrice % 100)) - 300;
+        bound = (itemPrice - (itemPrice % 100)) - 3000;
     else if (rangeStart == 1)
-        bound = (itemPrice - (itemPrice % 100)) - 400;
+        bound = (itemPrice - (itemPrice % 100)) - 4000;
     else
-        bound = (itemPrice - (itemPrice % 100)) - 500;
+        bound = (itemPrice - (itemPrice % 100)) - 5000;
 
-    cout << endl << "Range: $" << bound << "-" << bound+600;
+    cout << endl << "Range: $" << bound << "-" << bound+6000;
 
     int start = 0;
     int finish = 0;
 
-    while ( (start < bound) || ( start > (bound+600) ) ){
-    cout << endl << "Enter the starting point for the $150 range that contains the price: $";
+    while ( (start < bound) || ( start > (bound+6000) ) ){
+    cout << endl << "Enter the starting point for the $1500 range \nthat contains the price: $";
     cin >> start;
     }
 
-    finish = start+150;
+    finish = start+1500;
 
-    if (start > bound+450){
-        finish = bound+600;
-        start = finish - 150;
+    if (start > bound+4500){
+        finish = bound+6000;
+        start = finish - 1500;
         }
     cout << endl << "Is the price between $" << start << " and $" << finish << "?" << endl;
     system("pause");
