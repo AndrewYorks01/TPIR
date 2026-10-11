@@ -3392,8 +3392,10 @@ void playNowOrThen()
         cout << endl << "Which item (enter its number) do you want to pick?: ";
         cin >> itemChoice;
     }
-    if (picked[itemChoice-1])
+    if (picked[itemChoice-1]){
         cout << endl << "You've already chosen this item. Please choose another one.";
+        cout << endl;
+        }
     else
     {
         char dateChoice = 'A';
@@ -7628,6 +7630,10 @@ void playTowerOfCash()
             cout << " - " << order[y];
         cout << endl;
     }
+
+    cout << endl << "1. ";
+
+
 
     cout << endl << "Here's how you've ranked the items.";
     cout << endl << "Let's see how you did...";
